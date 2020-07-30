@@ -2,5 +2,8 @@
   "name": "walden",
   "repository": "https://github.com/iwazaru/walden",
   "author": "Clément Bourgoin <c@iwzr.fr>",
-  "license": "GNU GPL 3"
+  "license": "GNU GPL 3",
+  "dependencies": {
+    "webpack": "^4.44.1"
+  }
 }
