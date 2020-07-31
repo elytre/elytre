@@ -14,6 +14,10 @@ webpack({
     // Handle errors here
     console.error('An error has occured');
   }
+  
   // Done processing
-  console.log('Done!');
+  console.log(stats.toString({
+    chunks: true,  // Makes the build much quieter
+    colors: true    // Shows colors in the console
+  }));
 });
