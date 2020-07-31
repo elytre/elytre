@@ -4,7 +4,8 @@
   "author": "Clément Bourgoin <c@iwzr.fr>",
   "license": "GNU GPL 3",
   "dependencies": {
-    "webpack": "^4.44.1"
+    "webpack": "^4.44.1",
+    "yaml-loader": "^0.6.0"
   },
   "scripts": {
     "walden": "node ./src/cli.js"
