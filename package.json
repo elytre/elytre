@@ -5,5 +5,9 @@
   "license": "GNU GPL 3",
   "dependencies": {
     "webpack": "^4.44.1"
-  }
+  },
+  "scripts": {
+    "walden": "node ./src/cli.js"
+  },
+  "devDependencies": {}
 }
