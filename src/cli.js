@@ -10,9 +10,12 @@ webpack({
     path: path.resolve(__dirname, '../dist'),
   },
 }, (err, stats) => { // Stats Object
-  if (err || stats.hasErrors()) {
-    // Handle errors here
-    console.error('An error has occured');
+  if (err) {
+    console.error(err.stack || err);
+    if (err.details) {
+      console.error(err.details);
+    }
+    process.exit(1);
   }
   
   // Done processing
