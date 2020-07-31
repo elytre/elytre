@@ -1,6 +1,8 @@
+import site from '../site.yaml';
+
 function component() {
   const element = document.createElement('div');
-  element.innerHTML = 'Hello Walden !';
+  element.innerHTML = site.title;
   return element;
 }
 

@@ -9,6 +9,15 @@ webpack({
     filename: 'main.js',
     path: path.resolve(__dirname, '../dist'),
   },
+  module: {
+    rules: [
+      {
+        test: /\.ya?ml$/,
+        type: 'json', // Required by Webpack v4
+        use: 'yaml-loader'
+      }
+    ]
+  }
 }, (err, stats) => { // Stats Object
   if (err) {
     console.error(err.stack || err);
