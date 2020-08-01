@@ -4,17 +4,25 @@
   "repository": "https://github.com/iwazaru/walden",
   "author": "Clément Bourgoin <c@iwzr.fr>",
   "license": "GPL-3.0",
+  "bin": {
+    "walden": "./bin/walden.js"
+  },
+  "scripts": {
+    "format": "prettier src --write"
+  },
   "dependencies": {
     "fs-extra": "^9.0.1",
     "webpack": "^4.44.1",
     "yaml-loader": "^0.6.0"
   },
-  "main": "./src/build.js",
-  "bin": {
-    "walden": "./bin/walden.js"
+  "devDependencies": {
+    "prettier": "2.0.5"
   },
-  "scripts": {
-    "walden": "./src/cli.js"
-  },
-  "devDependencies": {}
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 80,
+    "tabWidth": 2
+  }
 }
