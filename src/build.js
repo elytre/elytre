@@ -5,7 +5,7 @@ const fs = require('fs-extra');
 console.log('Building walden site…');
 
 // Get walden module site & dist directories paths
-const modulePath = path.dirname(require.resolve('walden/package.json'));
+const modulePath = path.dirname(require.resolve('@iwazaru/walden/package.json'));
 const sitePath = `${modulePath}/src/site`;
 const distPath = `${modulePath}/src/dist`;
 
