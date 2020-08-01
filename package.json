@@ -1,15 +1,20 @@
 {
-  "name": "walden",
+  "name": "@iwazaru/walden",
+  "version": "0.1.0",
   "repository": "https://github.com/iwazaru/walden",
   "author": "Clément Bourgoin <c@iwzr.fr>",
-  "license": "GNU GPL 3",
+  "license": "GPL-3.0",
   "dependencies": {
     "fs-extra": "^9.0.1",
     "webpack": "^4.44.1",
     "yaml-loader": "^0.6.0"
   },
+  "main": "./src/build.js",
+  "bin": {
+    "walden": "./bin/walden.js"
+  },
   "scripts": {
-    "walden": "node ./src/cli.js"
+    "walden": "./src/cli.js"
   },
   "devDependencies": {}
 }
