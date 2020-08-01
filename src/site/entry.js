@@ -8,4 +8,4 @@ function component() {
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(component());
-})
+});

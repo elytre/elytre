@@ -8,7 +8,7 @@
     "walden": "./bin/walden.js"
   },
   "scripts": {
-    "format": "prettier src --write"
+    "format": "prettier . --write"
   },
   "dependencies": {
     "fs-extra": "^9.0.1",
