@@ -16,6 +16,7 @@ const tempPath = `${process.cwd()}/.walden`;
 const outputPath = `${process.cwd()}/build`;
 
 const siteConfigPath = `${tempPath}/site.yaml`;
+const catalogFilePath = `${tempPath}/site.yaml`;
 
 async function build() {
   try {
@@ -24,14 +25,20 @@ async function build() {
       throw new Error('Cannot find file site.yaml in current directory.');
     }
 
+    // Check that catalog file exists
+    if (!(await fs.pathExists('./catalog.yaml'))) {
+      throw new Error('Cannot find file catalog.yaml in current directory.');
+    }
+
     // Copy walden site template to local temp directory
     await fs.copy(sitePath, tempPath);
 
     // Copy dist directory (with index.html) to output path
     await fs.copy(distPath, outputPath);
 
-    // Copy site.yaml to local temp directory
+    // Copy site.yaml and catalog.yaml to local temp directory
     await fs.copy('./site.yaml', siteConfigPath);
+    await fs.copy('./catalog.yaml', catalogFilePath);
   } catch (error) {
     console.error(error);
     process.exit(1);
@@ -40,7 +47,7 @@ async function build() {
   // Build with webpack
   webpack(
     {
-      mode: 'production',
+      mode: 'development',
       entry: `${tempPath}/entry.js`,
       output: {
         filename: 'main.js',

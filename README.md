@@ -31,11 +31,21 @@ Build Walden site with:
 $ yarn build
 ```
 
-Your project directory will require at least a `site.yaml` file containing your
-site's info and configuration (see [site.yaml specification](#siteyaml) below).
+Your project directory will require at least a `site.yaml` file specifying your
+site's info and configuration (see [site.yaml specification](#siteyaml) below)
+and a `catalog.yaml` specifying your books catalog (see
+[catalog.yaml specification](#catalogyaml) below).
 
 ## site.yaml
 
 ```yaml
-title: Site title
+title: Les Éditions Paronymie # site title
+```
+
+## catalog.yaml
+
+```yaml
+products:
+  - title: Chaussons d'ours
+  - title: Sous-sol
 ```
