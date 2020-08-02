@@ -15,8 +15,15 @@ const distPath = `${modulePath}/src/dist`;
 const tempPath = `${process.cwd()}/.walden`;
 const outputPath = `${process.cwd()}/build`;
 
+const siteConfigPath = `${tempPath}/site.yaml`;
+
 async function build() {
   try {
+    // Check that site config file exists
+    if (!(await fs.pathExists('./site.yaml'))) {
+      throw new Error('Cannot find file site.yaml in current directory.');
+    }
+
     // Copy walden site template to local temp directory
     await fs.copy(sitePath, tempPath);
 
@@ -24,7 +31,7 @@ async function build() {
     await fs.copy(distPath, outputPath);
 
     // Copy site.yaml to local temp directory
-    await fs.copy('./site.yaml', `${tempPath}/site.yaml`);
+    await fs.copy('./site.yaml', siteConfigPath);
   } catch (error) {
     console.error(error);
     process.exit(1);
