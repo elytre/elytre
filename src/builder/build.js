@@ -5,6 +5,7 @@ const util = require('util');
 const webpack = util.promisify(require('webpack'));
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const YAML = require('yaml');
 
 // eslint-disable-next-line no-console
 console.log('Building walden site…');
@@ -24,10 +25,18 @@ async function build() {
     const tempDirPath = await fs.mkdtemp(path.join(os.tmpdir(), 'walden-'));
 
     // Check that required site config file exists
-    const siteConfig = path.resolve('./site.yaml');
-    if (!(await fs.pathExists(siteConfig))) {
+    const siteConfigFilePath = path.resolve('./site.yaml');
+    if (!(await fs.pathExists(siteConfigFilePath))) {
       throw new Error('Cannot find file site.yaml in current directory.');
     }
+
+    // Read site config
+    const siteConfigFileContent = await fs.readFile(
+      siteConfigFilePath,
+      'utf-8',
+    );
+    console.log({ siteConfigFileContent });
+    const siteConfig = YAML.parse(siteConfigFileContent);
 
     // Check that required catalog file exists
     if (!(await fs.pathExists('./catalog.yaml'))) {
@@ -51,7 +60,7 @@ async function build() {
       },
       plugins: [
         new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({ title: 'A Walden Site' }),
+        new HtmlWebpackPlugin({ title: siteConfig.title }),
       ],
       module: {
         rules: [
