@@ -21,8 +21,14 @@ const outputPath = `${process.cwd()}/build`;
 
 async function build() {
   try {
-    // Create temporary folder
+    // Create temporary directory
     const tempDirPath = await fs.mkdtemp(path.join(os.tmpdir(), 'walden-'));
+
+    // Create a symbolic link to node_modules in temporary directory
+    await fs.symlink(
+      path.resolve('node_modules'),
+      `${tempDirPath}/node_modules`,
+    );
 
     // Check that required site config file exists
     const siteConfigFilePath = path.resolve('./site.yaml');
