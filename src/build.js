@@ -1,27 +1,28 @@
 const path = require('path');
 const fs = require('fs-extra');
+const os = require('os');
 const util = require('util');
 const webpack = util.promisify(require('webpack'));
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+// eslint-disable-next-line no-console
 console.log('Building walden site…');
 
 // Get walden module directories paths
 const modulePath = path.dirname(
-  require.resolve('@iwazaru/walden/package.json')
+  require.resolve('@iwazaru/walden/package.json'),
 );
 const sitePath = `${modulePath}/src/site`;
 
-// Get .walden & build local directories paths
-const tempPath = `${process.cwd()}/.walden`;
+// Get local build directory path
 const outputPath = `${process.cwd()}/build`;
-
-const siteConfigPath = `${tempPath}/site.yaml`;
-const catalogFilePath = `${tempPath}/site.yaml`;
 
 async function build() {
   try {
+    // Create temporary folder
+    const tempDirPath = await fs.mkdtemp(path.join(os.tmpdir(), 'walden-'));
+
     // Check that required site config file exists
     const siteConfig = path.resolve('./site.yaml');
     if (!(await fs.pathExists(siteConfig))) {
@@ -34,16 +35,16 @@ async function build() {
     }
 
     // Copy walden site template to local temp directory
-    await fs.copy(sitePath, tempPath);
+    await fs.copy(sitePath, tempDirPath);
 
     // Copy site.yaml and catalog.yaml to local temp directory
-    await fs.copy('./site.yaml', siteConfigPath);
-    await fs.copy('./catalog.yaml', catalogFilePath);
+    await fs.copy('./site.yaml', `${tempDirPath}/site.yaml`);
+    await fs.copy('./catalog.yaml', `${tempDirPath}/catalog.yaml`);
 
     // Build with webpack
     const stats = await webpack({
       mode: 'development',
-      entry: `${tempPath}/entry.js`,
+      entry: `${tempDirPath}/entry.js`,
       output: {
         filename: 'main.js',
         path: outputPath,
@@ -64,16 +65,15 @@ async function build() {
     });
 
     // Done processing
+    // eslint-disable-next-line no-console
     console.log(
       stats.toString({
         chunks: true, // Makes the build much quieter
         colors: true, // Shows colors in the console
-      })
+      }),
     );
-
-    // Remove temp directory
-    await fs.remove(tempPath);
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
     process.exit(1);
   }

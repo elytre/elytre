@@ -1,5 +1,7 @@
-import site from '../site.yaml';
-import catalog from '../catalog.yaml';
+// eslint-disable-next-line import/no-unresolved
+import site from './site.yaml';
+// eslint-disable-next-line import/no-unresolved
+import catalog from './catalog.yaml';
 
 function renderTitle() {
   const title = document.createElement('h1');
