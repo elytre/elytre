@@ -3,6 +3,7 @@ const fs = require('fs-extra');
 const util = require('util');
 const webpack = util.promisify(require('webpack'));
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 console.log('Building walden site…');
 
@@ -47,7 +48,10 @@ async function build() {
         filename: 'main.js',
         path: outputPath,
       },
-      plugins: [new HtmlWebpackPlugin({ title: 'A Walden Site' })],
+      plugins: [
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({ title: 'A Walden Site' }),
+      ],
       module: {
         rules: [
           {
