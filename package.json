@@ -15,6 +15,7 @@
     "fs-extra": "^9.0.1",
     "html-webpack-plugin": "^4.3.0",
     "webpack": "^4.44.1",
+    "yaml": "^1.10.0",
     "yaml-loader": "^0.6.0"
   },
   "devDependencies": {
