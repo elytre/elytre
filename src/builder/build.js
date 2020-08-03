@@ -35,7 +35,6 @@ async function build() {
       siteConfigFilePath,
       'utf-8',
     );
-    console.log({ siteConfigFileContent });
     const siteConfig = YAML.parse(siteConfigFileContent);
 
     // Check that required catalog file exists
@@ -68,6 +67,13 @@ async function build() {
             test: /\.ya?ml$/,
             type: 'json', // Required by Webpack v4
             use: 'yaml-loader',
+          },
+          {
+            test: /\.(js|jsx)$/,
+            exclude: /node_modules/,
+            use: {
+              loader: 'babel-loader',
+            },
           },
         ],
       },
