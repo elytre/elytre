@@ -1,6 +1,7 @@
-const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs-extra');
+const util = require('util');
+const webpack = util.promisify(require('webpack'));
 
 console.log('Building walden site…');
 
@@ -39,14 +40,9 @@ async function build() {
     // Copy site.yaml and catalog.yaml to local temp directory
     await fs.copy('./site.yaml', siteConfigPath);
     await fs.copy('./catalog.yaml', catalogFilePath);
-  } catch (error) {
-    console.error(error);
-    process.exit(1);
-  }
 
-  // Build with webpack
-  webpack(
-    {
+    // Build with webpack
+    const stats = await webpack({
       mode: 'development',
       entry: `${tempPath}/entry.js`,
       output: {
@@ -62,33 +58,22 @@ async function build() {
           },
         ],
       },
-    },
-    async (err, stats) => {
-      // Stats Object
-      if (err) {
-        console.error(err.stack || err);
-        if (err.details) {
-          console.error(err.details);
-        }
-        process.exit(1);
-      }
+    });
 
-      // Done processing
-      console.log(
-        stats.toString({
-          chunks: true, // Makes the build much quieter
-          colors: true, // Shows colors in the console
-        })
-      );
+    // Done processing
+    console.log(
+      stats.toString({
+        chunks: true, // Makes the build much quieter
+        colors: true, // Shows colors in the console
+      })
+    );
 
-      try {
-        await fs.remove(tempPath);
-      } catch (err) {
-        console.error(error);
-        process.exit(1);
-      }
-    }
-  );
+    // Remove temp directory
+    await fs.remove(tempPath);
+  } catch (error) {
+    console.error(error);
+    process.exit(1);
+  }
 }
 
 module.exports = build;
