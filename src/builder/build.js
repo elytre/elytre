@@ -58,15 +58,27 @@ async function build() {
     // Build with webpack
     const stats = await webpack({
       mode: 'development',
-      entry: `${tempDirPath}/entry.js`,
+      entry: `${tempDirPath}/index.jsx`,
       output: {
         filename: 'main.js',
         path: outputPath,
       },
       plugins: [
         new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({ title: siteConfig.title }),
+        new HtmlWebpackPlugin({
+          templateContent: `<html>
+  <head>
+    <title>${siteConfig.title}</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>`,
+        }),
       ],
+      resolve: {
+        extensions: ['.js', '.jsx'],
+      },
       module: {
         rules: [
           {
@@ -75,10 +87,13 @@ async function build() {
             use: 'yaml-loader',
           },
           {
-            test: /\.(js|jsx)$/,
+            test: /\.(jsx)$/,
             exclude: /node_modules/,
             use: {
               loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-env', '@babel/preset-react'],
+              },
             },
           },
         ],

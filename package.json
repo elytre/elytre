@@ -24,12 +24,6 @@
     "yaml": "^1.10.0",
     "yaml-loader": "^0.6.0"
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
-  },
   "devDependencies": {
     "eslint": "^7.6.0",
     "eslint-config-airbnb-base": "^14.2.0",
