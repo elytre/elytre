@@ -34,6 +34,7 @@
     "eslint": "^7.6.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-react": "^7.20.5",
     "prettier": "2.0.5"
   },
   "prettier": {
@@ -50,12 +51,20 @@
       "node": true
     },
     "extends": [
-      "airbnb-base"
+      "airbnb-base",
+      "plugin:react/recommended"
     ],
     "parserOptions": {
       "ecmaVersion": 11,
       "sourceType": "module"
     },
-    "rules": {}
+    "rules": {
+      "react/prop-types": "off"
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
   }
 }
