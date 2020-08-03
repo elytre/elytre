@@ -18,13 +18,31 @@
     "yaml-loader": "^0.6.0"
   },
   "devDependencies": {
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
     "prettier": "2.0.5"
   },
   "prettier": {
     "semi": true,
     "singleQuote": true,
-    "trailingComma": "es5",
+    "trailingComma": "all",
     "printWidth": 80,
     "tabWidth": 2
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2020": true,
+      "node": true
+    },
+    "extends": [
+      "airbnb-base"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 11,
+      "sourceType": "module"
+    },
+    "rules": {}
   }
 }
