@@ -13,7 +13,7 @@ console.log('Building walden site…');
 const modulePath = path.dirname(
   require.resolve('@iwazaru/walden/package.json'),
 );
-const sitePath = `${modulePath}/src/site`;
+const templatePath = `${modulePath}/src/template`;
 
 // Get local build directory path
 const outputPath = `${process.cwd()}/build`;
@@ -35,7 +35,7 @@ async function build() {
     }
 
     // Copy walden site template to local temp directory
-    await fs.copy(sitePath, tempDirPath);
+    await fs.copy(templatePath, tempDirPath);
 
     // Copy site.yaml and catalog.yaml to local temp directory
     await fs.copy('./site.yaml', `${tempDirPath}/site.yaml`);
