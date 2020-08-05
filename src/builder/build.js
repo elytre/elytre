@@ -46,6 +46,15 @@ async function build() {
       path.join(tempDirPath, '/catalog.json'),
     );
 
+    // Check that stylesheet file exists and copy it to local temp directory
+    if (!(await fs.pathExists('./styles.css'))) {
+      throw new Error('Cannot find file styles.css in current directory.');
+    }
+    await fs.copy(
+      path.resolve('./styles.css'),
+      path.join(tempDirPath, './styles.css'),
+    );
+
     // Build with webpack
     const stats = await webpack(webpackConfig);
 

@@ -52,6 +52,10 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'source-map-loader',
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
   devtool: 'source-map',

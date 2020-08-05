@@ -25,27 +25,64 @@ Requirements:
 
 ## Usage
 
-Build Walden site with:
+Build your Walden site with:
 
 ```console
 $ yarn build
 ```
 
-Your project directory will require at least a `site.yaml` file specifying your
-site's info and configuration (see [site.yaml specification](#siteyaml) below)
-and a `catalog.yaml` specifying your books catalog (see
-[catalog.yaml specification](#catalogyaml) below).
+Your project directory will require at least:
 
-## site.yaml
+- a `site.yaml` file specifying your site's info and configuration (see
+  [Site config file specification](#site-config-file-specification) below)
+- a `catalog.yaml` specifying your books catalog (see
+  [Catalog file specification](#catalog-file-specification) below).
+- a `styles.css` stylesheet to customize your site's appearance (see
+  [Stylesheet file specification](#stylesheet-file-specification) below).
+
+### Site config file specification
+
+Customize your site's configuration by adding a `site.yaml` file in your
+project's directory.
 
 ```yaml
 title: Les Éditions Paronymie # site title
 ```
 
-## catalog.yaml
+### Catalog file specification
+
+Customize your products catalog by adding a `catalog.yaml` file in your
+project's directory.
 
 ```yaml
 products:
   - title: Chaussons d'ours
   - title: Sous-sol
+```
+
+### Stylesheet file specification
+
+Customize your site's appearance by adding a `styles.css` file in your project's
+directory.
+
+```css
+.WaldenSite {
+  /* This is a global wrapper for all your site. Here you can set page width,
+  margins, etc. */
+}
+
+.Product {
+  /* This controls how a single product is displayed */
+}
+
+.Product .Product-title {
+}
+
+.ProductList {
+  /* This controls how a list of products is displayed */
+}
+
+.ProductList .Product {
+  /* Here you can control how a product is displayed when in a list of products */
+}
 ```
