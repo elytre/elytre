@@ -1,9 +1,7 @@
 import React from 'react';
 
-type TitleProps = {
-  title: string;
-};
+import site from '../site.json';
 
-export default function Title({ title }: TitleProps): React.ReactElement {
-  return <h1>{title}</h1>;
+export default function Title(): React.ReactElement {
+  return <h1>{site.title}</h1>;
 }

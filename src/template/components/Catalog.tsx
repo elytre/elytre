@@ -1,19 +1,11 @@
 import React from 'react';
 
-type Product = {
-  title: string;
-};
+import catalog from '../catalog.json';
 
-type CatalogProps = {
-  products: Product[];
-};
-
-export default function Catalog({
-  products,
-}: CatalogProps): React.ReactElement {
+export default function Catalog(): React.ReactElement {
   return (
     <ul>
-      {products.map(({ title }) => (
+      {catalog.products.map(({ title }) => (
         <li key={title}>{title}</li>
       ))}
     </ul>
