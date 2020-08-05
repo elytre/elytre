@@ -8,7 +8,8 @@
     "walden": "./bin/walden.js"
   },
   "scripts": {
-    "format": "prettier . --write"
+    "format": "prettier . --write",
+    "lint": "eslint src"
   },
   "dependencies": {
     "@babel/core": "^7.11.0",
@@ -16,6 +17,8 @@
     "@babel/preset-react": "^7.10.4",
     "@types/react": "^16.9.44",
     "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^3.8.0",
+    "@typescript-eslint/parser": "^3.8.0",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "fs-extra": "^9.0.1",
@@ -43,6 +46,7 @@
     "tabWidth": 2
   },
   "eslintConfig": {
+    "root": true,
     "env": {
       "browser": true,
       "es2020": true,

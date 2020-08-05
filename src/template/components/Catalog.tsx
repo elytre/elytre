@@ -8,7 +8,9 @@ type CatalogProps = {
   products: Product[];
 };
 
-export default function Catalog({ products }: CatalogProps) {
+export default function Catalog({
+  products,
+}: CatalogProps): React.ReactElement {
   return (
     <ul>
       {products.map(({ title }) => (
