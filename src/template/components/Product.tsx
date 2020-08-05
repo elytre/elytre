@@ -1,6 +1,6 @@
 import React from 'react';
 
-type ProductProps = {
+export type ProductProps = {
   title: string;
 };
 
