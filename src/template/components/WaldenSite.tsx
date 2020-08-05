@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Title from './Title';
+import Header from './Header';
 import Catalog from './Catalog';
 
 export default function WaldenSite(): React.ReactElement {
   return (
     <div className="WaldenSite">
-      <Title />
+      <Header />
       <Catalog />
     </div>
   );
