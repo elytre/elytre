@@ -37,11 +37,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ya?ml$/,
-        type: 'json',
-        use: 'yaml-loader',
-      },
-      {
         test: /\.(tsx)$/,
         exclude: /node_modules/,
         use: {
