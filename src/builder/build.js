@@ -3,6 +3,7 @@ const fs = require('fs-extra');
 const util = require('util');
 const webpack = util.promisify(require('webpack'));
 
+const yamlFileToJsonFile = require('./yaml-file-to-json-file');
 const getTempDir = require('./get-temp-dir');
 
 // eslint-disable-next-line no-console
@@ -34,9 +35,16 @@ async function build() {
     // Copy walden site template to local temp directory
     await fs.copy(templatePath, tempDirPath);
 
-    // Copy site.yaml and catalog.yaml to local temp directory
-    await fs.copy('./site.yaml', path.join(tempDirPath, '/site.yaml'));
-    await fs.copy('./catalog.yaml', path.join(tempDirPath, '/catalog.yaml'));
+    // Convert site.yaml and catalog.yaml to json
+    // and copy them to local temp directory
+    await yamlFileToJsonFile(
+      path.resolve('./site.yaml'),
+      path.join(tempDirPath, '/site.json'),
+    );
+    await yamlFileToJsonFile(
+      path.resolve('./catalog.yaml'),
+      path.join(tempDirPath, '/catalog.json'),
+    );
 
     // Build with webpack
     const stats = await webpack(webpackConfig);
