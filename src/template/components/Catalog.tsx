@@ -1,6 +1,14 @@
 import React from 'react';
 
-export default function Catalog({ products }) {
+type Product = {
+  title: string;
+};
+
+type CatalogProps = {
+  products: Product[];
+};
+
+export default function Catalog({ products }: CatalogProps) {
   return (
     <ul>
       {products.map(({ title }) => (

@@ -58,7 +58,7 @@ async function build() {
     // Build with webpack
     const stats = await webpack({
       mode: 'development',
-      entry: `${tempDirPath}/index.jsx`,
+      entry: `${tempDirPath}/index.tsx`,
       output: {
         filename: 'main.js',
         path: outputPath,
@@ -77,27 +77,34 @@ async function build() {
         }),
       ],
       resolve: {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
       module: {
         rules: [
           {
             test: /\.ya?ml$/,
-            type: 'json', // Required by Webpack v4
+            type: 'json',
             use: 'yaml-loader',
           },
           {
-            test: /\.(jsx)$/,
+            test: /\.(tsx)$/,
             exclude: /node_modules/,
             use: {
-              loader: 'babel-loader',
+              loader: 'ts-loader',
               options: {
-                presets: ['@babel/preset-env', '@babel/preset-react'],
+                configFile: path.resolve(`${tempDirPath}/tsconfig.json`),
               },
             },
           },
+          {
+            enforce: 'pre',
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'source-map-loader',
+          },
         ],
       },
+      devtool: 'source-map',
     });
 
     // Done processing

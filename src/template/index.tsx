@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// eslint-disable-next-line import/no-unresolved
+// @ts-ignore
 import site from './site.yaml';
-// eslint-disable-next-line import/no-unresolved
+// @ts-ignore
 import catalog from './catalog.yaml';
 
-import Title from './components/Title.jsx';
-import Catalog from './components/Catalog.jsx';
+import Title from './components/Title';
+import Catalog from './components/Catalog';
 
 ReactDOM.render(
   <React.StrictMode>
