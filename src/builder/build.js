@@ -81,14 +81,16 @@ async function build() {
     console.log('Building using webpack…');
     const stats = await webpack(webpackConfig);
 
-    // Done processing
+    // Show stats if it contains error
+    if (stats.hasErrors()) {
+      // eslint-disable-next-line no-console
+      console.log(stats.toString(webpackConfig.stats));
+      process.exit(2);
+    }
+
     // eslint-disable-next-line no-console
-    console.log(
-      stats.toString({
-        chunks: true, // Makes the build much quieter
-        colors: true, // Shows colors in the console
-      }),
-    );
+    console.log(stats.toString(webpackConfig.stats));
+    process.exit(0);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(error);

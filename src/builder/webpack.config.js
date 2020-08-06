@@ -59,4 +59,15 @@ module.exports = {
     ],
   },
   devtool: 'source-map',
+  stats: {
+    all: false,
+    colors: true,
+    assets: true,
+    performance: true,
+    publicPath: true,
+    timings: true,
+    warnings: true,
+    errors: true,
+    errorDetails: true,
+  },
 };
