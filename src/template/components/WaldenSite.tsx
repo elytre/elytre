@@ -8,6 +8,12 @@ export default function WaldenSite(): React.ReactElement {
     <div className="WaldenSite">
       <Header />
       <Catalog />
+      <footer className="WaldenSite-powered-by">
+        Powered by{' '}
+        <a href="https://walden.app" target="_blank" rel="noopener noreferrer">
+          Walden
+        </a>
+      </footer>
     </div>
   );
 }

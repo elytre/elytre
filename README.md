@@ -87,4 +87,9 @@ directory.
 .ProductList .Product {
   /* Here you can control how a product is displayed when in a list of products */
 }
+
+.WaldenSite-powered-by {
+  /* The "Powered by Walden" text in the footer can be hidden (please don't!)
+  or made more discreet here */
+}
 ```
