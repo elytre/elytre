@@ -20,7 +20,8 @@ Requirements:
 ```json
 {
   "scripts": {
-    "build": "walden"
+    "start": "walden start",
+    "build": "walden build"
   }
 }
 ```
@@ -33,11 +34,18 @@ Build your Walden site with:
 $ yarn build
 ```
 
-Your project directory will require at least:
+Or start Walden in watch mode:
+
+```console
+$ yarn start
+```
+
+For you Walden site to be built successfully, your project directory will
+require at least three files:
 
 - a `site.yaml` file specifying your site's info and configuration (see
   [Site config file specification](#site-config-file-specification) below)
-- a `catalog.yaml` specifying your books catalog (see
+- a `catalog.yaml` file describing your books catalog (see
   [Catalog file specification](#catalog-file-specification) below).
 - a `styles.css` stylesheet to customize your site's appearance (see
   [Stylesheet file specification](#stylesheet-file-specification) below).

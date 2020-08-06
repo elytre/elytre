@@ -2,4 +2,6 @@
 
 const build = require('../src/builder/build.js');
 
-build();
+const [command] = process.argv.slice(2);
+
+build(command);

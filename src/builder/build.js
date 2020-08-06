@@ -1,13 +1,9 @@
 const path = require('path');
 const fs = require('fs-extra');
-const util = require('util');
-const webpack = util.promisify(require('webpack'));
+const webpack = require('webpack');
 
 const yamlFileToJsonFile = require('./yaml-file-to-json-file');
 const getTempDir = require('./get-temp-dir');
-
-// eslint-disable-next-line no-console
-console.log('Building walden site…');
 
 // Get walden module directories paths
 const modulePath = path.dirname(
@@ -64,8 +60,45 @@ async function copyFiles() {
   );
 }
 
-async function build() {
+/**
+ * A function called when the build has ended
+ * @param {string} err
+ * @param {object} stats
+ */
+function onBuildEnd(err, stats) {
+  if (err) {
+    throw err;
+  }
+
+  // Show stats if it contains error
+  if (stats.hasErrors()) {
+    // eslint-disable-next-line no-console
+    console.log(stats.toString(webpackConfig.stats));
+    throw new Error('An error occured during Webpack build.');
+  }
+
+  // Success!
+  // eslint-disable-next-line no-console
+  console.log(stats.toString(webpackConfig.stats));
+}
+
+/**
+ * Main function that check file requirements, copy files in working directory
+ * and build or start watching mode
+ * @param {string} command: 'build' or 'start'
+ */
+async function build(command = 'build') {
   try {
+    if (command === 'build') {
+      // eslint-disable-next-line no-console
+      console.log('Building Walden site for production…');
+    } else if (command === 'start') {
+      // eslint-disable-next-line no-console
+      console.log('Starting Walden in watch mode…');
+    } else {
+      throw new Error(`Unknown command ${command}`);
+    }
+
     // eslint-disable-next-line no-console
     console.log(`Working directory: ${tempDirPath}`);
 
@@ -76,21 +109,20 @@ async function build() {
     // eslint-disable-next-line no-console
     console.log('Copying files to temp directory…');
     copyFiles();
+    const compiler = webpack(webpackConfig);
 
-    // eslint-disable-next-line no-console
-    console.log('Building using webpack…');
-    const stats = await webpack(webpackConfig);
-
-    // Show stats if it contains error
-    if (stats.hasErrors()) {
+    if (command === 'build') {
       // eslint-disable-next-line no-console
-      console.log(stats.toString(webpackConfig.stats));
-      process.exit(2);
+      console.log('Building using webpack…');
+      compiler.run(onBuildEnd);
+    } else if (command === 'start') {
+      // eslint-disable-next-line no-console
+      console.log('Watching for changes…');
+      compiler.watch(
+        { aggregateTimeout: 300, poll: false, ignored: /node_modules/ },
+        onBuildEnd,
+      );
     }
-
-    // eslint-disable-next-line no-console
-    console.log(stats.toString(webpackConfig.stats));
-    process.exit(0);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(error);
