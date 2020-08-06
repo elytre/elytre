@@ -93,3 +93,11 @@ directory.
   or made more discreet here */
 }
 ```
+
+## Tests
+
+Run tests inside this repository with:
+
+```console
+$ yarn test
+```

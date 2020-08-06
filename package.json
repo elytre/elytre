@@ -9,7 +9,8 @@
   },
   "scripts": {
     "format": "prettier . --write",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "test": "jest --watchAll"
   },
   "dependencies": {
     "@babel/core": "^7.11.0",
@@ -34,10 +35,14 @@
     "yaml": "^1.10.0"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.10.4",
+    "@testing-library/react": "^10.4.8",
+    "@types/jest": "^26.0.9",
     "eslint": "^7.6.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-react": "^7.20.5",
+    "jest": "^26.2.2",
     "prettier": "2.0.5"
   },
   "prettier": {
@@ -62,13 +67,16 @@
       "ecmaVersion": 11,
       "sourceType": "module"
     },
-    "rules": {
-      "react/prop-types": "off"
-    },
     "settings": {
       "react": {
         "version": "detect"
       }
     }
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "text"
+    ]
   }
 }

@@ -9,12 +9,14 @@
     "plugin:import/typescript"
   ],
   "rules": {
+    "react/prop-types": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
       {
         "tsx": "never"
       }
-    ]
+    ],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   }
 }
