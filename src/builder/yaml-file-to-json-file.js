@@ -6,13 +6,9 @@ const YAML = require('yaml');
  * @param yamlFilePath the yaml file path
  * @param jsonFilePath the json file path
  */
-module.exports = async function yamlFileToJsonFile(yamlFilePath, jsonFilePath) {
-  if (!fs.pathExistsSync(yamlFilePath)) {
-    throw new Error(`Cannot find ${yamlFilePath}.`);
-  }
-
-  const yamlFileContent = await fs.readFile(yamlFilePath, 'utf-8');
+module.exports = function yamlFileToJsonFile(yamlFilePath, jsonFilePath) {
+  const yamlFileContent = fs.readFileSync(yamlFilePath, 'utf-8');
   const parsedYamlFileContent = YAML.parse(yamlFileContent);
   const fileContentAsJson = JSON.stringify(parsedYamlFileContent);
-  await fs.writeFile(jsonFilePath, fileContentAsJson);
+  fs.writeFileSync(jsonFilePath, fileContentAsJson);
 };
