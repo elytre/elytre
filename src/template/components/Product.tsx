@@ -1,7 +1,7 @@
 import React from 'react';
 
 export type ProductProps = {
-  title: string;
+  readonly title: string;
 };
 
 export default function Product({ title }: ProductProps): React.ReactElement {

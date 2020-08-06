@@ -3,7 +3,7 @@ import React from 'react';
 import Product, { ProductProps } from './Product';
 
 type ProductListProps = {
-  products: ProductProps[];
+  readonly products: ProductProps[];
 };
 
 export default function ProductList({
