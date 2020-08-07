@@ -5538,6 +5538,11 @@ object.values@^1.1.1:
     function-bind "^1.1.1"
     has "^1.0.3"
 
+objectmodel@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/objectmodel/-/objectmodel-4.2.2.tgz#1b5f9ab85655749a64824cf2fc68e92f27440ce0"
+  integrity sha512-c8+o8FwmUf9NyJsm46S4pAaXvr3SBwKWsM8zifHXd3YvLGzAgEtH0eJYHFVCRCgeFNwMcXe1oqdPzL+Y3wfrOw==
+
 on-finished@~2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/on-finished/-/on-finished-2.3.0.tgz#20f1336481b083cd75337992a16971aa2d906947"
