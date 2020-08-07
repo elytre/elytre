@@ -5,19 +5,22 @@ const liveServer = require('live-server');
 
 const yamlFileToJsonFile = require('./yaml-file-to-json-file');
 const getTempDir = require('./get-temp-dir');
+const validateFile = require('./validate-file');
+
+const Site = require('../models/Site');
+const Catalog = require('../models/Catalog');
 
 // Get walden module directories paths
 const modulePath = path.dirname(
   require.resolve('@iwazaru/walden/package.json'),
 );
 const templatePath = path.join(modulePath, '/src/template');
-
 const tempDirPath = getTempDir();
-
 const webpackConfig = require('./webpack.config');
 
 /**
  * Tests if requirements are met for build to succeed
+ * @throws {Error} if a file is missing
  */
 function checkRequirements() {
   const requiredFiles = ['site.yaml', 'catalog.yaml', 'styles.css'];
@@ -53,6 +56,14 @@ async function copyFiles() {
     path.resolve('./styles.css'),
     path.join(tempDirPath, './styles.css'),
   );
+}
+
+/**
+ * Validate local file content against model
+ */
+function validateFiles() {
+  validateFile('site.yaml', Site);
+  validateFile('catalog.yaml', Catalog);
 }
 
 /**
@@ -98,8 +109,12 @@ async function build(command = 'build') {
     console.log(`Working directory: ${tempDirPath}`);
 
     // eslint-disable-next-line no-console
-    console.log('Checking for requirements…');
+    console.log('Checking required files…');
     checkRequirements();
+
+    // eslint-disable-next-line no-console
+    console.log('Validating YAML files…');
+    validateFiles();
 
     // eslint-disable-next-line no-console
     console.log('Copying files to temp directory…');
