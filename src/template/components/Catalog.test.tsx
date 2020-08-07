@@ -22,6 +22,16 @@ describe('Product', () => {
               >
                 Le Serpent sur la butte aux pommes
               </h1>
+              <p
+                class="Product-author"
+              >
+                by 
+                <span
+                  class="Product-author-name"
+                >
+                  Gérard Ferrori
+                </span>
+              </p>
             </div>
           </div>
         </div>

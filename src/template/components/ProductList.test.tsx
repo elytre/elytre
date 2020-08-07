@@ -21,6 +21,14 @@ describe('Product', () => {
             >
               Au-revoir Mao
             </h1>
+            <p
+              class="Product-author"
+            >
+              by 
+              <span
+                class="Product-author-name"
+              />
+            </p>
           </div>
         </div>
       </div>

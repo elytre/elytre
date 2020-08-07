@@ -16,6 +16,14 @@ describe('Product', () => {
           >
             La Tarte et le terroir
           </h1>
+          <p
+            class="Product-author"
+          >
+            by 
+            <span
+              class="Product-author-name"
+            />
+          </p>
         </div>
       </div>
     `);

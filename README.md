@@ -55,7 +55,9 @@ project's directory.
 ```yaml
 products:
   - title: Chaussons d'ours
+    author: Laetitia Mani
   - title: Sous-sol
+    author: Matt Yassenar
 ```
 
 ### Stylesheet file specification
