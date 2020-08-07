@@ -52,12 +52,6 @@ async function copyFiles() {
     path.resolve('./styles.css'),
     path.join(tempDirPath, './styles.css'),
   );
-
-  // Create a symbolic link to node_modules in temporary directory
-  fs.symlinkSync(
-    path.resolve('node_modules'),
-    path.join(tempDirPath, '/node_modules'),
-  );
 }
 
 /**
@@ -109,6 +103,14 @@ async function build(command = 'build') {
     // eslint-disable-next-line no-console
     console.log('Copying files to temp directory…');
     copyFiles();
+
+    // Create a symbolic link to node_modules in temporary directory
+    fs.symlinkSync(
+      path.resolve('node_modules'),
+      path.join(tempDirPath, '/node_modules'),
+    );
+
+    // Create webpack compiler with config
     const compiler = webpack(webpackConfig);
 
     if (command === 'build') {
@@ -122,6 +124,14 @@ async function build(command = 'build') {
         { aggregateTimeout: 300, poll: false, ignored: /node_modules/ },
         onBuildEnd,
       );
+
+      // Rebuild if a file is changed in local directory
+      fs.watch('./', {}, (eventType, fileName) => {
+        // eslint-disable-next-line no-console
+        console.log(`${fileName} was ${eventType}d, rebuilding…`);
+        checkRequirements();
+        copyFiles();
+      });
     }
   } catch (error) {
     // eslint-disable-next-line no-console
