@@ -28,18 +28,6 @@ Requirements:
 
 ## Usage
 
-Build your Walden site with:
-
-```console
-$ yarn build
-```
-
-Or start Walden in watch mode:
-
-```console
-$ yarn start
-```
-
 For you Walden site to be built successfully, your project directory will
 require at least three files:
 
@@ -101,6 +89,28 @@ directory.
   or made more discreet here */
 }
 ```
+
+### Once you've created these files, you can:
+
+#### Build your Walden site for production
+
+```console
+$ yarn build
+```
+
+This will build your website for production in a `build` folder, ready for
+deployment. You can serve this folder using any web server or static website
+host.
+
+#### Start Walden in development mode:
+
+```console
+$ yarn start
+```
+
+This will spin a local webserver for development on. Open http://localhost:1854/
+to view it in your browser. The page will reload automatically if you edit files
+in your project's directory.
 
 ## Tests
 

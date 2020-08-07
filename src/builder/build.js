@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs-extra');
 const webpack = require('webpack');
+const liveServer = require('live-server');
 
 const yamlFileToJsonFile = require('./yaml-file-to-json-file');
 const getTempDir = require('./get-temp-dir');
@@ -131,6 +132,12 @@ async function build(command = 'build') {
         console.log(`${fileName} was ${eventType}d, rebuilding…`);
         checkRequirements();
         copyFiles();
+      });
+
+      // Live dev server (reloads if a file is changed in build directory)
+      liveServer.start({
+        port: 1854,
+        root: webpackConfig.output.path,
       });
     }
   } catch (error) {
