@@ -1,8 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 import Header from './Header';
 import HomePage from './HomePage';
+import ProductPage from './ProductPage';
 
 export default function WaldenSite(): React.ReactElement {
   return (
@@ -11,7 +12,10 @@ export default function WaldenSite(): React.ReactElement {
         <Link to="/">
           <Header />
         </Link>
-        <Route path="/" exact component={HomePage} />
+        <Switch>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/p/:ean" component={ProductPage} />
+        </Switch>
         <footer className="WaldenSite-powered-by">
           Powered by{' '}
           <a

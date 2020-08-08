@@ -39,7 +39,11 @@ describe('Product', () => {
                   <h1
                     class="Product-title"
                   >
-                    Le Serpent sur la butte aux pommes
+                    <a
+                      href="/p/9781234567890"
+                    >
+                      Le Serpent sur la butte aux pommes
+                    </a>
                   </h1>
                   <p
                     class="Product-author"

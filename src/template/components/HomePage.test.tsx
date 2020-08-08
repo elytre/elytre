@@ -1,11 +1,16 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 
 import HomePage from './HomePage';
 
 describe('HomePage', () => {
   it('renders a HomePage', () => {
-    const { container } = render(<HomePage />);
+    const { container } = render(
+      <BrowserRouter>
+        <HomePage />
+      </BrowserRouter>,
+    );
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
@@ -23,7 +28,11 @@ describe('HomePage', () => {
                 <h1
                   class="Product-title"
                 >
-                  Le Serpent sur la butte aux pommes
+                  <a
+                    href="/p/9781234567890"
+                  >
+                    Le Serpent sur la butte aux pommes
+                  </a>
                 </h1>
                 <p
                   class="Product-author"

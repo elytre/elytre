@@ -12,7 +12,7 @@ export default function ProductList({
   return (
     <div className="ProductList">
       {products.map((product) => (
-        <Product key={product.title} {...product} />
+        <Product key={product.ean} {...product} withLink={true} />
       ))}
     </div>
   );

@@ -2,21 +2,27 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
-import ProductList from './ProductList';
+import ProductPage from './ProductPage';
 
-import { products } from '../catalog.json';
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useParams: jest
+    .fn()
+    .mockReturnValueOnce({ ean: '9781234567890' })
+    .mockReturnValueOnce({ ean: '9781234567899' }),
+}));
 
-describe('Product', () => {
-  it('renders a ProductList', () => {
+describe('ProductPage', () => {
+  it('renders a ProductPage', () => {
     const { container } = render(
       <BrowserRouter>
-        <ProductList products={products} />
+        <ProductPage />
       </BrowserRouter>,
     );
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="ProductList"
+          class="ProductPage"
         >
           <div
             class="Product"
@@ -24,11 +30,7 @@ describe('Product', () => {
             <h1
               class="Product-title"
             >
-              <a
-                href="/p/9781234567890"
-              >
-                Le Serpent sur la butte aux pommes
-              </a>
+              Le Serpent sur la butte aux pommes
             </h1>
             <p
               class="Product-author"
@@ -47,6 +49,23 @@ describe('Product', () => {
               9781234567890
             </p>
           </div>
+        </div>
+      </div>
+    `);
+  });
+
+  it('renders a 404 page for a non-existing product', () => {
+    const { container } = render(
+      <BrowserRouter>
+        <ProductPage />
+      </BrowserRouter>,
+    );
+    expect(container).toMatchInlineSnapshot(`
+      <div>
+        <div
+          class="ProductPage"
+        >
+          404
         </div>
       </div>
     `);

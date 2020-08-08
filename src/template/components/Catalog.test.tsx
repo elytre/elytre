@@ -1,11 +1,16 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 
 import Catalog from './Catalog';
 
 describe('Product', () => {
   it('renders a Catalog', () => {
-    const { container } = render(<Catalog />);
+    const { container } = render(
+      <BrowserRouter>
+        <Catalog />
+      </BrowserRouter>,
+    );
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
@@ -20,7 +25,11 @@ describe('Product', () => {
               <h1
                 class="Product-title"
               >
-                Le Serpent sur la butte aux pommes
+                <a
+                  href="/p/9781234567890"
+                >
+                  Le Serpent sur la butte aux pommes
+                </a>
               </h1>
               <p
                 class="Product-author"
