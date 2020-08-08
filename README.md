@@ -72,18 +72,23 @@ directory.
 }
 
 .Product {
-  /* This controls how a single product is displayed */
+  /* How a single product is displayed */
 }
 
 .Product .Product-title {
+  /* How a product's title is displayed */
 }
 
 .ProductList {
-  /* This controls how a list of products is displayed */
+  /* How a list of products is displayed */
 }
 
 .ProductList .Product {
-  /* Here you can control how a product is displayed when in a list of products */
+  /* How a product is displayed when in a list of products */
+}
+
+.HomePage .ProductList .Product {
+  /* How a product appears when in a list on home page */
 }
 
 .WaldenSite-powered-by {

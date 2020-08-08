@@ -11,45 +11,53 @@ describe('Product', () => {
         <div
           class="WaldenSite"
         >
-          <header
-            class="Header"
+          <a
+            href="/"
           >
-            <h1
-              class="Header-site-title"
+            <header
+              class="Header"
             >
-              Les Éditions Paronymie
-            </h1>
-          </header>
+              <h1
+                class="Header-site-title"
+              >
+                Les Éditions Paronymie
+              </h1>
+            </header>
+          </a>
           <div
-            class="Catalog"
+            class="HomePage"
           >
             <div
-              class="ProductList"
+              class="Catalog"
             >
               <div
-                class="Product"
+                class="ProductList"
               >
-                <h1
-                  class="Product-title"
+                <div
+                  class="Product"
                 >
-                  Le Serpent sur la butte aux pommes
-                </h1>
-                <p
-                  class="Product-author"
-                >
-                  by 
-                  <span
-                    class="Product-author-name"
+                  <h1
+                    class="Product-title"
                   >
-                    Gérard Ferrori
-                  </span>
-                </p>
-                <p
-                  class="Product-isbn"
-                >
-                  ISBN: 
-                  9781234567890
-                </p>
+                    Le Serpent sur la butte aux pommes
+                  </h1>
+                  <p
+                    class="Product-author"
+                  >
+                    by 
+                    <span
+                      class="Product-author-name"
+                    >
+                      Gérard Ferrori
+                    </span>
+                  </p>
+                  <p
+                    class="Product-isbn"
+                  >
+                    ISBN: 
+                    9781234567890
+                  </p>
+                </div>
               </div>
             </div>
           </div>
