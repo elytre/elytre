@@ -1,6 +1,7 @@
 # Walden
 
 [![npm](https://img.shields.io/npm/v/@iwazaru/walden)](https://www.npmjs.com/package/@iwazaru/walden)
+[![CI](https://github.com/iwazaru/walden/workflows/CI/badge.svg)](https://github.com/iwazaru/walden/actions?query=workflow%3ACI)
 
 Walden is an experimental tool to build a static bookstore front-end from a
 catalog file.
