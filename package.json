@@ -75,6 +75,9 @@
       "react": {
         "version": "detect"
       }
+    },
+    "rules": {
+      "object-curly-newline": "off"
     }
   },
   "jest": {
