@@ -153,6 +153,7 @@ async function build(command = 'build') {
       liveServer.start({
         port: 1854,
         root: webpackConfig.output.path,
+        file: 'index.html',
       });
     }
   } catch (error) {
