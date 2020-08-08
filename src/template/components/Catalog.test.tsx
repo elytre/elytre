@@ -32,6 +32,12 @@ describe('Product', () => {
                   Gérard Ferrori
                 </span>
               </p>
+              <p
+                class="Product-isbn"
+              >
+                ISBN: 
+                9781234567890
+              </p>
             </div>
           </div>
         </div>

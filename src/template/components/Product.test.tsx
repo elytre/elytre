@@ -24,6 +24,11 @@ describe('Product', () => {
               class="Product-author-name"
             />
           </p>
+          <p
+            class="Product-isbn"
+          >
+            ISBN: 
+          </p>
         </div>
       </div>
     `);
