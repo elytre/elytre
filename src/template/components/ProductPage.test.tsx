@@ -8,8 +8,8 @@ jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useParams: jest
     .fn()
-    .mockReturnValueOnce({ ean: '9781234567890' })
-    .mockReturnValueOnce({ ean: '9781234567899' }),
+    .mockReturnValueOnce({ slug: 'le-serpent-sur-la-butte-aux-pommes' })
+    .mockReturnValueOnce({ slug: 'le-sermont-sur-le-brut-de-pomme' }),
 }));
 
 describe('ProductPage', () => {

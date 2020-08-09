@@ -1,9 +1,10 @@
 {
   "products": [
     {
+      "ean": 9781234567890,
       "title": "Le Serpent sur la butte aux pommes",
       "author": "Gérard Ferrori",
-      "ean": 9781234567890
+      "slug": "le-serpent-sur-la-butte-aux-pommes"
     }
   ]
 }

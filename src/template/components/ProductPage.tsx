@@ -6,8 +6,8 @@ import Product from './Product';
 import catalog from '../catalog.json';
 
 export default function ProductPage(): React.ReactElement | null {
-  const { ean: requestEan } = useParams();
-  const product = catalog.products.find(({ ean }) => ean === +requestEan);
+  const { slug: requestSlug } = useParams();
+  const product = catalog.products.find(({ slug }) => slug === requestSlug);
 
   return (
     <div className="ProductPage">

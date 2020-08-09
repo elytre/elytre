@@ -14,7 +14,7 @@ export default function WaldenSite(): React.ReactElement {
         </Link>
         <Switch>
           <Route path="/" exact component={HomePage} />
-          <Route path="/p/:ean" component={ProductPage} />
+          <Route path="/p/:slug" component={ProductPage} />
         </Switch>
         <footer className="WaldenSite-powered-by">
           Powered by{' '}

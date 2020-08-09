@@ -6,6 +6,7 @@ const liveServer = require('live-server');
 const yamlFileToJsonFile = require('./yaml-file-to-json-file');
 const getTempDir = require('./get-temp-dir');
 const validateFile = require('./validate-file');
+const buildCatalog = require('./build-catalog');
 
 const Site = require('../models/Site');
 const Catalog = require('../models/Catalog');
@@ -46,7 +47,7 @@ async function copyFiles() {
     path.resolve('./site.yaml'),
     path.join(tempDirPath, '/site.json'),
   );
-  yamlFileToJsonFile(
+  buildCatalog(
     path.resolve('./catalog.yaml'),
     path.join(tempDirPath, '/catalog.json'),
   );
