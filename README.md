@@ -92,6 +92,14 @@ directory.
   /* How a product appears when in a list on home page */
 }
 
+.Error404Page .Error404Page-title {
+  /* How a title appears on a 404 error page */
+}
+
+.Error404Page .Error404Page-reason {
+  /* How the reasons appears if provided on a 404 error page */
+}
+
 .WaldenSite-powered-by {
   /* The "Powered by Walden" text in the footer can be hidden (please don't!)
   or made more discreet here */

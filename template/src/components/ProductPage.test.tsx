@@ -65,7 +65,20 @@ describe('ProductPage', () => {
         <div
           class="ProductPage"
         >
-          404
+          <div
+            class="Error404Page"
+          >
+            <h1
+              class="Error404Page-title"
+            >
+              Page not found
+            </h1>
+            <p
+              class="Error404Page-reason"
+            >
+              No product found for slug le-sermont-sur-le-brut-de-pomme
+            </p>
+          </div>
         </div>
       </div>
     `);

@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import Product from './Product';
+import Error404Page from './Error404Page';
 
 import catalog from '../catalog.json';
 
@@ -11,7 +12,11 @@ export default function ProductPage(): React.ReactElement | null {
 
   return (
     <div className="ProductPage">
-      {product ? <Product {...product} /> : 404}
+      {product ? (
+        <Product {...product} />
+      ) : (
+        <Error404Page reason={`No product found for slug ${requestSlug}`} />
+      )}
     </div>
   );
 }
