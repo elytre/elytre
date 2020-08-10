@@ -13,7 +13,7 @@ const siteConfig = getSiteConfig();
 
 module.exports = {
   mode: 'development',
-  entry: path.join(tempDirPath, '/index.tsx'),
+  entry: path.join(tempDirPath, '/index.js'),
   output: {
     filename: 'main.js',
     path: outputPath,
@@ -38,22 +38,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.(tsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'ts-loader',
-          options: {
-            configFile: path.resolve(path.join(tempDirPath, 'tsconfig.json')),
-          },
-        },
-      },
-      {
-        enforce: 'pre',
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'source-map-loader',
-      },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],

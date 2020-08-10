@@ -15,7 +15,7 @@ const Catalog = require('../models/Catalog');
 const modulePath = path.dirname(
   require.resolve('@iwazaru/walden/package.json'),
 );
-const templatePath = path.join(modulePath, '/src/template');
+const templatePath = path.join(modulePath, 'template/dist');
 const tempDirPath = getTempDir();
 const webpackConfig = require('./webpack.config');
 
