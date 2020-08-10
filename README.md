@@ -122,8 +122,31 @@ in your project's directory.
 
 ## Tests
 
+Lint code inside this repository with:
+
+```console
+$ yarn lint
+```
+
 Run tests inside this repository with:
 
 ```console
 $ yarn test
+```
+
+## Development
+
+Files in the `template/src` directory are written in Typescript and must be
+transpiled before they can be used.
+
+```console
+$ yarn build
+```
+
+Files are linted, tested and transpiled before packages is published to npm.
+
+During development, files can be watched and transpiled as they are changed:
+
+```console
+$ yarn dev
 ```

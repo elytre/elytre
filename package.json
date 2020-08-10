@@ -8,6 +8,7 @@
     "walden": "./bin/walden.js"
   },
   "scripts": {
+    "dev": "yarn build --watch",
     "format": "prettier . --write",
     "lint": "eslint src",
     "test": "jest --watchAll",
