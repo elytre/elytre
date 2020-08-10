@@ -10,7 +10,8 @@
   "scripts": {
     "format": "prettier . --write",
     "lint": "eslint src",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "build": "tsc --build template/"
   },
   "dependencies": {
     "@babel/core": "^7.11.1",
