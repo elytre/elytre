@@ -55,9 +55,11 @@ project's directory.
 
 ```yaml
 products:
-  - title: Chaussons d'ours
+  - ean: 9781234567890
+    title: Chaussons d'ours
     author: Laetitia Mani
-  - title: Sous-sol
+  - ean: 9781234567811
+    title: Sous-sol
     author: Matt Yassenar
 ```
 
