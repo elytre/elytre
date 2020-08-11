@@ -3,7 +3,7 @@ const path = require('path');
 const YAML = require('yaml');
 
 const validateFile = require('./validate-file');
-const Site = require('../models/Site');
+const Site = require('./models/Site');
 
 // Read site config
 module.exports = function getSiteConfig() {

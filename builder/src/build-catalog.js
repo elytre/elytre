@@ -2,7 +2,7 @@ const fs = require('fs');
 const YAML = require('yaml');
 const slugify = require('slugify');
 
-const Catalog = require('../models/Catalog');
+const Catalog = require('./models/Catalog');
 
 /**
  * Build catalog

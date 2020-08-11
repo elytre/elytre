@@ -8,8 +8,8 @@ const getTempDir = require('./get-temp-dir');
 const validateFile = require('./validate-file');
 const buildCatalog = require('./build-catalog');
 
-const Site = require('../models/Site');
-const Catalog = require('../models/Catalog');
+const Site = require('./models/Site');
+const Catalog = require('./models/Catalog');
 
 // Get walden module directories paths
 const modulePath = path.dirname(
