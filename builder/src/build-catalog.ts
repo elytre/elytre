@@ -6,10 +6,11 @@ import Catalog from './models/Catalog';
 
 /**
  * Build catalog
- * @param sourceFile the catalog.yaml path
- *
  */
-export default function buildCatalog(sourceFile, destFile) {
+export default function buildCatalog(
+  sourceFile: string,
+  destFile: string,
+): void {
   try {
     const catalogFileContent = readFileSync(sourceFile, 'utf-8');
     const catalogFileContentParsed = parse(catalogFileContent);

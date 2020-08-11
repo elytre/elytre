@@ -3,10 +3,11 @@ import { parse } from 'yaml';
 
 /**
  * Converts a YAML file to JSON
- * @param yamlFilePath the yaml file path
- * @param jsonFilePath the json file path
  */
-export default function yamlFileToJsonFile(yamlFilePath, jsonFilePath) {
+export default function yamlFileToJsonFile(
+  yamlFilePath: string,
+  jsonFilePath: string,
+): void {
   const yamlFileContent = readFileSync(yamlFilePath, 'utf-8');
   const parsedYamlFileContent = parse(yamlFileContent);
   const fileContentAsJson = JSON.stringify(parsedYamlFileContent);

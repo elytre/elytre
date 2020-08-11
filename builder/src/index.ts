@@ -95,7 +95,7 @@ function onBuildEnd(err, stats) {
  * and build or start watching mode
  * @param {string} command: 'build' or 'start'
  */
-async function build(command = 'build') {
+async function build(command = 'build'): Promise<void> {
   try {
     if (command === 'build') {
       // eslint-disable-next-line no-console

@@ -1,10 +1,10 @@
 import { join } from 'path';
+import webpack from 'webpack';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 import getTempDir from './get-temp-dir';
 import getSiteConfig from './get-site-config';
-import webpack from 'webpack';
 
 // Get local build directory path
 const outputPath = join(process.cwd(), '/build');

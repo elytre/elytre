@@ -4,6 +4,6 @@ import { join } from 'path';
 
 const tempDirPath = mkdtempSync(join(tmpdir(), 'walden-'));
 
-export default function getTempDir() {
+export default function getTempDir(): string {
   return tempDirPath;
 }
