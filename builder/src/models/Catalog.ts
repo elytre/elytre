@@ -1,7 +1,7 @@
-const { Model, ArrayModel } = require('objectmodel');
-require('./errorCollector');
+import { Model, ArrayModel } from 'objectmodel';
+import './errorCollector';
 
-const Product = require('./Product');
+import Product from './Product';
 
 const Catalog = new Model({
   products: ArrayModel([Product]),
@@ -21,4 +21,4 @@ const Catalog = new Model({
   return true;
 }, 'EAN must be unique for each product in all catalog');
 
-module.exports = Catalog;
+export default Catalog;

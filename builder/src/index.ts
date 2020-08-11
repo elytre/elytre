@@ -1,15 +1,17 @@
-const path = require('path');
-const fs = require('fs-extra');
-const webpack = require('webpack');
-const liveServer = require('live-server');
+import * as path from 'path';
+import * as fs from 'fs-extra';
+import * as webpack from 'webpack';
+import * as liveServer from 'live-server';
 
-const yamlFileToJsonFile = require('./yaml-file-to-json-file');
-const getTempDir = require('./get-temp-dir');
-const validateFile = require('./validate-file');
-const buildCatalog = require('./build-catalog');
+import yamlFileToJsonFile from './yaml-file-to-json-file';
+import getTempDir from './get-temp-dir';
+import validateFile from './validate-file';
+import buildCatalog from './build-catalog';
 
-const Site = require('./models/Site');
-const Catalog = require('./models/Catalog');
+import Site from './models/Site';
+import Catalog from './models/Catalog';
+
+import webpackConfig from './webpack.config';
 
 // Get walden module directories paths
 const modulePath = path.dirname(
@@ -17,7 +19,6 @@ const modulePath = path.dirname(
 );
 const templatePath = path.join(modulePath, 'template/dist');
 const tempDirPath = getTempDir();
-const webpackConfig = require('./webpack.config');
 
 /**
  * Tests if requirements are met for build to succeed
@@ -153,7 +154,7 @@ async function build(command = 'build') {
       // Live dev server (reloads if a file is changed in build directory)
       liveServer.start({
         port: 1854,
-        root: webpackConfig.output.path,
+        root: webpackConfig.output?.path,
         file: 'index.html',
       });
     }
@@ -164,4 +165,4 @@ async function build(command = 'build') {
   }
 }
 
-module.exports = build;
+export default build;

@@ -1,4 +1,4 @@
-const { Model } = require('objectmodel');
+import { Model } from 'objectmodel';
 
 Model.prototype.errorCollector = function errorCollector(errors) {
   errors.forEach((error) => {

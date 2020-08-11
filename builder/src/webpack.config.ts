@@ -1,19 +1,20 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+import { join } from 'path';
+import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
-const getTempDir = require('./get-temp-dir');
-const getSiteConfig = require('./get-site-config');
+import getTempDir from './get-temp-dir';
+import getSiteConfig from './get-site-config';
+import webpack from 'webpack';
 
 // Get local build directory path
-const outputPath = path.join(process.cwd(), '/build');
+const outputPath = join(process.cwd(), '/build');
 
 const tempDirPath = getTempDir();
 const siteConfig = getSiteConfig();
 
-module.exports = {
+const config: webpack.Configuration = {
   mode: 'development',
-  entry: path.join(tempDirPath, '/index.js'),
+  entry: join(tempDirPath, '/index.js'),
   output: {
     filename: 'main.js',
     path: outputPath,
@@ -57,3 +58,5 @@ module.exports = {
     errorDetails: true,
   },
 };
+
+export default config;

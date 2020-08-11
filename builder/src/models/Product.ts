@@ -1,4 +1,4 @@
-const { ObjectModel } = require('objectmodel');
+import { ObjectModel } from 'objectmodel';
 
 const Product = new ObjectModel({
   ean: /^97[8|9]\d{10}$/,
@@ -7,4 +7,4 @@ const Product = new ObjectModel({
   slug: [String],
 });
 
-module.exports = Product;
+export default Product;

@@ -1,18 +1,18 @@
-const fs = require('fs');
-const YAML = require('yaml');
-const slugify = require('slugify');
+import { readFileSync, writeFileSync } from 'fs';
+import { parse } from 'yaml';
+import slugify from 'slugify';
 
-const Catalog = require('./models/Catalog');
+import Catalog from './models/Catalog';
 
 /**
  * Build catalog
  * @param sourceFile the catalog.yaml path
  *
  */
-module.exports = function buildCatalog(sourceFile, destFile) {
+export default function buildCatalog(sourceFile, destFile) {
   try {
-    const catalogFileContent = fs.readFileSync(sourceFile, 'utf-8');
-    const catalogFileContentParsed = YAML.parse(catalogFileContent);
+    const catalogFileContent = readFileSync(sourceFile, 'utf-8');
+    const catalogFileContentParsed = parse(catalogFileContent);
     const catalog = Catalog(catalogFileContentParsed);
 
     // Process each product
@@ -24,8 +24,8 @@ module.exports = function buildCatalog(sourceFile, destFile) {
 
     const catalogContent = { ...catalog, products };
     const catalogContentAsJson = JSON.stringify(catalogContent);
-    fs.writeFileSync(destFile, catalogContentAsJson);
+    writeFileSync(destFile, catalogContentAsJson);
   } catch (error) {
     throw new Error(`Error whild building catalog: ${error.message}`);
   }
-};
+}
