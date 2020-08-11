@@ -8,13 +8,15 @@
     "walden": "./bin/walden.js"
   },
   "scripts": {
-    "dev": "yarn build --watch",
+    "dev": "run-p -l dev:**",
+    "dev:template": "yarn build:template --watch",
+    "dev:builder": "yarn build:builder --watch",
     "format": "prettier . --write",
-    "lint": "yarn lint:template && yarn lint:builder",
+    "lint": "run-s -l lint:**",
     "lint:template": "eslint template/src",
     "lint:builder": "eslint builder/src",
     "test": "jest --watchAll",
-    "build": "yarn build:template && yarn build:builder",
+    "build": "run-p build:**",
     "build:template": "tsc --build template/",
     "build:builder": "tsc --build builder/",
     "prepublishOnly": "yarn lint && yarn test --watchAll=false && yarn build"
