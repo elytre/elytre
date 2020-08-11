@@ -144,16 +144,23 @@ $ yarn test
 
 ## Development
 
-Files in the `template/src` directory are written in Typescript and must be
-transpiled before they can be used.
+Walden is made of two main parts:
+
+- `template/src`: a template React site that is merged with user's customization
+  files to build the final Walden site
+- `build/src`: a node tool that builds the final Walden site using the React
+  template and user's customization file
+
+Both are written in Typescript and needs to be transpiled before it can be used.
 
 ```console
 $ yarn build
 ```
 
-Files are linted, tested and transpiled before packages is published to npm.
+Files are linted, tested and transpiled before the package is published to npm.
 
-During development, files can be watched and transpiled as they are changed:
+During development, template files can be watched and transpiled as they are
+changed:
 
 ```console
 $ yarn dev
