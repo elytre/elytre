@@ -38,7 +38,7 @@ function checkRequirements() {
 /**
  * Copy local files and template files to a temporary directory
  */
-async function copyFiles() {
+function copyFiles() {
   // Copy walden site template to local temp directory
   fs.copySync(templatePath, tempDirPath);
 
@@ -47,10 +47,6 @@ async function copyFiles() {
   yamlFileToJsonFile(
     path.resolve('./site.yaml'),
     path.join(tempDirPath, '/site.json'),
-  );
-  buildCatalog(
-    path.resolve('./catalog.yaml'),
-    path.join(tempDirPath, '/catalog.json'),
   );
 
   // Copy styles.css file to local temp directory
@@ -121,6 +117,12 @@ async function build(command = 'build'): Promise<void> {
     // eslint-disable-next-line no-console
     console.log('Copying files to temp directory…');
     copyFiles();
+
+    buildCatalog(
+      path.resolve('./catalog.yaml'),
+      path.join(tempDirPath, '/catalog.json'),
+      tempDirPath,
+    );
 
     // Create a symbolic link to node_modules in temporary directory
     fs.symlinkSync(
