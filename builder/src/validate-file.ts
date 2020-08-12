@@ -18,6 +18,8 @@ export default function validateFile(
     const fileContentParsed = parse(fileContent);
     model(fileContentParsed);
   } catch (error) {
-    throw new Error(`File ${fileName} is invalid: ${error.message}`);
+    const newError = new Error(`File ${fileName} is invalid: ${error.message}`);
+    newError.stack = error.stack;
+    throw newError;
   }
 }
