@@ -36,27 +36,6 @@ function checkRequirements() {
 }
 
 /**
- * Copy local files and template files to a temporary directory
- */
-function copyFiles() {
-  // Copy walden site template to local temp directory
-  fs.copySync(templatePath, tempDirPath);
-
-  // Convert site.yaml and catalog.yaml to json
-  // and copy them to local temp directory
-  yamlFileToJsonFile(
-    path.resolve('./site.yaml'),
-    path.join(tempDirPath, '/site.json'),
-  );
-
-  // Copy styles.css file to local temp directory
-  fs.copySync(
-    path.resolve('./styles.css'),
-    path.join(tempDirPath, './styles.css'),
-  );
-}
-
-/**
  * Validate local file content against model
  */
 function validateFiles() {
@@ -85,6 +64,42 @@ function onBuildEnd(err: Error, stats: webpack.Stats) {
 }
 
 /**
+ * All that needs to be done before build
+ * when a file is changed in user's project's directory
+ */
+function prepareBuild() {
+  // eslint-disable-next-line no-console
+  console.log(`Working directory: ${tempDirPath}`);
+
+  // eslint-disable-next-line no-console
+  console.log('Checking required files…');
+  checkRequirements();
+
+  // eslint-disable-next-line no-console
+  console.log('Validating YAML files…');
+  validateFiles();
+
+  // eslint-disable-next-line no-console
+  console.log('Copying files to temp directory…');
+  yamlFileToJsonFile(
+    path.resolve('./site.yaml'),
+    path.join(tempDirPath, '/site.json'),
+  );
+  fs.copySync(
+    path.resolve('./styles.css'),
+    path.join(tempDirPath, './styles.css'),
+  );
+
+  // eslint-disable-next-line no-console
+  console.log('Building product catalog from catalog.yaml…');
+  buildCatalog(
+    path.resolve('./catalog.yaml'),
+    path.join(tempDirPath, '/catalog.json'),
+    tempDirPath,
+  );
+}
+
+/**
  * Main function that check file requirements, copy files in working directory
  * and build or start watching mode
  */
@@ -100,32 +115,16 @@ async function build(command: 'build' | 'start' = 'build'): Promise<void> {
       throw new Error(`Unknown command ${command}`);
     }
 
-    // eslint-disable-next-line no-console
-    console.log(`Working directory: ${tempDirPath}`);
-
-    // eslint-disable-next-line no-console
-    console.log('Checking required files…');
-    checkRequirements();
-
-    // eslint-disable-next-line no-console
-    console.log('Validating YAML files…');
-    validateFiles();
-
-    // eslint-disable-next-line no-console
-    console.log('Copying files to temp directory…');
-    copyFiles();
-
-    buildCatalog(
-      path.resolve('./catalog.yaml'),
-      path.join(tempDirPath, '/catalog.json'),
-      tempDirPath,
-    );
+    // Copy walden site template to local temp directory
+    fs.copySync(templatePath, tempDirPath);
 
     // Create a symbolic link to node_modules in temporary directory
     fs.symlinkSync(
       path.resolve('node_modules'),
       path.join(tempDirPath, '/node_modules'),
     );
+
+    prepareBuild();
 
     // Create webpack compiler with config
     const compiler = webpack(webpackConfig);
@@ -146,8 +145,7 @@ async function build(command: 'build' | 'start' = 'build'): Promise<void> {
       fs.watch('./', {}, (eventType, fileName) => {
         // eslint-disable-next-line no-console
         console.log(`${fileName} was ${eventType}d, rebuilding…`);
-        checkRequirements();
-        copyFiles();
+        prepareBuild();
       });
 
       // Live dev server (reloads if a file is changed in build directory)
