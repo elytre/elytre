@@ -4,6 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import HomePage from './HomePage';
 
+jest.mock('../lib/user-files');
+
 describe('HomePage', () => {
   it('renders a HomePage', () => {
     const { container } = render(

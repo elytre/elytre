@@ -4,6 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Catalog from './Catalog';
 
+jest.mock('../lib/user-files');
+
 describe('Product', () => {
   it('renders a Catalog', () => {
     const { container } = render(

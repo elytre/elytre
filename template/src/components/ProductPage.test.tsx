@@ -12,6 +12,8 @@ jest.mock('react-router-dom', () => ({
     .mockReturnValueOnce({ slug: 'le-sermont-sur-le-brut-de-pomme' }),
 }));
 
+jest.mock('../lib/user-files');
+
 describe('ProductPage', () => {
   it('renders a ProductPage', () => {
     const { container } = render(

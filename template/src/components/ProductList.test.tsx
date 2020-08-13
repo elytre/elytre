@@ -3,8 +3,11 @@ import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
 import ProductList from './ProductList';
+import { getCatalog } from '../lib/user-files';
 
-import { products } from '../catalog.json';
+jest.mock('../lib/user-files');
+
+const { products } = getCatalog();
 
 describe('Product', () => {
   it('renders a ProductList', () => {

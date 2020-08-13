@@ -3,7 +3,9 @@ import { render } from '@testing-library/react';
 
 import Header from './Header';
 
-describe('Product', () => {
+jest.mock('../lib/user-files');
+
+describe('Header', () => {
   it('renders a Header', () => {
     const { container } = render(<Header />);
     expect(container).toMatchInlineSnapshot(`

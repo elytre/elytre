@@ -1,6 +1,7 @@
 import React from 'react';
+import { getSiteConfig } from '../lib/user-files';
 
-import site from '../site.json';
+const site = getSiteConfig();
 
 export default function Header(): React.ReactElement {
   return (

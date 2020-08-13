@@ -1,8 +1,9 @@
 import React from 'react';
 
 import ProductList from './ProductList';
+import { getCatalog } from '../lib/user-files';
 
-import catalog from '../catalog.json';
+const catalog = getCatalog();
 
 /**
  * Catalog renders a ProductList containing all products in catalog

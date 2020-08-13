@@ -3,6 +3,8 @@ import { render } from '@testing-library/react';
 
 import WaldenSite from './WaldenSite';
 
+jest.mock('../lib/user-files');
+
 describe('Product', () => {
   it('renders a WaldenSite component', () => {
     const { container } = render(<WaldenSite />);
