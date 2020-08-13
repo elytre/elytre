@@ -3,8 +3,11 @@
 [![npm](https://img.shields.io/npm/v/@iwazaru/walden)](https://www.npmjs.com/package/@iwazaru/walden)
 [![CI](https://github.com/iwazaru/walden/workflows/CI/badge.svg)](https://github.com/iwazaru/walden/actions?query=workflow%3ACI)
 
-Walden is an experimental tool to build a static bookstore front-end from a
-catalog file.
+Walden is a tool to build a serverless online bookstore from a catalog file.
+
+⚠ Walden is still in early development and it would be unwise to use it in
+production at that stage. Expect breaking changes, strange bugs, broken tests
+and missing documentation until 1.0 is released (hopefully in september 2020).
 
 ## Install
 
@@ -16,7 +19,7 @@ Requirements:
 1. Create an empty directory for your project
 2. Initialize yarn: `yarn init`
 3. Add Walden: `yarn add --exact @iwazaru/walden`
-4. Add a `build` script to your package.json:
+4. Add both `start` and `build` scripts to your package.json:
 
 ```json
 {
@@ -29,7 +32,7 @@ Requirements:
 
 ## Usage
 
-For you Walden site to be built successfully, your project directory will
+For your Walden site to be built successfully, your project directory will
 require at least three files:
 
 - a `site.yaml` file specifying your site's info and configuration (see
@@ -38,6 +41,11 @@ require at least three files:
   [Catalog file specification](#catalog-file-specification) below).
 - a `styles.css` stylesheet to customize your site's appearance (see
   [Stylesheet file specification](#stylesheet-file-specification) below).
+
+Optionnaly, you can add cover images in a `covers` folder in your project's
+directory. Image file names must match the following pattern: `{ean}.jpg` (e.g.
+`9781234567890.jpg`), and each ean in an image file name must match the ean of a
+product described in the catalog.
 
 ### Site config file specification
 
