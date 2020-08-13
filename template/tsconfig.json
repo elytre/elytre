@@ -9,7 +9,15 @@
     "allowJs": true, // allow a partial TypeScript and JavaScript codebase
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "noImplicitAny": true,
+    "strict": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["./src/**/*.tsx"],
   "exclude": ["node_modules", "./**/*.test.tsx"]

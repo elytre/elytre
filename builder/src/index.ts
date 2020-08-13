@@ -66,10 +66,8 @@ function validateFiles() {
 
 /**
  * A function called when the build has ended
- * @param {string} err
- * @param {object} stats
  */
-function onBuildEnd(err, stats) {
+function onBuildEnd(err: Error, stats: webpack.Stats) {
   if (err) {
     throw err;
   }
@@ -89,9 +87,8 @@ function onBuildEnd(err, stats) {
 /**
  * Main function that check file requirements, copy files in working directory
  * and build or start watching mode
- * @param {string} command: 'build' or 'start'
  */
-async function build(command = 'build'): Promise<void> {
+async function build(command: 'build' | 'start' = 'build'): Promise<void> {
   try {
     if (command === 'build') {
       // eslint-disable-next-line no-console

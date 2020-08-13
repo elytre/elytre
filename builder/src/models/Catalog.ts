@@ -1,14 +1,15 @@
 import { Model, ArrayModel } from 'objectmodel';
 import './errorCollector';
 
-import Product from './Product';
+import ProductModel from './Product';
+import { Product } from '../types';
 
 const Catalog = new Model({
-  products: ArrayModel([Product]),
+  products: ArrayModel([ProductModel]),
 }).assert(({ products }) => {
   // Check for duplicate EANs
   const EANs = new Set();
-  const duplicate = products.find((product) => {
+  const duplicate = products.find((product: Product) => {
     if (EANs.has(product.ean)) {
       return true;
     }

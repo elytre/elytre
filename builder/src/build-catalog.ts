@@ -3,7 +3,7 @@ import { parse } from 'yaml';
 import slugify from 'slugify';
 
 import CatalogModel from './models/Catalog';
-import { Catalog } from './types';
+import { Catalog, Product } from './types';
 import processCovers from './process-covers';
 
 /**
@@ -20,7 +20,7 @@ export default function buildCatalog(
     const catalog = CatalogModel(catalogFileContentParsed);
 
     // Process each product
-    const products = catalog.products.map((product) => ({
+    const products = catalog.products.map((product: Product) => ({
       ...product,
       // Create product slug from title
       slug: slugify(product.title, { lower: true, remove: /[*+~.()'"!:@]/g }),
