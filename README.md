@@ -75,11 +75,15 @@ directory.
 }
 
 .Product {
-  /* How a single product is displayed */
+  /* How a product is displayed */
 }
 
 .Product .Product-title {
   /* How a product's title is displayed */
+}
+
+.Product .Product-cover-image {
+  /* How a product cover image is displayed */
 }
 
 .ProductList {
@@ -92,6 +96,10 @@ directory.
 
 .HomePage .ProductList .Product {
   /* How a product appears when in a list on home page */
+}
+
+.ProductPage .Product {
+  /* How a product is displayed when on a single product page */
 }
 
 .Error404Page .Error404Page-title {
