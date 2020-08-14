@@ -78,7 +78,7 @@ describe('Product', () => {
                     class="Product-isbn"
                   >
                     ISBN: 
-                    9781234567890
+                    9781234567833
                   </p>
                 </div>
               </div>

@@ -1,3 +1,5 @@
+import { Index } from 'lunr';
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
@@ -7,6 +9,11 @@ import catalog from '../catalog.json';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import site from '../site.json';
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import searchIndex from '../search-index.json';
 
 // TODO: share types between template and builder
 export type SiteConfig = {
@@ -32,6 +39,11 @@ export type Catalog = {
 export function getSiteConfig(): SiteConfig {
   return site;
 }
+
 export function getCatalog(): Catalog {
   return catalog;
+}
+
+export function getSearchIndex(): Index {
+  return searchIndex;
 }

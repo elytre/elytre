@@ -5,6 +5,7 @@ import Header from './Header';
 import HomePage from './HomePage';
 import ProductPage from './ProductPage';
 import Error404Page from './Error404Page';
+import SearchResultsPage from './SearchResultsPage';
 
 export default function WaldenSite(): React.ReactElement {
   return (
@@ -13,6 +14,7 @@ export default function WaldenSite(): React.ReactElement {
         <Header />
         <Switch>
           <Route path="/" exact component={HomePage} />
+          <Route path="/search" exact component={SearchResultsPage} />
           <Route path="/p/:slug" exact component={ProductPage} />
           <Route component={Error404Page} />
         </Switch>

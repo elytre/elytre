@@ -1,23 +1,39 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 
-import Catalog from './Catalog';
+import SearchResultsPage from './SearchResultsPage';
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: jest
+    .fn()
+    .mockReturnValueOnce({ search: 'q=serpent' })
+    .mockReturnValueOnce({ search: undefined }),
+}));
 
 jest.mock('../lib/user-files');
 
-describe('Product', () => {
-  it('renders a Catalog', () => {
+describe('SearchResultsPage', () => {
+  it('renders a SearchResultsPage', () => {
     const { container } = render(
-      <BrowserRouter>
-        <Catalog />
-      </BrowserRouter>,
+      <MemoryRouter>
+        <SearchResultsPage />
+      </MemoryRouter>,
     );
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="Catalog"
+          class="SearchResultsPage"
         >
+          <h1
+            class="SearchResultsPage-title"
+          >
+            Search Results for 
+            <em>
+              serpent
+            </em>
+          </h1>
           <div
             class="ProductList"
           >
@@ -51,6 +67,23 @@ describe('Product', () => {
               </p>
             </div>
           </div>
+        </div>
+      </div>
+    `);
+  });
+
+  it('renders an error when query is missing', () => {
+    const { container } = render(
+      <MemoryRouter>
+        <SearchResultsPage />
+      </MemoryRouter>,
+    );
+    expect(container).toMatchInlineSnapshot(`
+      <div>
+        <div
+          class="SearchResultsPage"
+        >
+          Missing search query
         </div>
       </div>
     `);
