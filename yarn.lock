@@ -1348,6 +1348,11 @@
   resolved "https://registry.yarnpkg.com/@types/live-server/-/live-server-1.2.0.tgz#3ae39bfb19fedda17c3aa29d0b7edf9486971462"
   integrity sha512-XOz2bXwMbTBwM67yNgYnKjgKel8VF9660offh7SnK8GAHrzLjhYf4Rt/XXZUc9YDfi163yW5uV2jwOSgtedLRw==
 
+"@types/lunr@^2.3.3":
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/@types/lunr/-/lunr-2.3.3.tgz#ec985618fd2712c010f8edab4f1ae7784ad7c583"
+  integrity sha512-09sXZZVsB3Ib41U0fC+O1O+4UOZT1bl/e+/QubPxpqDWHNEchvx/DEb1KJMOwq6K3MTNzZFoNSzVdR++o1DVnw==
+
 "@types/minimatch@*":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
@@ -5164,6 +5169,11 @@ lru-cache@^5.1.1:
   integrity sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==
   dependencies:
     yallist "^3.0.2"
+
+lunr@^2.3.8:
+  version "2.3.8"
+  resolved "https://registry.yarnpkg.com/lunr/-/lunr-2.3.8.tgz#a8b89c31f30b5a044b97d2d28e2da191b6ba2072"
+  integrity sha512-oxMeX/Y35PNFuZoHp+jUj5OSEmLCaIH4KTFJh7a93cHBoFmpw2IoPs22VIz7vyO2YUnx2Tn9dzIwO2P/4quIRg==
 
 make-dir@^2.0.0:
   version "2.1.0"
