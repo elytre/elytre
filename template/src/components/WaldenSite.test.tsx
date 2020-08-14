@@ -13,19 +13,19 @@ describe('Product', () => {
         <div
           class="WaldenSite"
         >
-          <a
-            href="/"
+          <header
+            class="Header"
           >
-            <header
-              class="Header"
+            <h1
+              class="Header-site-title"
             >
-              <h1
-                class="Header-site-title"
+              <a
+                href="/"
               >
                 Les Éditions Paronymie
-              </h1>
-            </header>
-          </a>
+              </a>
+            </h1>
+          </header>
           <div
             class="HomePage"
           >
