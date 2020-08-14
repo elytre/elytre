@@ -27,6 +27,23 @@ describe('Header', () => {
               Les Éditions Paronymie
             </a>
           </h1>
+          <form
+            action="/search"
+            class="SearchForm"
+          >
+            <input
+              class="SearchForm-input"
+              name="query"
+              placeholder="Search…"
+              type="search"
+              value=""
+            />
+            <button
+              type="submit"
+            >
+              Search
+            </button>
+          </form>
         </header>
       </div>
     `);
