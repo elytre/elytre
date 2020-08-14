@@ -1,6 +1,6 @@
 import * as path from 'path';
 import * as fs from 'fs-extra';
-import * as webpack from 'webpack';
+import webpack from 'webpack';
 import * as liveServer from 'live-server';
 
 import yamlFileToJsonFile from './yaml-file-to-json-file';
@@ -12,6 +12,7 @@ import Site from './models/Site';
 import Catalog from './models/Catalog';
 
 import webpackConfig from './webpack.config';
+import createSearchIndex from './create-search-index';
 
 // Get walden module directories paths
 const modulePath = path.dirname(
@@ -92,11 +93,15 @@ function prepareBuild() {
 
   // eslint-disable-next-line no-console
   console.log('Building product catalog from catalog.yaml…');
-  buildCatalog(
+  const catalog = buildCatalog(
     path.resolve('./catalog.yaml'),
     path.join(tempDirPath, '/catalog.json'),
     tempDirPath,
   );
+
+  // eslint-disable-next-line no-console
+  console.log('Building search index from product catalog…');
+  createSearchIndex(catalog, tempDirPath);
 }
 
 /**

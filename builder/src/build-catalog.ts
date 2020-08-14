@@ -13,7 +13,7 @@ export default function buildCatalog(
   sourceFile: string,
   destFile: string,
   tempDirPath: string,
-): void {
+): Catalog {
   try {
     const catalogFileContent = readFileSync(sourceFile, 'utf-8');
     const catalogFileContentParsed = parse(catalogFileContent);
@@ -36,6 +36,8 @@ export default function buildCatalog(
     };
     const catalogContentAsJson = JSON.stringify(catalogContent);
     writeFileSync(destFile, catalogContentAsJson);
+
+    return catalogContent;
   } catch (error) {
     const newError = new Error(
       `Error whild building catalog: ${error.message}`,

@@ -15,7 +15,8 @@
     "strictPropertyInitialization": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true
   },
   "include": ["./src/**/*.ts"],
   "exclude": ["node_modules", "./**/*.test.tsx"]
