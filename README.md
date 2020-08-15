@@ -3,7 +3,8 @@
 [![npm](https://img.shields.io/npm/v/@iwazaru/walden)](https://www.npmjs.com/package/@iwazaru/walden)
 [![CI](https://github.com/iwazaru/walden/workflows/CI/badge.svg)](https://github.com/iwazaru/walden/actions?query=workflow%3ACI)
 
-Walden is a tool to build a serverless online bookstore from a catalog file.
+Walden is a tool to build a serverless online bookstore with a search engine
+from a catalog file.
 
 ⚠ Walden is still in early development and it would be unwise to use it in
 production at that stage. Expect breaking changes, strange bugs, broken tests
