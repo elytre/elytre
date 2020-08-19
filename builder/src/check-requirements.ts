@@ -10,7 +10,7 @@ export default function checkRequirements(): void {
   requiredFiles.forEach((file) => {
     if (!pathExistsSync(join('./', file))) {
       throw new Error(
-        `Cannot find require file "${file}" in current directory.`,
+        `Cannot find required file "${file}" in current directory.`,
       );
     }
   });

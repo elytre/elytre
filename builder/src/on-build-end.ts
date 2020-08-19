@@ -4,7 +4,7 @@ import webpack from 'webpack';
  * A function called when the build has ended
  */
 export default function onBuildEnd(
-  err: Error,
+  err: Error | undefined,
   stats: webpack.Stats,
   webpackConfig: webpack.Configuration,
 ): void {
