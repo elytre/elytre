@@ -15,7 +15,7 @@
     "lint": "run-s -l lint:**",
     "lint:template": "eslint template/src",
     "lint:builder": "eslint builder/src",
-    "test": "jest --watchAll",
+    "test": "jest --watch",
     "build": "run-p build:**",
     "build:template": "tsc --build template/",
     "build:builder": "tsc --build builder/",
@@ -101,6 +101,13 @@
     "collectCoverage": true,
     "coverageReporters": [
       "text"
-    ]
+    ],
+    "transformIgnorePatterns": [
+      "/node_modules/(?!objectmodel)"
+    ],
+    "setupFilesAfterEnv": [
+      "./jest.setup.js"
+    ],
+    "clearMocks": true
   }
 }
