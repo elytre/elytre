@@ -1,0 +1,46 @@
+import { copySync } from 'fs-extra';
+import { resolve, join } from 'path';
+
+import checkRequirements from './check-requirements';
+import validateFile from './validate-file';
+import yamlFileToJsonFile from './yaml-file-to-json-file';
+import buildCatalog from './build-catalog';
+import createSearchIndex from './create-search-index';
+
+import Site from './models/Site';
+import Catalog from './models/Catalog';
+
+/**
+ * All that needs to be done before build
+ * when a file is changed in user's project's directory
+ */
+export default function prepareBuild(tempDirPath: string): void {
+  // eslint-disable-next-line no-console
+  console.log(`Working directory: ${tempDirPath}`);
+
+  // eslint-disable-next-line no-console
+  console.log('Checking required files…');
+  checkRequirements();
+
+  // eslint-disable-next-line no-console
+  console.log('Validating YAML files…');
+  validateFile('site.yaml', Site);
+  validateFile('catalog.yaml', Catalog);
+
+  // eslint-disable-next-line no-console
+  console.log('Copying files to temp directory…');
+  yamlFileToJsonFile(resolve('./site.yaml'), join(tempDirPath, '/site.json'));
+  copySync(resolve('./styles.css'), join(tempDirPath, './styles.css'));
+
+  // eslint-disable-next-line no-console
+  console.log('Building product catalog from catalog.yaml…');
+  const catalog = buildCatalog(
+    resolve('./catalog.yaml'),
+    join(tempDirPath, '/catalog.json'),
+    tempDirPath,
+  );
+
+  // eslint-disable-next-line no-console
+  console.log('Building search index from product catalog…');
+  createSearchIndex(catalog, tempDirPath);
+}
