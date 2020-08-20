@@ -34,7 +34,7 @@
     "fs-extra": "^9.0.1",
     "html-webpack-plugin": "^4.3.0",
     "live-server": "^1.2.1",
-    "lunr": "^2.3.8",
+    "lunr": "^2.3.9",
     "objectmodel": "^4.2.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
