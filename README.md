@@ -6,6 +6,14 @@
 Walden is a tool to build a serverless online bookstore with a search engine
 from a catalog file.
 
+<a href="walden.png">
+  <img 
+    src="walden.png" 
+    alt="A schema explaining that Walden uses a catalog.yaml to create a website"
+    width="700" 
+  />
+</a>
+
 ⚠ Walden is still in early development and it would be unwise to use it in
 production at that stage. Expect breaking changes, strange bugs, broken tests
 and missing documentation until 1.0 is released (hopefully in september 2020).
