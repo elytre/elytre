@@ -89,6 +89,12 @@ describe('getWebpackConfig', () => {
             },
             "version": 4,
           },
+          EventHooksPlugin {
+            "hooks": Object {
+              "beforeRun": [Function],
+              "watchRun": [Function],
+            },
+          },
         ],
         "resolve": Object {
           "extensions": Array [
