@@ -8,8 +8,12 @@ import { getCatalog } from '../lib/user-files';
 
 const catalog = getCatalog();
 
-export default function ProductPage(): React.ReactElement | null {
-  const { slug: requestSlug } = useParams();
+type RouteProps = {
+  slug: string;
+};
+
+export default function ProductPage(): React.ReactElement {
+  const { slug: requestSlug } = useParams<RouteProps>();
   const product = catalog.products.find(
     ({ slug }: ProductProps) => slug === requestSlug,
   );
