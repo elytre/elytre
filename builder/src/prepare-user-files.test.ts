@@ -1,6 +1,6 @@
 import * as fs from 'fs-extra';
 
-import prepareBuild from './prepare-build';
+import prepareUserFiles from './prepare-user-files';
 
 import checkRequirements from './check-requirements';
 import validateFile from './validate-file';
@@ -17,12 +17,12 @@ jest.mock('./yaml-file-to-json-file');
 jest.mock('./build-catalog');
 jest.mock('./create-search-index');
 
-describe('prepareBuild', () => {
+describe('prepareUserFiles', () => {
   it('prepares build', () => {
     const log = jest.spyOn(console, 'log').mockImplementation();
     const copySync = jest.spyOn(fs, 'copySync').mockImplementation();
 
-    prepareBuild('/tmp/dir');
+    prepareUserFiles('/tmp/dir');
 
     expect(log).toHaveBeenCalledWith('Working directory: /tmp/dir');
     expect(log).toHaveBeenCalledWith('Checking required files…');

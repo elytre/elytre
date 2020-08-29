@@ -4,7 +4,7 @@ import webpack from 'webpack';
 import * as liveServer from 'live-server';
 
 import createTempDir from './create-temp-dir';
-import prepareBuild from './prepare-build';
+import prepareUserFiles from './prepare-user-files';
 import onBuildEnd from './on-build-end';
 import getWebpackConfig from './get-webpack-config';
 import getSiteConfig from './get-site-config';
@@ -40,7 +40,7 @@ async function build(command: 'build' | 'start' = 'build'): Promise<void> {
     symlinkSync(resolve('node_modules'), join(tempDirPath, '/node_modules'));
 
     // Prepare user files for build
-    prepareBuild(tempDirPath);
+    prepareUserFiles(tempDirPath);
 
     // Create site and webpack configs
     const siteConfig = getSiteConfig();
@@ -66,7 +66,7 @@ async function build(command: 'build' | 'start' = 'build'): Promise<void> {
       watch('./', {}, (eventType, fileName) => {
         // eslint-disable-next-line no-console
         console.log(`${fileName} was ${eventType}d, rebuilding…`);
-        prepareBuild(tempDirPath);
+        prepareUserFiles(tempDirPath);
       });
 
       // Live dev server (reloads if a file is changed in build directory)

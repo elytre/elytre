@@ -11,10 +11,11 @@ import Site from './models/Site';
 import Catalog from './models/Catalog';
 
 /**
- * All that needs to be done before build
- * when a file is changed in user's project's directory
+ * This functions prepare user' files for a build,
+ * it must be run before every build
+ * and each time a file change in watch mode
  */
-export default function prepareBuild(tempDirPath: string): void {
+export default function prepareUserFiles(tempDirPath: string): void {
   // eslint-disable-next-line no-console
   console.log(`Working directory: ${tempDirPath}`);
 
