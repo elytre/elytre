@@ -14,7 +14,7 @@ const getCatalog = jest.fn().mockReturnValueOnce({
 });
 
 const getSearchIndex = jest.fn().mockReturnValueOnce({
-  version: '2.3.8',
+  version: '2.3.9',
   fields: ['title'],
   fieldVectors: [
     ['title/9781234567888', [0, 1.928, 1, 1.928, 2, 1.928]],
