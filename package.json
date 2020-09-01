@@ -22,7 +22,7 @@
     "prepublishOnly": "yarn lint && yarn test --watchAll=false && yarn build"
   },
   "dependencies": {
-    "@babel/core": "^7.11.4",
+    "@babel/core": "^7.11.5",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "@types/event-hooks-webpack-plugin": "^2.0.0",
