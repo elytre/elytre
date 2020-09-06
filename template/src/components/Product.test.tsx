@@ -1,18 +1,22 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter, Route } from 'react-router-dom';
 
 import Product from './Product';
 
 describe('Product', () => {
   it('renders a single Product', () => {
     const { container } = render(
-      <Product
-        ean={9781234567811}
-        title="La Tarte et le terroir"
-        slug="la-tarte-et-le-terroir"
-        author="Michelou Elbecq"
-      />,
+      <MemoryRouter initialEntries={['/en/p/la-tarte-et-le-terroir']}>
+        <Route path="/:locale/">
+          <Product
+            ean={9781234567811}
+            title="La Tarte et le terroir"
+            slug="la-tarte-et-le-terroir"
+            author="Michelou Elbecq"
+          />
+        </Route>
+      </MemoryRouter>,
     );
     expect(container).toMatchInlineSnapshot(`
       <div>
@@ -27,7 +31,8 @@ describe('Product', () => {
           <p
             class="Product-author"
           >
-            by 
+            by
+             
             <span
               class="Product-author-name"
             >
@@ -47,15 +52,17 @@ describe('Product', () => {
 
   it('renders a single Product with a link', () => {
     const { container } = render(
-      <BrowserRouter>
-        <Product
-          ean={9781234567811}
-          title="La Tarte et le terroir"
-          slug="la-tarte-et-le-terroir"
-          author="Michelou Elbecq"
-          withLink={true}
-        />
-      </BrowserRouter>,
+      <MemoryRouter initialEntries={['/en/']}>
+        <Route path="/:locale/">
+          <Product
+            ean={9781234567811}
+            title="La Tarte et le terroir"
+            slug="la-tarte-et-le-terroir"
+            author="Michelou Elbecq"
+            withLink={true}
+          />
+        </Route>
+      </MemoryRouter>,
     );
     expect(container).toMatchInlineSnapshot(`
       <div>
@@ -66,7 +73,7 @@ describe('Product', () => {
             class="Product-title"
           >
             <a
-              href="/p/la-tarte-et-le-terroir"
+              href="/en/p/la-tarte-et-le-terroir"
             >
               La Tarte et le terroir
             </a>
@@ -74,7 +81,8 @@ describe('Product', () => {
           <p
             class="Product-author"
           >
-            by 
+            by
+             
             <span
               class="Product-author-name"
             >
@@ -94,15 +102,17 @@ describe('Product', () => {
 
   it('renders a single Product with a cover', () => {
     const { container } = render(
-      <BrowserRouter>
-        <Product
-          ean={9781234567811}
-          title="La Tarte et le terroir"
-          slug="la-tarte-et-le-terroir"
-          author="Michelou Elbecq"
-          coverImage="la-tarte-et-le-terroir.jpg"
-        />
-      </BrowserRouter>,
+      <MemoryRouter initialEntries={['/en/p/la-tarte-et-le-terroir']}>
+        <Route path="/:locale/">
+          <Product
+            ean={9781234567811}
+            title="La Tarte et le terroir"
+            slug="la-tarte-et-le-terroir"
+            author="Michelou Elbecq"
+            coverImage="la-tarte-et-le-terroir.jpg"
+          />
+        </Route>
+      </MemoryRouter>,
     );
     expect(container).toMatchInlineSnapshot(`
       <div>
@@ -122,7 +132,8 @@ describe('Product', () => {
           <p
             class="Product-author"
           >
-            by 
+            by
+             
             <span
               class="Product-author-name"
             >

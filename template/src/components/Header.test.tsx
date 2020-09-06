@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter, Route } from 'react-router-dom';
 
 import Header from './Header';
 
@@ -9,9 +9,11 @@ jest.mock('../lib/user-files');
 describe('Header', () => {
   it('renders a Header', () => {
     const { container } = render(
-      <BrowserRouter>
-        <Header />
-      </BrowserRouter>,
+      <MemoryRouter initialEntries={['/en/']}>
+        <Route path="/:locale/">
+          <Header />
+        </Route>
+      </MemoryRouter>,
     );
     expect(container).toMatchInlineSnapshot(`
       <div>

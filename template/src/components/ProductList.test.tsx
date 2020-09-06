@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter, Route } from 'react-router-dom';
 
 import ProductList from './ProductList';
 import { getCatalog } from '../lib/user-files';
@@ -12,9 +12,11 @@ const { products } = getCatalog();
 describe('Product', () => {
   it('renders a ProductList', () => {
     const { container } = render(
-      <BrowserRouter>
-        <ProductList products={products} />
-      </BrowserRouter>,
+      <MemoryRouter initialEntries={['/en/']}>
+        <Route path="/:locale/">
+          <ProductList products={products} />
+        </Route>
+      </MemoryRouter>,
     );
     expect(container).toMatchInlineSnapshot(`
       <div>
@@ -28,7 +30,7 @@ describe('Product', () => {
               class="Product-title"
             >
               <a
-                href="/p/le-serpent-sur-la-butte-aux-pommes"
+                href="/en/p/le-serpent-sur-la-butte-aux-pommes"
               >
                 Le Serpent sur la butte aux pommes
               </a>
@@ -36,7 +38,8 @@ describe('Product', () => {
             <p
               class="Product-author"
             >
-              by 
+              by
+               
               <span
                 class="Product-author-name"
               >
