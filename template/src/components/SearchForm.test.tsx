@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, Route } from 'react-router-dom';
 
 import SearchForm from './SearchForm';
 
@@ -14,7 +14,13 @@ jest.mock('react-router-dom', () => ({
 
 describe('SearchForm', () => {
   it('renders a SearchForm', () => {
-    const { container } = render(<SearchForm />);
+    const { container } = render(
+      <MemoryRouter initialEntries={['/en/']}>
+        <Route path="/:locale/">
+          <SearchForm />
+        </Route>
+      </MemoryRouter>,
+    );
     expect(container).toMatchInlineSnapshot(`
       <div>
         <form
@@ -40,14 +46,16 @@ describe('SearchForm', () => {
 
   it('redirects to search result page on form submit', () => {
     const { getByText, getByPlaceholderText } = render(
-      <MemoryRouter>
-        <SearchForm />
+      <MemoryRouter initialEntries={['/en/']}>
+        <Route path="/:locale/">
+          <SearchForm />
+        </Route>
       </MemoryRouter>,
     );
     const input = getByPlaceholderText('Search…');
     const button = getByText('Search');
     fireEvent.change(input, { target: { value: 'Sous-sol' } });
     fireEvent.click(button);
-    expect(mockHistoryPush).toHaveBeenCalledWith('/search?q=Sous-sol');
+    expect(mockHistoryPush).toHaveBeenCalledWith('/en/search?q=Sous-sol');
   });
 });

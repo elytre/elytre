@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
+
+import Trans from './Trans';
+import useTrans from '../hooks/use-trans';
 
 export default function SearchForm(): React.ReactElement {
   const history = useHistory();
   const [query, setQuery] = useState('');
+  const { locale } = useParams<{ locale: string }>();
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    history.push(`/search?q=${query}`);
+    history.push(`/${locale}/search?q=${query}`);
   }
 
   return (
@@ -15,12 +19,14 @@ export default function SearchForm(): React.ReactElement {
       <input
         name="query"
         type="search"
-        placeholder="Search…"
+        placeholder={useTrans('Search…')}
         className="SearchForm-input"
         value={query}
         onChange={({ target }) => setQuery(target.value)}
       />
-      <button type="submit">Search</button>
+      <button type="submit">
+        <Trans>Search</Trans>
+      </button>
     </form>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, Route } from 'react-router-dom';
 
 import SearchResultsPage from './SearchResultsPage';
 
@@ -17,8 +17,10 @@ jest.mock('../lib/user-files');
 describe('SearchResultsPage', () => {
   it('renders a SearchResultsPage', () => {
     const { container } = render(
-      <MemoryRouter>
-        <SearchResultsPage />
+      <MemoryRouter initialEntries={['/en']}>
+        <Route path="/:locale/">
+          <SearchResultsPage />
+        </Route>
       </MemoryRouter>,
     );
     expect(container).toMatchInlineSnapshot(`
@@ -44,7 +46,7 @@ describe('SearchResultsPage', () => {
                 class="Product-title"
               >
                 <a
-                  href="/p/le-serpent-sur-la-butte-aux-pommes"
+                  href="/en/p/le-serpent-sur-la-butte-aux-pommes"
                 >
                   Le Serpent sur la butte aux pommes
                 </a>
@@ -52,7 +54,8 @@ describe('SearchResultsPage', () => {
               <p
                 class="Product-author"
               >
-                by 
+                by
+                 
                 <span
                   class="Product-author-name"
                 >

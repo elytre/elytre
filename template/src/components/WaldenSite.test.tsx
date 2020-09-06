@@ -59,7 +59,7 @@ describe('Product', () => {
                     class="Product-title"
                   >
                     <a
-                      href="/p/le-serpent-sur-la-butte-aux-pommes"
+                      href="/en/p/le-serpent-sur-la-butte-aux-pommes"
                     >
                       Le Serpent sur la butte aux pommes
                     </a>
@@ -67,7 +67,8 @@ describe('Product', () => {
                   <p
                     class="Product-author"
                   >
-                    by 
+                    by
+                     
                     <span
                       class="Product-author-name"
                     >

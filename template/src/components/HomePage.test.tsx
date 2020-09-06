@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter, Route } from 'react-router-dom';
 
 import HomePage from './HomePage';
 
@@ -9,9 +9,11 @@ jest.mock('../lib/user-files');
 describe('HomePage', () => {
   it('renders a HomePage', () => {
     const { container } = render(
-      <BrowserRouter>
-        <HomePage />
-      </BrowserRouter>,
+      <MemoryRouter initialEntries={['/en/']}>
+        <Route path="/:locale/">
+          <HomePage />
+        </Route>
+      </MemoryRouter>,
     );
     expect(container).toMatchInlineSnapshot(`
       <div>
@@ -31,7 +33,7 @@ describe('HomePage', () => {
                   class="Product-title"
                 >
                   <a
-                    href="/p/le-serpent-sur-la-butte-aux-pommes"
+                    href="/en/p/le-serpent-sur-la-butte-aux-pommes"
                   >
                     Le Serpent sur la butte aux pommes
                   </a>
@@ -39,7 +41,8 @@ describe('HomePage', () => {
                 <p
                   class="Product-author"
                 >
-                  by 
+                  by
+                   
                   <span
                     class="Product-author-name"
                   >

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter, Route } from 'react-router-dom';
 
 import Catalog from './Catalog';
 
@@ -9,9 +9,11 @@ jest.mock('../lib/user-files');
 describe('Product', () => {
   it('renders a Catalog', () => {
     const { container } = render(
-      <BrowserRouter>
-        <Catalog />
-      </BrowserRouter>,
+      <MemoryRouter initialEntries={['/en/']}>
+        <Route path="/:locale/">
+          <Catalog />
+        </Route>
+      </MemoryRouter>,
     );
     expect(container).toMatchInlineSnapshot(`
       <div>
@@ -28,7 +30,7 @@ describe('Product', () => {
                 class="Product-title"
               >
                 <a
-                  href="/p/le-serpent-sur-la-butte-aux-pommes"
+                  href="/en/p/le-serpent-sur-la-butte-aux-pommes"
                 >
                   Le Serpent sur la butte aux pommes
                 </a>
@@ -36,7 +38,8 @@ describe('Product', () => {
               <p
                 class="Product-author"
               >
-                by 
+                by
+                 
                 <span
                   class="Product-author-name"
                 >
