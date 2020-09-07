@@ -14,12 +14,18 @@ import ProductPage from './ProductPage';
 import Error404Page from './Error404Page';
 import SearchResultsPage from './SearchResultsPage';
 
+import selectBrowserLanguage from '../lib/select-browser-language';
+
+const defaultLocale = selectBrowserLanguage(window.navigator.languages);
+
 export default function WaldenSite(): React.ReactElement {
   return (
     <div className="WaldenSite">
       <Router>
         {/* Redirect root url to default locale */}
-        <Route path="/" exact render={() => <Redirect to={'/en/'} />} />
+        <Route path="/" exact>
+          <Redirect to={`/${defaultLocale}/`} />
+        </Route>
         {/* Render Header for every route including a locale */}
         <Route path="/:locale/" component={Header} />
         <Switch>
