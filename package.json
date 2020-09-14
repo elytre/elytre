@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.10.4",
-    "@testing-library/react": "^11.0.2",
+    "@testing-library/react": "^11.0.4",
     "@testing-library/jest-dom": "^5.11.4",
     "@types/fs-extra": "^9.0.1",
     "@types/jest": "^26.0.13",
