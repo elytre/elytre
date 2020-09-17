@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import WaldenSite from './components/WaldenSite';
+import ElytreSite from './components/ElytreSite';
 
 import './styles.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <WaldenSite />
+    <ElytreSite />
   </React.StrictMode>,
   document.getElementById('root'),
 );

@@ -86,7 +86,7 @@ Customize your site's appearance by adding a `styles.css` file in your project's
 directory.
 
 ```css
-.WaldenSite {
+.ElytreSite {
   /* This is a global wrapper for all your site. Here you can set page width,
   margins, etc. */
 }
@@ -127,7 +127,7 @@ directory.
   /* How the reasons appears if provided on a 404 error page */
 }
 
-.WaldenSite-powered-by {
+.ElytreSite-powered-by {
   /* The "Powered by Walden" text in the footer can be hidden (please don't!)
   or made more discreet here */
 }

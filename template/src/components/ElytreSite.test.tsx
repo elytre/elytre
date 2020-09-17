@@ -1,13 +1,13 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import WaldenSite from './WaldenSite';
+import ElytreSite from './ElytreSite';
 
 jest.mock('../lib/user-files');
 
 describe('Product', () => {
-  it('renders a WaldenSite component', () => {
-    const { container } = render(<WaldenSite />);
+  it('renders a ElytreSite component', () => {
+    const { container } = render(<ElytreSite />);
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
