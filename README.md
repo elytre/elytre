@@ -1,20 +1,20 @@
-# Walden
+# elytre
 
 [![npm](https://img.shields.io/npm/v/@iwazaru/walden)](https://www.npmjs.com/package/@iwazaru/walden)
-[![CI](https://github.com/iwazaru/walden/workflows/CI/badge.svg)](https://github.com/iwazaru/walden/actions?query=workflow%3ACI)
+[![CI](https://github.com/iwazaru/walden/workflows/CI/badge.svg)](https://github.com/elytre/elytre/actions?query=workflow%3ACI)
 
-Walden is a tool to build a serverless online bookstore with a search engine
+Elytre is a tool to build a serverless online bookstore with a search engine
 from a catalog file.
 
-<a href="walden.png">
+<a href="build-process.png">
   <img 
-    src="walden.png" 
-    alt="A schema explaining that Walden uses a catalog.yaml to create a website"
+    src="build-process.png" 
+    alt="A schema explaining that elytre uses a catalog.yaml to create a website"
     width="700" 
   />
 </a>
 
-⚠ Walden is still in early development and it would be unwise to use it in
+⚠ Elytre is still in early development and it would be unwise to use it in
 production at that stage. Expect breaking changes, strange bugs, broken tests
 and missing documentation until 1.0 is released (hopefully in september 2020).
 
@@ -27,7 +27,7 @@ Requirements:
 
 1. Create an empty directory for your project
 2. Initialize yarn: `yarn init`
-3. Add Walden: `yarn add --exact @iwazaru/walden`
+3. Add Elytre: `yarn add --exact @iwazaru/walden`
 4. Add both `start` and `build` scripts to your package.json:
 
 ```json
@@ -41,7 +41,7 @@ Requirements:
 
 ## Usage
 
-For your Walden site to be built successfully, your project directory will
+For your elytre site to be built successfully, your project directory will
 require at least three files:
 
 - a `site.yaml` file specifying your site's info and configuration (see
@@ -135,7 +135,7 @@ directory.
 
 ### Once you've created these files, you can:
 
-#### Build your Walden site for production
+#### Build your elytre site for production
 
 ```console
 $ yarn build
@@ -145,7 +145,7 @@ This will build your website for production in a `build` folder, ready for
 deployment. You can serve this folder using any web server or static website
 host.
 
-#### Start Walden in development mode:
+#### Start elytre in development mode:
 
 ```console
 $ yarn start
@@ -171,11 +171,11 @@ $ yarn test
 
 ## Development
 
-Walden is made of two main parts:
+Elytre is made of two main parts:
 
 - `template/src`: a template React site that is merged with user's customization
-  files to build the final Walden site
-- `build/src`: a node tool that builds the final Walden site using the React
+  files to build the final elytre site
+- `build/src`: a node tool that builds the final elytre site using the React
   template and user's customization file
 
 Both are written in Typescript and needs to be transpiled before it can be used.
