@@ -17,8 +17,8 @@ describe('createTempDir', () => {
     const tempDirPath = createTempDir();
 
     expect(tmpdir).toHaveBeenCalledWith();
-    expect(mkdtempSync).toHaveBeenCalledWith('/tmp/walden-');
-    expect(tempDirPath).toBe('/tmp/walden-abcd1234');
-    expect(log).toHaveBeenCalledWith('Created temp directory: /tmp/walden-abcd1234…');
+    expect(mkdtempSync).toHaveBeenCalledWith('/tmp/elytre-');
+    expect(tempDirPath).toBe('/tmp/elytre-abcd1234');
+    expect(log).toHaveBeenCalledWith('Created temp directory: /tmp/elytre-abcd1234…');
   });
 });

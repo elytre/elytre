@@ -18,22 +18,22 @@ async function build(command: 'build' | 'start' = 'build'): Promise<void> {
   try {
     if (command === 'build') {
       // eslint-disable-next-line no-console
-      console.log('Building Walden site for production…');
+      console.log('Building Elytre site for production…');
     } else if (command === 'start') {
       // eslint-disable-next-line no-console
-      console.log('Starting Walden in watch mode…');
+      console.log('Starting Elytre in watch mode…');
     } else {
       throw new Error(`Unknown command ${command}`);
     }
 
-    // Get walden module directories paths
-    const modulePath = dirname(require.resolve('@iwazaru/walden/package.json'));
+    // Get elytre module directories paths
+    const modulePath = dirname(require.resolve('elytre/package.json'));
     const templatePath = join(modulePath, 'template/dist');
 
     // Create temporary directory
     const tempDirPath = createTempDir();
 
-    // Copy walden site template to local temp directory
+    // Copy elytre site template to local temp directory
     copySync(templatePath, tempDirPath);
 
     // Create a symbolic link to node_modules in temporary directory

@@ -1,11 +1,11 @@
 {
-  "name": "@iwazaru/walden",
+  "name": "elytre",
   "version": "0.9.0",
-  "repository": "https://github.com/iwazaru/walden",
+  "repository": "https://github.com/elytre/elytre",
   "author": "Clément Bourgoin <c@iwzr.fr>",
   "license": "MIT",
   "bin": {
-    "walden": "./bin/walden.js"
+    "elytre": "./bin/elytre.js"
   },
   "scripts": {
     "dev": "run-p -l dev:**",

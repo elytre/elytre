@@ -1,7 +1,7 @@
 # elytre
 
-[![npm](https://img.shields.io/npm/v/@iwazaru/walden)](https://www.npmjs.com/package/@iwazaru/walden)
-[![CI](https://github.com/iwazaru/walden/workflows/CI/badge.svg)](https://github.com/elytre/elytre/actions?query=workflow%3ACI)
+[![npm](https://img.shields.io/npm/v/elytre)](https://www.npmjs.com/package/elytre)
+[![CI](https://github.com/elytre/elytre/workflows/CI/badge.svg)](https://github.com/elytre/elytre/actions?query=workflow%3ACI)
 
 Elytre is a tool to build a serverless online bookstore with a search engine
 from a catalog file.
@@ -27,14 +27,14 @@ Requirements:
 
 1. Create an empty directory for your project
 2. Initialize yarn: `yarn init`
-3. Add Elytre: `yarn add --exact @iwazaru/walden`
+3. Add Elytre: `yarn add --exact elytre`
 4. Add both `start` and `build` scripts to your package.json:
 
 ```json
 {
   "scripts": {
-    "start": "walden start",
-    "build": "walden build"
+    "start": "elytre start",
+    "build": "elytre build"
   }
 }
 ```
@@ -128,7 +128,7 @@ directory.
 }
 
 .ElytreSite-powered-by {
-  /* The "Powered by Walden" text in the footer can be hidden (please don't!)
+  /* The "Powered by Elytre" text in the footer can be hidden (please don't!)
   or made more discreet here */
 }
 ```
