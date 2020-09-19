@@ -11,7 +11,7 @@ describe('Product', () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="WaldenSite"
+          class="ElytreSite"
         >
           <header
             class="Header"
@@ -86,16 +86,16 @@ describe('Product', () => {
             </div>
           </div>
           <footer
-            class="WaldenSite-powered-by"
+            class="ElytreSite-powered-by"
           >
             Powered by
              
             <a
-              href="https://walden.app"
+              href="https://elytre.app"
               rel="noopener noreferrer"
               target="_blank"
             >
-              Walden
+              Elytre
             </a>
           </footer>
         </div>

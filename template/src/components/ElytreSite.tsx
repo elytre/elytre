@@ -18,9 +18,9 @@ import selectBrowserLanguage from '../lib/select-browser-language';
 
 const defaultLocale = selectBrowserLanguage(window.navigator.languages);
 
-export default function WaldenSite(): React.ReactElement {
+export default function ElytreSite(): React.ReactElement {
   return (
-    <div className="WaldenSite">
+    <div className="ElytreSite">
       <Router>
         {/* Redirect root url to default locale */}
         <Route path="/" exact>
@@ -36,14 +36,14 @@ export default function WaldenSite(): React.ReactElement {
         </Switch>
         {/* Render Header for every route including a locale */}
         <Route path="/:locale/">
-          <footer className="WaldenSite-powered-by">
+          <footer className="ElytreSite-powered-by">
             <Trans>Powered by</Trans>{' '}
             <a
-              href="https://walden.app"
+              href="https://elytre.app"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Walden
+              Elytre
             </a>
           </footer>
         </Route>
