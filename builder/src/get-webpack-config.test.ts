@@ -32,7 +32,7 @@ describe('getWebpackConfig', () => {
         },
         "output": Object {
           "filename": "main.js",
-          "path": "/Users/clement/dev/walden/walden/build",
+          "path": "/Users/clement/dev/elytre/elytre/build",
           "publicPath": "/",
         },
         "plugins": Array [
