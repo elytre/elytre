@@ -24,7 +24,7 @@ describe('prepareUserFiles', () => {
 
     prepareUserFiles('/tmp/dir');
 
-    expect(log).toHaveBeenCalledWith('Preparing user files…');
+    expect(log).toHaveBeenCalledWith('Working directory: /tmp/dir');
     expect(log).toHaveBeenCalledWith('Checking required files…');
     expect(checkRequirements).toHaveBeenCalledWith();
 

@@ -17,7 +17,7 @@ import Catalog from './models/Catalog';
  */
 export default function prepareUserFiles(tempDirPath: string): void {
   // eslint-disable-next-line no-console
-  console.log('Preparing user files…');
+  console.log(`Working directory: ${tempDirPath}`);
 
   // eslint-disable-next-line no-console
   console.log('Checking required files…');

@@ -2,10 +2,8 @@ import { join } from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import EventHooksPlugin from 'event-hooks-webpack-plugin';
 
 import { SiteConfig } from './types';
-import prepareUserFiles from './prepare-user-files';
 
 // Get local build directory path
 const outputPath = join(process.cwd(), '/build');
@@ -34,12 +32,6 @@ export default function getWebpackConfig(
       <div id="root"></div>
     </body>
   </html>`,
-      }),
-      // Run preareUserFiles function before every build
-      // and when user file changes in watch mode
-      new EventHooksPlugin({
-        beforeRun: () => prepareUserFiles(tempDirPath),
-        watchRun: () => prepareUserFiles(tempDirPath),
       }),
     ],
     resolve: {

@@ -39,7 +39,10 @@ async function build(command: 'build' | 'start' = 'build'): Promise<void> {
     // Create a symbolic link to node_modules in temporary directory
     symlinkSync(resolve('node_modules'), join(tempDirPath, '/node_modules'));
 
-    // Get site and webpack configs
+    // Prepare user files for build
+    prepareUserFiles(tempDirPath);
+
+    // Create site and webpack configs
     const siteConfig = getSiteConfig();
     const webpackConfig = getWebpackConfig(tempDirPath, siteConfig);
 
