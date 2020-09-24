@@ -23,28 +23,32 @@ describe('Product', () => {
         <div
           class="Product"
         >
-          <h1
-            class="Product-title"
+          <div
+            class="Product-infos"
           >
-            La Tarte et le terroir
-          </h1>
-          <p
-            class="Product-author"
-          >
-            by
-             
-            <span
-              class="Product-author-name"
+            <h1
+              class="Product-title"
             >
-              Michelou Elbecq
-            </span>
-          </p>
-          <p
-            class="Product-isbn"
-          >
-            ISBN: 
-            9781234567811
-          </p>
+              La Tarte et le terroir
+            </h1>
+            <p
+              class="Product-author"
+            >
+              by
+               
+              <span
+                class="Product-author-name"
+              >
+                Michelou Elbecq
+              </span>
+            </p>
+            <p
+              class="Product-isbn"
+            >
+              ISBN: 
+              9781234567811
+            </p>
+          </div>
         </div>
       </div>
     `);
@@ -69,32 +73,36 @@ describe('Product', () => {
         <div
           class="Product"
         >
-          <h1
-            class="Product-title"
+          <div
+            class="Product-infos"
           >
-            <a
-              href="/en/p/la-tarte-et-le-terroir"
+            <h1
+              class="Product-title"
             >
-              La Tarte et le terroir
-            </a>
-          </h1>
-          <p
-            class="Product-author"
-          >
-            by
-             
-            <span
-              class="Product-author-name"
+              <a
+                href="/en/p/la-tarte-et-le-terroir"
+              >
+                La Tarte et le terroir
+              </a>
+            </h1>
+            <p
+              class="Product-author"
             >
-              Michelou Elbecq
-            </span>
-          </p>
-          <p
-            class="Product-isbn"
-          >
-            ISBN: 
-            9781234567811
-          </p>
+              by
+               
+              <span
+                class="Product-author-name"
+              >
+                Michelou Elbecq
+              </span>
+            </p>
+            <p
+              class="Product-isbn"
+            >
+              ISBN: 
+              9781234567811
+            </p>
+          </div>
         </div>
       </div>
     `);
@@ -119,33 +127,41 @@ describe('Product', () => {
         <div
           class="Product"
         >
-          <img
-            alt="La Tarte et le terroir"
-            class="Product-cover-image"
-            src="/la-tarte-et-le-terroir.jpg"
-          />
-          <h1
-            class="Product-title"
+          <div
+            class="Product-cover"
           >
-            La Tarte et le terroir
-          </h1>
-          <p
-            class="Product-author"
+            <img
+              alt="La Tarte et le terroir"
+              class="Product-cover-image"
+              src="/la-tarte-et-le-terroir.jpg"
+            />
+          </div>
+          <div
+            class="Product-infos"
           >
-            by
-             
-            <span
-              class="Product-author-name"
+            <h1
+              class="Product-title"
             >
-              Michelou Elbecq
-            </span>
-          </p>
-          <p
-            class="Product-isbn"
-          >
-            ISBN: 
-            9781234567811
-          </p>
+              La Tarte et le terroir
+            </h1>
+            <p
+              class="Product-author"
+            >
+              by
+               
+              <span
+                class="Product-author-name"
+              >
+                Michelou Elbecq
+              </span>
+            </p>
+            <p
+              class="Product-isbn"
+            >
+              ISBN: 
+              9781234567811
+            </p>
+          </div>
         </div>
       </div>
     `);

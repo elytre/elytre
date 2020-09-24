@@ -26,32 +26,36 @@ describe('Product', () => {
           <div
             class="Product"
           >
-            <h1
-              class="Product-title"
+            <div
+              class="Product-infos"
             >
-              <a
-                href="/en/p/le-serpent-sur-la-butte-aux-pommes"
+              <h1
+                class="Product-title"
               >
-                Le Serpent sur la butte aux pommes
-              </a>
-            </h1>
-            <p
-              class="Product-author"
-            >
-              by
-               
-              <span
-                class="Product-author-name"
+                <a
+                  href="/en/p/le-serpent-sur-la-butte-aux-pommes"
+                >
+                  Le Serpent sur la butte aux pommes
+                </a>
+              </h1>
+              <p
+                class="Product-author"
               >
-                Gérard Ferrori
-              </span>
-            </p>
-            <p
-              class="Product-isbn"
-            >
-              ISBN: 
-              9781234567833
-            </p>
+                by
+                 
+                <span
+                  class="Product-author-name"
+                >
+                  Gérard Ferrori
+                </span>
+              </p>
+              <p
+                class="Product-isbn"
+              >
+                ISBN: 
+                9781234567833
+              </p>
+            </div>
           </div>
         </div>
       </div>

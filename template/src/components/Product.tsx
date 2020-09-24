@@ -27,19 +27,24 @@ export default function Product({
   return (
     <div className="Product">
       {coverImage ? (
-        <img
-          src={`/${coverImage}`}
-          alt={title}
-          className="Product-cover-image"
-        />
+        <div className="Product-cover">
+          <img
+            src={`/${coverImage}`}
+            alt={title}
+            className="Product-cover-image"
+          />
+        </div>
       ) : null}
-      <h1 className="Product-title">
-        {withLink ? <Link to={`/${locale}/p/${slug}`}>{title}</Link> : title}
-      </h1>
-      <p className="Product-author">
-        <Trans>by</Trans> <span className="Product-author-name">{author}</span>
-      </p>
-      <p className="Product-isbn">ISBN: {ean}</p>
+      <div className="Product-infos">
+        <h1 className="Product-title">
+          {withLink ? <Link to={`/${locale}/p/${slug}`}>{title}</Link> : title}
+        </h1>
+        <p className="Product-author">
+          <Trans>by</Trans>{' '}
+          <span className="Product-author-name">{author}</span>
+        </p>
+        <p className="Product-isbn">ISBN: {ean}</p>
+      </div>
     </div>
   );
 }
