@@ -3,6 +3,7 @@ import { copySync, symlinkSync, watch } from 'fs-extra';
 import webpack from 'webpack';
 import * as liveServer from 'live-server';
 
+import log from './log';
 import createTempDir from './create-temp-dir';
 import prepareUserFiles from './prepare-user-files';
 import onBuildEnd from './on-build-end';
@@ -17,11 +18,9 @@ import getSiteConfig from './get-site-config';
 async function build(command: 'build' | 'start' = 'build'): Promise<void> {
   try {
     if (command === 'build') {
-      // eslint-disable-next-line no-console
-      console.log('Building Elytre site for production…');
+      log.info('Building Elytre site for production…');
     } else if (command === 'start') {
-      // eslint-disable-next-line no-console
-      console.log('Starting Elytre in watch mode…');
+      log.info('Starting Elytre in watch mode…');
     } else {
       throw new Error(`Unknown command ${command}`);
     }
@@ -32,6 +31,8 @@ async function build(command: 'build' | 'start' = 'build'): Promise<void> {
 
     // Create temporary directory
     const tempDirPath = createTempDir();
+    log.success('Created temp directory');
+    log.info(`Working in ${tempDirPath}`);
 
     // Copy elytre site template to local temp directory
     copySync(templatePath, tempDirPath);
@@ -50,12 +51,10 @@ async function build(command: 'build' | 'start' = 'build'): Promise<void> {
     const compiler = webpack(webpackConfig);
 
     if (command === 'build') {
-      // eslint-disable-next-line no-console
-      console.log('Building using webpack…');
+      log.info('Building using webpack…');
       compiler.run((error, stats) => onBuildEnd(error, stats, webpackConfig));
     } else if (command === 'start') {
-      // eslint-disable-next-line no-console
-      console.log('Watching for changes…');
+      log.info('Watching for changes…');
       compiler.watch(
         { aggregateTimeout: 300, poll: false, ignored: /node_modules/ },
         (error, stats) => onBuildEnd(error, stats, webpackConfig),
@@ -64,8 +63,7 @@ async function build(command: 'build' | 'start' = 'build'): Promise<void> {
       // Re-prepare build if user files changed
       // Copying files in temp directory will trigger a new build from webpack
       watch('./', {}, (eventType, fileName) => {
-        // eslint-disable-next-line no-console
-        console.log(`${fileName} was ${eventType}d, rebuilding…`);
+        log.info(`${fileName} was ${eventType}d, rebuilding…`);
         prepareUserFiles(tempDirPath);
       });
 
@@ -77,8 +75,7 @@ async function build(command: 'build' | 'start' = 'build'): Promise<void> {
       });
     }
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error(error);
+    log.error(error.message);
     process.exit(1);
   }
 }

@@ -6,6 +6,7 @@ import validateFile from './validate-file';
 import yamlFileToJsonFile from './yaml-file-to-json-file';
 import buildCatalog from './build-catalog';
 import createSearchIndex from './create-search-index';
+import log from './log';
 
 import Site from './models/Site';
 import Catalog from './models/Catalog';
@@ -16,32 +17,27 @@ import Catalog from './models/Catalog';
  * and each time a file change in watch mode
  */
 export default function prepareUserFiles(tempDirPath: string): void {
-  // eslint-disable-next-line no-console
-  console.log(`Working directory: ${tempDirPath}`);
-
-  // eslint-disable-next-line no-console
-  console.log('Checking required files…');
   checkRequirements();
+  log.success('Checked required files');
 
-  // eslint-disable-next-line no-console
-  console.log('Validating YAML files…');
   validateFile('site.yaml', Site);
+  log.success('Validated site.yaml file');
   validateFile('catalog.yaml', Catalog);
+  log.success('Validated catalog.yaml file');
 
-  // eslint-disable-next-line no-console
-  console.log('Copying files to temp directory…');
   yamlFileToJsonFile(resolve('./site.yaml'), join(tempDirPath, '/site.json'));
   copySync(resolve('./styles.css'), join(tempDirPath, './styles.css'));
+  log.success('Copied user files to temp directory');
 
-  // eslint-disable-next-line no-console
-  console.log('Building product catalog from catalog.yaml…');
   const catalog = buildCatalog(
     resolve('./catalog.yaml'),
     join(tempDirPath, '/catalog.json'),
     tempDirPath,
   );
+  log.success(
+    `Built catalog with ${catalog.products.length} products from catalog.yaml`,
+  );
 
-  // eslint-disable-next-line no-console
-  console.log('Building search index from product catalog…');
   createSearchIndex(catalog, tempDirPath);
+  log.success('Built search index from product catalog');
 }

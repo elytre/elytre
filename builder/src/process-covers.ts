@@ -1,4 +1,6 @@
+import chalk from 'chalk';
 import { readdirSync, copyFileSync } from 'fs-extra';
+import log from './log';
 
 import { Product } from './types';
 
@@ -6,8 +8,7 @@ export default function processCovers(
   products: Product[],
   tempDirPath: string,
 ): Product[] {
-  // eslint-disable-next-line no-console
-  console.log('Processing cover images…');
+  let processCoversCount = 0;
 
   // For each file in cover directory
   readdirSync('./covers').forEach((fileName: string): void => {
@@ -16,8 +17,11 @@ export default function processCovers(
 
     // Skip files without an EAN in name
     if (!matches) {
-      // eslint-disable-next-line no-console
-      console.warn(`- ${fileName} does not match {ean}.jpg file name pattern`);
+      log.warning(
+        `File ${chalk.bold(`covers/${fileName}`)} does not match ${chalk.bold(
+          '{ean}.jpg',
+        )} file name pattern`,
+      );
       return;
     }
 
@@ -28,9 +32,12 @@ export default function processCovers(
 
     // Skip files not maching a product
     if (!product) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        `- ${fileName} does not match any product in catalog with EAN ${fileEan}`,
+      log.warning(
+        `File ${chalk.bold(
+          `covers/${fileName}`,
+        )} does not match any product in catalog with EAN ${chalk.bold(
+          fileEan,
+        )}`,
       );
       return;
     }
@@ -43,10 +50,10 @@ export default function processCovers(
 
     // Save image file with slug
     copyFileSync(`./covers/${fileName}`, `${tempDirPath}/${newFileName}`);
-
-    // eslint-disable-next-line no-console
-    console.log(`- Added cover file ${newFileName}`);
+    processCoversCount += 1;
   });
+
+  log.success(`Processed ${processCoversCount} cover images`);
 
   return products;
 }
