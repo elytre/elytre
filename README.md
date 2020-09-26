@@ -16,7 +16,7 @@ from a catalog file.
 
 ⚠ Elytre is still in early development and it would be unwise to use it in
 production at that stage. Expect breaking changes, strange bugs, broken tests
-and missing documentation until 1.0 is released (hopefully in september 2020).
+and missing documentation until 1.0 is released (hopefully in november 2020).
 
 ## Install
 
@@ -62,7 +62,8 @@ Customize your site's configuration by adding a `site.yaml` file in your
 project's directory.
 
 ```yaml
-title: Les Éditions Paronymie # site title
+# The site's title, as displayed in site's header and browser's tab
+title: Les Éditions Paronymie
 ```
 
 ### Catalog file specification
@@ -95,12 +96,16 @@ directory.
   /* How a product is displayed */
 }
 
-.Product .Product-title {
-  /* How a product's title is displayed */
-}
-
 .Product .Product-cover-image {
   /* How a product cover image is displayed */
+}
+
+.Product .Product-infos {
+  /* How a product's infos (title, author, ean) are displayed */
+}
+
+.Product .Product-title {
+  /* How a product's title is displayed */
 }
 
 .ProductList {
