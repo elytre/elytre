@@ -43,7 +43,7 @@ async function build(command: 'build' | 'start' = 'build'): Promise<void> {
     // Prepare user files for build
     prepareUserFiles(tempDirPath);
 
-    // Create site and webpack configs
+    // Get site and webpack configs
     const siteConfig = getSiteConfig();
     const webpackConfig = getWebpackConfig(tempDirPath, siteConfig);
 
