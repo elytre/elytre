@@ -1,11 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import Product, { ProductProps } from './Product';
 import Error404Page from './Error404Page';
 
-import { getCatalog } from '../lib/user-files';
+import { getCatalog, getSiteConfig } from '../lib/user-files';
 
+const site = getSiteConfig();
 const catalog = getCatalog();
 
 type RouteProps = {
@@ -21,7 +23,14 @@ export default function ProductPage(): React.ReactElement {
   return (
     <div className="ProductPage">
       {product ? (
-        <Product {...product} />
+        <>
+          <Helmet>
+            <title>
+              {product.title} - {site.title}
+            </title>
+          </Helmet>
+          <Product {...product} />
+        </>
       ) : (
         <Error404Page reason={`No product found for slug ${requestSlug}`} />
       )}
