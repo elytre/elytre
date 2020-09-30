@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import { readdirSync, copyFileSync } from 'fs-extra';
+import { existsSync, readdirSync, copyFileSync } from 'fs-extra';
 import log from './log';
 
 import { Product } from './types';
@@ -9,6 +9,11 @@ export default function processCovers(
   tempDirPath: string,
 ): Product[] {
   let processCoversCount = 0;
+
+  // Ignore if covers directory does not exist
+  if (!existsSync('./covers')) {
+    return products;
+  }
 
   // For each file in cover directory
   readdirSync('./covers').forEach((fileName: string): void => {
