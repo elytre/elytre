@@ -132,7 +132,11 @@ directory.
   /* How the reasons appears if provided on a 404 error page */
 }
 
-.ElytreSite-powered-by {
+.Footer {
+  /* How the site footer is displayed */
+}
+
+.Footer-powered-by {
   /* The "Powered by Elytre" text in the footer can be hidden (please don't!)
   or made more discreet here */
 }

@@ -90,17 +90,21 @@ describe('Product', () => {
             </div>
           </div>
           <footer
-            class="ElytreSite-powered-by"
+            class="Footer"
           >
-            Powered by
-             
-            <a
-              href="https://elytre.app"
-              rel="noopener noreferrer"
-              target="_blank"
+            <p
+              class="Footer-powered-by"
             >
-              Elytre
-            </a>
+              Powered by
+               
+              <a
+                href="https://elytre.app"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Elytre
+              </a>
+            </p>
           </footer>
         </div>
       </div>
