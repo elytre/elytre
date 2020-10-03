@@ -1,6 +1,19 @@
+/* Site config */
+
+type MenuEntry = {
+  label: string;
+  href: string;
+};
+
 export type SiteConfig = {
   title: string;
+  menus?: {
+    header?: MenuEntry[];
+    footer?: MenuEntry[];
+  };
 };
+
+/* Catalog */
 
 export type Product = {
   ean: number;
