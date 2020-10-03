@@ -42,6 +42,34 @@ describe('Product', () => {
                 Search
               </button>
             </form>
+            <nav
+              class="Menu"
+            >
+              <ul
+                class="Menu-entries"
+              >
+                <li
+                  class="Menu-entry"
+                >
+                  <a
+                    aria-current="page"
+                    class="active"
+                    href="/"
+                  >
+                    Home
+                  </a>
+                </li>
+                <li
+                  class="Menu-entry"
+                >
+                  <a
+                    href="/pages/about"
+                  >
+                    About
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </header>
           <div
             class="HomePage"
