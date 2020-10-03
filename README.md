@@ -64,6 +64,12 @@ project's directory.
 ```yaml
 # The site's title, as displayed in site's header and browser's tab
 title: Les Éditions Paronymie
+menus:
+  header:
+    - label: About
+      link: /pages/about
+    - label: contact
+      link: /contact/
 ```
 
 ### Catalog file specification
