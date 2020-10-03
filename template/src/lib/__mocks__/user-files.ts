@@ -1,5 +1,11 @@
 const getSiteConfig = jest.fn().mockReturnValueOnce({
   title: 'Les Éditions Paronymie',
+  menus: {
+    header: [
+      { label: 'Home', href: '/' },
+      { label: 'About', href: '/pages/about' },
+    ],
+  },
 });
 
 const getCatalog = jest.fn().mockReturnValueOnce({

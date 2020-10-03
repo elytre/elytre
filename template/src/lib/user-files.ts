@@ -16,8 +16,17 @@ import site from '../site.json';
 import searchIndex from '../search-index.json';
 
 // TODO: share types between template and builder
+type MenuEntry = {
+  label: string;
+  href: string;
+};
+
 export type SiteConfig = {
   title: string;
+  menus?: {
+    header?: MenuEntry[];
+    footer?: MenuEntry[];
+  };
 };
 
 export type Product = {

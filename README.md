@@ -98,6 +98,18 @@ directory.
   margins, etc. */
 }
 
+.Header {
+  /* How the site header is displayed */
+}
+
+.Header .Menu {
+  /* How the header is displayed */
+}
+
+.Header .Menu .Menu-entry {
+  /* How a single entry is displayed in the header menu */
+}
+
 .Product {
   /* How a product is displayed */
 }
