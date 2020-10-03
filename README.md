@@ -64,6 +64,10 @@ project's directory.
 ```yaml
 # The site's title, as displayed in site's header and browser's tab
 title: Les Éditions Paronymie
+
+# The site's base url, including protocol (http/https) and hostname,
+# used to build the sitemap, without a trailing slash
+url: https://www.editionsparonymie.com
 ```
 
 ### Catalog file specification

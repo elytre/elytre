@@ -1,5 +1,6 @@
 export type SiteConfig = {
   title: string;
+  url: string;
 };
 
 export type Product = {
