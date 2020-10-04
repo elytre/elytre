@@ -12,7 +12,7 @@ const getSiteConfig = jest.fn().mockReturnValue({
   },
 });
 
-const getCatalog = jest.fn().mockReturnValueOnce({
+const getCatalog = jest.fn().mockReturnValue({
   products: [
     {
       ean: 9781234567833,
