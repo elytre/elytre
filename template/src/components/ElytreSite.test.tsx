@@ -5,7 +5,7 @@ import ElytreSite from './ElytreSite';
 
 jest.mock('../lib/user-files');
 
-describe('Product', () => {
+describe('ElytreSite', () => {
   it('renders a ElytreSite component', () => {
     const { container } = render(<ElytreSite />);
     expect(container).toMatchInlineSnapshot(`
@@ -120,6 +120,32 @@ describe('Product', () => {
           <footer
             class="Footer"
           >
+            <nav
+              class="Menu"
+            >
+              <ul
+                class="Menu-entries"
+              >
+                <li
+                  class="Menu-entry"
+                >
+                  <a
+                    href="/pages/legal-notice"
+                  >
+                    Legal notice
+                  </a>
+                </li>
+                <li
+                  class="Menu-entry"
+                >
+                  <a
+                    href="/contact/"
+                  >
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </nav>
             <p
               class="Footer-powered-by"
             >

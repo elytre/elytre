@@ -4,6 +4,8 @@ import { MemoryRouter, Route } from 'react-router-dom';
 
 import Footer from './Footer';
 
+jest.mock('../lib/user-files');
+
 describe('Footer', () => {
   it('renders a Footer', () => {
     const { container } = render(
@@ -17,6 +19,32 @@ describe('Footer', () => {
       <footer
         class="Footer"
       >
+        <nav
+          class="Menu"
+        >
+          <ul
+            class="Menu-entries"
+          >
+            <li
+              class="Menu-entry"
+            >
+              <a
+                href="/pages/legal-notice"
+              >
+                Legal notice
+              </a>
+            </li>
+            <li
+              class="Menu-entry"
+            >
+              <a
+                href="/contact/"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
         <p
           class="Footer-powered-by"
         >

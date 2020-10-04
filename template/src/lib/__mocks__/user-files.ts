@@ -1,9 +1,13 @@
-const getSiteConfig = jest.fn().mockReturnValueOnce({
+const getSiteConfig = jest.fn().mockReturnValue({
   title: 'Les Éditions Paronymie',
   menus: {
     header: [
       { label: 'Home', href: '/' },
       { label: 'About', href: '/pages/about' },
+    ],
+    footer: [
+      { label: 'Legal notice', href: '/pages/legal-notice' },
+      { label: 'Contact', href: '/contact/' },
     ],
   },
 });
