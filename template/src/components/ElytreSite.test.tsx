@@ -31,6 +31,9 @@ describe('ElytreSite', () => {
     // Expect component to render Header (containing site title)
     expect(screen.getByText('Les Éditions Paronymie')).toBeInTheDocument();
 
+    // Expect component to render nav Menu (containing first entry)
+    expect(screen.getByText('Books')).toBeInTheDocument();
+
     // Expect component to render Main (which, by default, renders home page,
     // containing a product list with first product)
     expect(

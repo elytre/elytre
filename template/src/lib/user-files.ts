@@ -25,6 +25,7 @@ export type SiteConfig = {
   title: string;
   menus?: {
     header?: MenuEntry[];
+    nav?: MenuEntry[];
     footer?: MenuEntry[];
   };
 };

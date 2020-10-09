@@ -5,6 +5,10 @@ const getSiteConfig = jest.fn().mockReturnValue({
       { label: 'Home', href: '/' },
       { label: 'About', href: '/pages/about' },
     ],
+    nav: [
+      { label: 'Books', href: '/pages/books' },
+      { label: 'Search', href: '/search/' },
+    ],
     footer: [
       { label: 'Legal notice', href: '/pages/legal-notice' },
       { label: 'Contact', href: '/contact/' },
