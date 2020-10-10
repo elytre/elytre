@@ -72,22 +72,6 @@ describe('onBuildEnd', () => {
     expect(tested).toThrowError('Webpack config outputh path must be defined');
   });
 
-  it('copy public directory content, if present, to build directory', () => {
-    jest.spyOn(fs, 'existsSync').mockReturnValue(true);
-    const copySync = jest
-      .spyOn(fs, 'copySync')
-      .mockImplementation(() => jest.fn());
-
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    onBuildEnd(undefined, stats, { output: { path: 'build' } });
-
-    expect(copySync).toHaveBeenCalledWith('public', 'build');
-    expect(success).toHaveBeenCalledWith(
-      'Added public directory content to build',
-    );
-  });
-
   it('creates a _redirect file in netlify environment', () => {
     process.env.NETLIFY = 'true';
     const writeFileSync = jest
