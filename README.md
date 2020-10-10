@@ -51,10 +51,13 @@ require at least three files:
 - a `styles.css` stylesheet to customize your site's appearance (see
   [Stylesheet file specification](#stylesheet-file-specification) below).
 
-Optionnaly, you can add cover images in a `covers` folder in your project's
-directory. Image file names must match the following pattern: `{ean}.jpg` (e.g.
-`9781234567890.jpg`), and each ean in an image file name must match the ean of a
-product described in the catalog.
+Optionnaly, you can add to your project directory:
+
+- a `public` directory containing assets that will be copied to the build
+  directory and can be referenced from your `styles.css` or `site.yaml` files
+- a `covers` directory containing cover images. Image file names must match the
+  following pattern: `{ean}.jpg` (e.g. `9781234567890.jpg`), and the ean in an
+  image file name must match the ean of a product described in the catalog.
 
 ### Site config file specification
 
@@ -173,8 +176,8 @@ directory.
 $ yarn build
 ```
 
-This will build your website for production in a `build` folder, ready for
-deployment. You can serve this folder using any web server or static website
+This will build your website for production in a `build` directory, ready for
+deployment. You can serve this directory using any web server or static website
 host.
 
 #### Start elytre in development mode:
