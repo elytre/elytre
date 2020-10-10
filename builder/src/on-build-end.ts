@@ -1,4 +1,4 @@
-import { writeFileSync } from 'fs-extra';
+import { copySync, existsSync, writeFileSync } from 'fs-extra';
 import { join } from 'path';
 import webpack from 'webpack';
 import log from './log';
@@ -23,12 +23,21 @@ export default function onBuildEnd(
   }
 
   // Get local build directory path
-  if (process.env.NETLIFY === 'true' && webpackConfig.output) {
-    if (!webpackConfig.output.path) {
-      throw new Error('Webpack config outputh path must be defined');
-    }
+  const buildDir = webpackConfig.output?.path;
+  if (!buildDir) {
+    throw new Error('Webpack config outputh path must be defined');
+  }
 
-    const redirectsFilePath = join(webpackConfig.output.path, '_redirects');
+  // If there is a "public" directory in the current working directory,
+  // copy its content to the build directory
+  if (existsSync('public')) {
+    copySync('public', buildDir);
+    log.success('Added public directory content to build');
+  }
+
+  // Netlify build: redirect every url to index.html for react-router
+  if (process.env.NETLIFY === 'true') {
+    const redirectsFilePath = join(buildDir, '_redirects');
     writeFileSync(redirectsFilePath, '/*   /index.html   200');
     log.success('Detected Netlify environnement and added redirects file');
   }
