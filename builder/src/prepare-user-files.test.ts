@@ -19,9 +19,10 @@ jest.mock('./yaml-file-to-json-file');
 jest.mock('./build-catalog');
 jest.mock('./create-search-index');
 
+const success = jest.spyOn(log, 'success');
+
 describe('prepareUserFiles', () => {
   it('prepares build', () => {
-    const success = jest.spyOn(log, 'success');
     const copySync = jest.spyOn(fs, 'copySync').mockImplementation();
 
     prepareUserFiles('/tmp/dir');
@@ -70,6 +71,20 @@ describe('prepareUserFiles', () => {
         ],
       },
       '/tmp/dir',
+    );
+  });
+
+  it('copy public directory content, if present, to build directory', () => {
+    jest.spyOn(fs, 'existsSync').mockReturnValue(true);
+    const copySync = jest
+      .spyOn(fs, 'copySync')
+      .mockImplementation(() => jest.fn());
+
+    prepareUserFiles('/tmp/dir');
+
+    expect(copySync).toHaveBeenCalledWith('public', '/tmp/dir');
+    expect(success).toHaveBeenCalledWith(
+      'Added public directory content to build',
     );
   });
 });
