@@ -64,8 +64,13 @@ project's directory.
 ```yaml
 # The site's title, as displayed in site's header and browser's tab
 title: Les Éditions Paronymie
+# The site menus
 menus:
+  # Menu's slot can be header, nav or footer
   header:
+  footer: …
+  nav:
+    # Menu contains a list of entries with a label (text) and a link (url)
     - label: About
       link: /pages/about
     - label: contact
