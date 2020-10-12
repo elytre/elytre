@@ -53,7 +53,7 @@ describe('Header', () => {
               class="Menu-entries"
             >
               <li
-                class="Menu-entry"
+                class="MenuEntry"
               >
                 <a
                   aria-current="page"
@@ -64,7 +64,7 @@ describe('Header', () => {
                 </a>
               </li>
               <li
-                class="Menu-entry"
+                class="MenuEntry"
               >
                 <a
                   href="/pages/about"

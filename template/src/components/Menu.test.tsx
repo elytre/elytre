@@ -24,7 +24,7 @@ describe('Menu', () => {
           class="Menu-entries"
         >
           <li
-            class="Menu-entry"
+            class="MenuEntry"
           >
             <a
               aria-current="page"
@@ -35,7 +35,7 @@ describe('Menu', () => {
             </a>
           </li>
           <li
-            class="Menu-entry"
+            class="MenuEntry"
           >
             <a
               href="/pages/about"
