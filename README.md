@@ -111,10 +111,10 @@ directory.
 }
 
 .Header .Menu {
-  /* How the header is displayed */
+  /* How the header menu is displayed */
 }
 
-.Header .Menu .Menu-entry {
+.Header .Menu .MenuEntry {
   /* How a single entry is displayed in the header menu */
 }
 

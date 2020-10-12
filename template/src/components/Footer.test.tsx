@@ -26,7 +26,7 @@ describe('Footer', () => {
             class="Menu-entries"
           >
             <li
-              class="Menu-entry"
+              class="MenuEntry"
             >
               <a
                 href="/pages/legal-notice"
@@ -35,7 +35,7 @@ describe('Footer', () => {
               </a>
             </li>
             <li
-              class="Menu-entry"
+              class="MenuEntry"
             >
               <a
                 href="/contact/"
