@@ -26,7 +26,7 @@ describe('getWebpackConfig', () => {
               "options": Object {
                 "name": "[name].[ext]",
               },
-              "test": /\\\\\\.jpg\\$/,
+              "test": /\\(\\\\\\.jpg\\|\\\\\\.png\\)\\$/,
             },
           ],
         },

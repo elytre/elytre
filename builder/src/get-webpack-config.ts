@@ -44,7 +44,7 @@ export default function getWebpackConfig(
           use: ['style-loader', 'css-loader'],
         },
         {
-          test: /\.jpg$/,
+          test: /(\.jpg|\.png)$/,
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
