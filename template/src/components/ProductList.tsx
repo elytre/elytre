@@ -1,9 +1,10 @@
 import React from 'react';
 
-import Product, { ProductProps } from './Product';
+import { Product as ProductType } from '../lib/user-files';
+import Product from './Product';
 
 type ProductListProps = {
-  readonly products: ProductProps[];
+  readonly products: ProductType[];
 };
 
 export default function ProductList({
@@ -12,7 +13,7 @@ export default function ProductList({
   return (
     <div className="ProductList">
       {products.map((product) => (
-        <Product key={product.ean} {...product} withLink={true} />
+        <Product key={product.ean} product={product} withLink={true} />
       ))}
     </div>
   );

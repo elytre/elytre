@@ -40,7 +40,7 @@ export type Product = {
   title: string;
   slug: string;
   author: string;
-  contributors: [Contributor];
+  contributors?: [Contributor];
   coverImage?: string;
 };
 

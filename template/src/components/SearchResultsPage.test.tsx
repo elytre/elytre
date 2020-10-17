@@ -81,6 +81,7 @@ describe('SearchResultsPage', () => {
                   >
                     Cover artist
                   </span>
+                   
                   <span
                     class="detail-value"
                   >

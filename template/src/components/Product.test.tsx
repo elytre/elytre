@@ -4,17 +4,19 @@ import { MemoryRouter, Route } from 'react-router-dom';
 
 import Product from './Product';
 
+const product = {
+  ean: 9781234567811,
+  title: 'La Tarte et le terroir',
+  slug: 'la-tarte-et-le-terroir',
+  author: 'Michelou Elbecq',
+};
+
 describe('Product', () => {
   it('renders a single Product', () => {
     const { container } = render(
       <MemoryRouter initialEntries={['/en/p/la-tarte-et-le-terroir']}>
         <Route path="/:locale/">
-          <Product
-            ean={9781234567811}
-            title="La Tarte et le terroir"
-            slug="la-tarte-et-le-terroir"
-            author="Michelou Elbecq"
-          />
+          <Product product={product} />
         </Route>
       </MemoryRouter>,
     );
@@ -76,11 +78,10 @@ describe('Product', () => {
       <MemoryRouter initialEntries={['/en/p/la-tarte-et-le-terroir']}>
         <Route path="/:locale/">
           <Product
-            ean={9781234567811}
-            title="La Tarte et le terroir"
-            slug="la-tarte-et-le-terroir"
-            contributors={[{ name: 'Claude Monnet', role: 'Cover artist' }]}
-            author="Michelou Elbecq"
+            product={{
+              ...product,
+              contributors: [{ name: 'Claude Monnet', role: 'Cover artist' }],
+            }}
           />
         </Route>
       </MemoryRouter>,
@@ -125,6 +126,7 @@ describe('Product', () => {
               >
                 Cover artist
               </span>
+               
               <span
                 class="detail-value"
               >
@@ -156,14 +158,7 @@ describe('Product', () => {
     const { container } = render(
       <MemoryRouter initialEntries={['/en/']}>
         <Route path="/:locale/">
-          <Product
-            ean={9781234567811}
-            title="La Tarte et le terroir"
-            slug="la-tarte-et-le-terroir"
-            author="Michelou Elbecq"
-            contributors={[{ name: 'Claude Monnet', role: 'Cover artist' }]}
-            withLink={true}
-          />
+          <Product product={product} withLink={true} />
         </Route>
       </MemoryRouter>,
     );
@@ -204,20 +199,6 @@ describe('Product', () => {
             class="Product-details"
           >
             <p
-              class="Product-detail detail-contributor role-cover-artist"
-            >
-              <span
-                class="detail-label"
-              >
-                Cover artist
-              </span>
-              <span
-                class="detail-value"
-              >
-                Claude Monnet
-              </span>
-            </p>
-            <p
               class="Product-detail detail-isbn"
             >
               <span
@@ -243,12 +224,7 @@ describe('Product', () => {
       <MemoryRouter initialEntries={['/en/p/la-tarte-et-le-terroir']}>
         <Route path="/:locale/">
           <Product
-            ean={9781234567811}
-            title="La Tarte et le terroir"
-            slug="la-tarte-et-le-terroir"
-            author="Michelou Elbecq"
-            contributors={[{ name: 'Claude Monnet', role: 'Cover artist' }]}
-            coverImage="la-tarte-et-le-terroir.jpg"
+            product={{ ...product, coverImage: 'la-tarte-et-le-terroir.jpg' }}
           />
         </Route>
       </MemoryRouter>,
@@ -294,20 +270,6 @@ describe('Product', () => {
           <div
             class="Product-details"
           >
-            <p
-              class="Product-detail detail-contributor role-cover-artist"
-            >
-              <span
-                class="detail-label"
-              >
-                Cover artist
-              </span>
-              <span
-                class="detail-value"
-              >
-                Claude Monnet
-              </span>
-            </p>
             <p
               class="Product-detail detail-isbn"
             >

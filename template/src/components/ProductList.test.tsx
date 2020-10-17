@@ -65,6 +65,7 @@ describe('Product', () => {
                 >
                   Cover artist
                 </span>
+                 
                 <span
                   class="detail-value"
                 >
