@@ -44,12 +44,6 @@ describe('ProductPage', () => {
                   Gérard Ferrori
                 </span>
               </p>
-              <p
-                class="Product-isbn"
-              >
-                ISBN: 
-                9781234567833
-              </p>
             </div>
             <div
               class="Product-details"
@@ -60,6 +54,12 @@ describe('ProductPage', () => {
                 Cover artist
                  : 
                 Claude Monnet
+              </p>
+              <p
+                class="Product-isbn"
+              >
+                ISBN: 
+                9781234567833
               </p>
             </div>
           </div>

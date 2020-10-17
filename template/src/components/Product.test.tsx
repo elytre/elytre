@@ -42,6 +42,10 @@ describe('Product', () => {
                 Michelou Elbecq
               </span>
             </p>
+          </div>
+          <div
+            class="Product-details"
+          >
             <p
               class="Product-isbn"
             >
@@ -49,9 +53,6 @@ describe('Product', () => {
               9781234567811
             </p>
           </div>
-          <div
-            class="Product-details"
-          />
         </div>
       </div>
     `);
@@ -95,12 +96,6 @@ describe('Product', () => {
                 Michelou Elbecq
               </span>
             </p>
-            <p
-              class="Product-isbn"
-            >
-              ISBN: 
-              9781234567811
-            </p>
           </div>
           <div
             class="Product-details"
@@ -111,6 +106,12 @@ describe('Product', () => {
               Cover artist
                : 
               Claude Monnet
+            </p>
+            <p
+              class="Product-isbn"
+            >
+              ISBN: 
+              9781234567811
             </p>
           </div>
         </div>
@@ -161,12 +162,6 @@ describe('Product', () => {
                 Michelou Elbecq
               </span>
             </p>
-            <p
-              class="Product-isbn"
-            >
-              ISBN: 
-              9781234567811
-            </p>
           </div>
           <div
             class="Product-details"
@@ -177,6 +172,12 @@ describe('Product', () => {
               Cover artist
                : 
               Claude Monnet
+            </p>
+            <p
+              class="Product-isbn"
+            >
+              ISBN: 
+              9781234567811
             </p>
           </div>
         </div>
@@ -232,12 +233,6 @@ describe('Product', () => {
                 Michelou Elbecq
               </span>
             </p>
-            <p
-              class="Product-isbn"
-            >
-              ISBN: 
-              9781234567811
-            </p>
           </div>
           <div
             class="Product-details"
@@ -248,6 +243,12 @@ describe('Product', () => {
               Cover artist
                : 
               Claude Monnet
+            </p>
+            <p
+              class="Product-isbn"
+            >
+              ISBN: 
+              9781234567811
             </p>
           </div>
         </div>
