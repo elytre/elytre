@@ -48,7 +48,6 @@ export default function Product({
           <Trans>by</Trans>{' '}
           <span className="Product-author-name">{author}</span>
         </p>
-        <p className="Product-isbn">ISBN: {ean}</p>
       </div>
       <div className="Product-details">
         {contributors
@@ -64,6 +63,8 @@ export default function Product({
               );
             })
           : null}
+
+        <p className="Product-isbn">ISBN: {ean}</p>
       </div>
     </div>
   );
