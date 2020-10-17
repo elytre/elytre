@@ -3,7 +3,7 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
-import { SiteConfig } from './types';
+import { SiteConfig } from '../../shared/types';
 
 // Get local build directory path
 const outputPath = join(process.cwd(), '/build');

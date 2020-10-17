@@ -1,3 +1,5 @@
+export type Locale = 'en' | 'fr';
+
 /* Site config */
 
 type MenuEntry = {
@@ -16,11 +18,17 @@ export type SiteConfig = {
 
 /* Catalog */
 
+export type Contributor = {
+  name: string;
+  role: 'Author' | 'Translator' | 'Cover artist';
+};
+
 export type Product = {
   ean: number;
   title: string;
   slug: string;
   author: string;
+  contributors?: [Contributor];
   coverImage?: string;
 };
 

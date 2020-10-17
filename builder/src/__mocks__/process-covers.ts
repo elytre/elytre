@@ -1,4 +1,4 @@
-import { Product } from '../types';
+import { Product } from '../../../shared/types';
 
 export default function processCovers(products: Product[]): Product[] {
   const [product0, ...others] = products;
