@@ -60,6 +60,7 @@ describe('ProductPage', () => {
                 >
                   Cover artist
                 </span>
+                 
                 <span
                   class="detail-value"
                 >

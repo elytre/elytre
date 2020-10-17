@@ -68,6 +68,7 @@ describe('HomePage', () => {
                     >
                       Cover artist
                     </span>
+                     
                     <span
                       class="detail-value"
                     >
