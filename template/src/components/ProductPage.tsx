@@ -5,11 +5,8 @@ import { Helmet } from 'react-helmet';
 import Product from './Product';
 import Error404Page from './Error404Page';
 
-import {
-  Product as ProductType,
-  getCatalog,
-  getSiteConfig,
-} from '../lib/user-files';
+import { getCatalog, getSiteConfig } from '../lib/user-files';
+import { Product as ProductType } from '../../../shared/types';
 
 const site = getSiteConfig();
 const catalog = getCatalog();

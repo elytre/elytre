@@ -1,5 +1,7 @@
 import { Index } from 'lunr';
 
+import { Catalog, SiteConfig } from '../../../shared/types';
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
@@ -14,39 +16,6 @@ import site from '../site.json';
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import searchIndex from '../search-index.json';
-
-// TODO: share types between template and builder
-type MenuEntry = {
-  label: string;
-  href: string;
-};
-
-export type SiteConfig = {
-  title: string;
-  menus?: {
-    header?: MenuEntry[];
-    nav?: MenuEntry[];
-    footer?: MenuEntry[];
-  };
-};
-
-export type Contributor = {
-  name: string;
-  role: 'Author' | 'Translator' | 'Cover artist';
-};
-
-export type Product = {
-  ean: number;
-  title: string;
-  slug: string;
-  author: string;
-  contributors?: [Contributor];
-  coverImage?: string;
-};
-
-export type Catalog = {
-  products: Product[];
-};
 
 /**
  * This imports the user's JSON config files (converted from YAML)

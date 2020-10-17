@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import en from '../translations/en.js';
 import fr from '../translations/fr.js';
 
-import { Locale } from '../shared/types';
+import { Locale } from '../../../shared/types';
 
 export default function useTrans(key: string): string {
   // Get current locale from route
