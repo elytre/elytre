@@ -16,6 +16,9 @@ products:
   - title: Chaussons d'ours
     author: Laetitia Mani
     ean: 9781234567877
+    contributors:
+    - name: Claude Monet
+      role: Cover artist # or "Author" or "Translator"
 `,
     );
     const writeFileSync = jest.spyOn(fs, 'writeFileSync');
@@ -25,7 +28,7 @@ products:
     expect(readFileSync).toHaveBeenCalledWith('catalog.yaml', 'utf-8');
     expect(writeFileSync).toHaveBeenCalledWith(
       'catalog.json',
-      '{"products":[{"title":"L’Ordure du jeu","author":"Aymeric Buvard","ean":9781234567888,"slug":"lordure-du-jeu","coverImage":"cover-image.jpg"},{"title":"Chaussons d\'ours","author":"Laetitia Mani","ean":9781234567877,"slug":"chaussons-dours"}]}',
+      '{"products":[{"title":"L’Ordure du jeu","author":"Aymeric Buvard","ean":9781234567888,"slug":"lordure-du-jeu","coverImage":"cover-image.jpg"},{"title":"Chaussons d\'ours","author":"Laetitia Mani","ean":9781234567877,"contributors":[{"name":"Claude Monet","role":"Cover artist"}],"slug":"chaussons-dours"}]}',
     );
     expect(catalog).toMatchInlineSnapshot(`
       Object {
@@ -39,6 +42,12 @@ products:
           },
           Object {
             "author": "Laetitia Mani",
+            "contributors": Array [
+              Object {
+                "name": "Claude Monet",
+                "role": "Cover artist",
+              },
+            ],
             "ean": 9781234567877,
             "slug": "chaussons-dours",
             "title": "Chaussons d'ours",

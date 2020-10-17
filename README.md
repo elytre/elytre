@@ -90,6 +90,9 @@ products:
   - ean: 9781234567890
     title: Chaussons d'ours
     author: Laetitia Mani
+    contributors:
+      - name: Claude Monet
+        role: Cover artist # or "Author" or "Translator"
   - ean: 9781234567811
     title: Sous-sol
     author: Matt Yassenar

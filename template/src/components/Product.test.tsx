@@ -49,6 +49,70 @@ describe('Product', () => {
               9781234567811
             </p>
           </div>
+          <div
+            class="Product-details"
+          />
+        </div>
+      </div>
+    `);
+  });
+
+  it('renders a Product with contributors', () => {
+    const { container } = render(
+      <MemoryRouter initialEntries={['/en/p/la-tarte-et-le-terroir']}>
+        <Route path="/:locale/">
+          <Product
+            ean={9781234567811}
+            title="La Tarte et le terroir"
+            slug="la-tarte-et-le-terroir"
+            contributors={[{ name: 'Claude Monnet', role: 'Cover artist' }]}
+            author="Michelou Elbecq"
+          />
+        </Route>
+      </MemoryRouter>,
+    );
+    expect(container).toMatchInlineSnapshot(`
+      <div>
+        <div
+          class="Product"
+        >
+          <div
+            class="Product-infos"
+          >
+            <h1
+              class="Product-title"
+            >
+              La Tarte et le terroir
+            </h1>
+            <p
+              class="Product-author"
+            >
+              by
+               
+              <span
+                class="Product-author-name"
+              >
+                Michelou Elbecq
+              </span>
+            </p>
+            <p
+              class="Product-isbn"
+            >
+              ISBN: 
+              9781234567811
+            </p>
+          </div>
+          <div
+            class="Product-details"
+          >
+            <p
+              class="Product-contributor role-cover-artist"
+            >
+              Cover artist
+               : 
+              Claude Monnet
+            </p>
+          </div>
         </div>
       </div>
     `);
@@ -63,6 +127,7 @@ describe('Product', () => {
             title="La Tarte et le terroir"
             slug="la-tarte-et-le-terroir"
             author="Michelou Elbecq"
+            contributors={[{ name: 'Claude Monnet', role: 'Cover artist' }]}
             withLink={true}
           />
         </Route>
@@ -103,6 +168,17 @@ describe('Product', () => {
               9781234567811
             </p>
           </div>
+          <div
+            class="Product-details"
+          >
+            <p
+              class="Product-contributor role-cover-artist"
+            >
+              Cover artist
+               : 
+              Claude Monnet
+            </p>
+          </div>
         </div>
       </div>
     `);
@@ -117,6 +193,7 @@ describe('Product', () => {
             title="La Tarte et le terroir"
             slug="la-tarte-et-le-terroir"
             author="Michelou Elbecq"
+            contributors={[{ name: 'Claude Monnet', role: 'Cover artist' }]}
             coverImage="la-tarte-et-le-terroir.jpg"
           />
         </Route>
@@ -160,6 +237,17 @@ describe('Product', () => {
             >
               ISBN: 
               9781234567811
+            </p>
+          </div>
+          <div
+            class="Product-details"
+          >
+            <p
+              class="Product-contributor role-cover-artist"
+            >
+              Cover artist
+               : 
+              Claude Monnet
             </p>
           </div>
         </div>
