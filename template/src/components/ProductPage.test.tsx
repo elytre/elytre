@@ -51,6 +51,17 @@ describe('ProductPage', () => {
                 9781234567833
               </p>
             </div>
+            <div
+              class="Product-details"
+            >
+              <p
+                class="Product-contributor role-cover-artist"
+              >
+                Cover artist
+                 : 
+                Claude Monnet
+              </p>
+            </div>
           </div>
         </div>
       </div>

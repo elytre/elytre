@@ -22,6 +22,7 @@ export default function buildCatalog(
     // Process each product
     const products = catalog.products.map((product: Product) => ({
       ...product,
+
       // Create product slug from title
       slug: slugify(product.title, { lower: true, remove: /[*+~.()'"!:@]/g }),
     }));

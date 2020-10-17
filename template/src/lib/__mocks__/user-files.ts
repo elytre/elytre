@@ -22,6 +22,7 @@ const getCatalog = jest.fn().mockReturnValue({
       ean: 9781234567833,
       title: 'Le Serpent sur la butte aux pommes',
       author: 'Gérard Ferrori',
+      contributors: [{ name: 'Claude Monnet', role: 'Cover artist' }],
       slug: 'le-serpent-sur-la-butte-aux-pommes',
     },
   ],
