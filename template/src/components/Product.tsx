@@ -45,7 +45,9 @@ export default function Product({
           {withLink ? <Link to={`/${locale}/p/${slug}`}>{title}</Link> : title}
         </h1>
         <p className="Product-author">
-          <Trans>by</Trans>{' '}
+          <span className="Product-author-by">
+            <Trans>by</Trans>
+          </span>{' '}
           <span className="Product-author-name">{author}</span>
         </p>
       </div>
@@ -55,16 +57,22 @@ export default function Product({
               const roleSlug = slugify(contributor.role, { lower: true });
               return (
                 <p
-                  className={`Product-contributor role-${roleSlug}`}
+                  className={`Product-detail detail-contributor role-${roleSlug}`}
                   key={contributor.name}
                 >
-                  <Trans>{contributor.role}</Trans> : {contributor.name}
+                  <span className="detail-label">
+                    <Trans>{contributor.role}</Trans>
+                  </span>
+                  <span className="detail-value">{contributor.name}</span>
                 </p>
               );
             })
           : null}
 
-        <p className="Product-isbn">ISBN: {ean}</p>
+        <p className="Product-detail detail-isbn">
+          <span className="detail-label">ISBN</span>{' '}
+          <span className="detail-value">{ean}</span>
+        </p>
       </div>
     </div>
   );
