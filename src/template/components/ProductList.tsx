@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Product as ProductType } from '../../../shared/types';
+import { Product as ProductType } from '../../shared/types';
 import Product from './Product';
 
 type ProductListProps = {

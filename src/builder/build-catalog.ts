@@ -3,7 +3,7 @@ import { parse } from 'yaml';
 import slugify from 'slugify';
 
 import CatalogModel from './models/Catalog';
-import { Catalog, Product } from '../../shared/types';
+import { Catalog, Product } from '../shared/types';
 import processCovers from './process-covers';
 
 /**

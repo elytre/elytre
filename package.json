@@ -8,17 +8,11 @@
     "elytre": "./bin/elytre.js"
   },
   "scripts": {
-    "dev": "run-p -l dev:**",
-    "dev:template": "yarn build:template --watch",
-    "dev:builder": "yarn build:builder --watch",
+    "dev": "yarn build --watch",
     "format": "prettier . --write",
-    "lint": "run-s -l lint:**",
-    "lint:template": "eslint template/src",
-    "lint:builder": "eslint builder/src",
+    "lint": "eslint src/",
     "test": "jest --watch",
-    "build": "run-p build:**",
-    "build:template": "tsc --build template/",
-    "build:builder": "tsc --build builder/",
+    "build": "tsc --build .",
     "prepublishOnly": "yarn lint && yarn test --watchAll=false && yarn build"
   },
   "dependencies": {

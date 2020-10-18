@@ -3,7 +3,7 @@ import lunr from 'lunr';
 import { writeFileSync } from 'fs';
 import { join } from 'path';
 
-import { Catalog } from '../../shared/types';
+import { Catalog } from '../shared/types';
 
 export default function createSearchIndex(
   catalog: Catalog,

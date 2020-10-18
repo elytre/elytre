@@ -1,4 +1,4 @@
-import { Catalog } from '../../../shared/types';
+import { Catalog } from '../../shared/types';
 
 export default function buildCatalog(): Catalog {
   return {

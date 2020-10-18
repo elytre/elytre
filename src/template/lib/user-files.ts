@@ -1,6 +1,6 @@
 import { Index } from 'lunr';
 
-import { Catalog, Product, SiteConfig } from '../../../shared/types';
+import { Catalog, Product, SiteConfig } from '../../shared/types';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore

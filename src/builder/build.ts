@@ -27,7 +27,7 @@ async function build(command: 'build' | 'start' = 'build'): Promise<void> {
 
     // Get elytre module directories paths
     const modulePath = dirname(require.resolve('elytre/package.json'));
-    const templatePath = join(modulePath, 'template/dist');
+    const templatePath = join(modulePath, 'dist/template');
 
     // Create temporary directory
     const tempDirPath = createTempDir();

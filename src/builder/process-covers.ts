@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import { existsSync, readdirSync, copyFileSync } from 'fs-extra';
 
 import log from './log';
-import { Product } from '../../shared/types';
+import { Product } from '../shared/types';
 
 export default function processCovers(
   products: Product[],

@@ -4,7 +4,7 @@ import slugify from 'slugify';
 
 import Trans from './Trans';
 
-import { Product as ProductType } from '../../../shared/types';
+import { Product as ProductType } from '../../shared/types';
 
 // Import all files with name matching ../*.cover.jpg pattern
 require.context('../', false, /.*\.cover\.jpg$/);
