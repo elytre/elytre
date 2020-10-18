@@ -9,6 +9,11 @@ const Product = new Model({
   contributors: Model([ArrayModel(Contributor)]).defaultTo([]),
   slug: [String],
   coverImage: [String],
+  releaseDate: [String],
+  pageCount: [Number],
+  originalLanguage: [['en', 'fr', 'de']],
+  backCoverText: [String],
+  price: [Number],
 });
 
 export default Product;

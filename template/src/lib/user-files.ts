@@ -1,6 +1,6 @@
 import { Index } from 'lunr';
 
-import { Catalog, SiteConfig } from '../../../shared/types';
+import { Catalog, Product, SiteConfig } from '../../../shared/types';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -26,7 +26,18 @@ export function getSiteConfig(): SiteConfig {
 }
 
 export function getCatalog(): Catalog {
-  return catalog;
+  return {
+    ...catalog,
+    products: catalog.products.map((product: Product) => {
+      return {
+        ...product,
+        // Convert release date string as a Date object
+        releaseDate: product.releaseDate
+          ? new Date(product.releaseDate)
+          : undefined,
+      };
+    }),
+  };
 }
 
 export function getSearchIndex(): Index {
