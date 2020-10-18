@@ -1,4 +1,4 @@
-import { Locale } from '../../../shared/types';
+import { Locale } from '../../shared/types';
 
 /**
  * Returns user-defined language if it is "fr" or "en"

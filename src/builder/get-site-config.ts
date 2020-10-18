@@ -5,7 +5,7 @@ import { parse } from 'yaml';
 
 import validateFile from './validate-file';
 import Site from './models/Site';
-import { SiteConfig } from '../../shared/types';
+import { SiteConfig } from '../shared/types';
 
 // Read site config
 export default function getSiteConfig(): SiteConfig {

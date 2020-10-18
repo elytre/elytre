@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const build = require('../builder/dist/builder/src/build').default;
+const build = require('../dist/builder/build').default;
 
 const [command] = process.argv.slice(2);
 

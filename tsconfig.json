@@ -3,10 +3,9 @@
     "outDir": "./dist/", // path to output directory
     "sourceMap": true, // allow sourcemap support
     "strictNullChecks": true, // enable strict null checks as a best practice
-    "module": "esnext", // specify module code generation
-    "jsx": "react", // use typescript to transpile jsx to js
+    "module": "commonjs", // specify module code generation
     "target": "es5", // specify ECMAScript target version
-    "allowJs": true, // allow a partial TypeScript and JavaScript codebase
+    "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
@@ -17,8 +16,10 @@
     "strictPropertyInitialization": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "allowJs": true // allow a partial TypeScript and JavaScript codebase
   },
-  "include": ["./src/**/*.tsx"],
-  "exclude": ["node_modules", "./**/*.test.tsx"]
+  "include": ["./src/builder/**/*.ts", "./src/template/**/*.tsx"],
+  "exclude": ["node_modules", "./**/*.test.ts", "./**/*.test.tsx"]
 }

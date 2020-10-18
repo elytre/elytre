@@ -6,7 +6,7 @@ import Product from './Product';
 import Error404Page from './Error404Page';
 
 import { getCatalog, getSiteConfig } from '../lib/user-files';
-import { Product as ProductType } from '../../../shared/types';
+import { Product as ProductType } from '../../shared/types';
 
 const site = getSiteConfig();
 const catalog = getCatalog();

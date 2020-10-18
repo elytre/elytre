@@ -2,7 +2,7 @@ import { Model, ArrayModel } from 'objectmodel';
 import './errorCollector';
 
 import ProductModel from './Product';
-import { Product } from '../../../shared/types';
+import { Product } from '../../shared/types';
 
 const Catalog = new Model({
   products: ArrayModel([ProductModel]),
