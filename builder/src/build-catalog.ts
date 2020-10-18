@@ -17,6 +17,8 @@ export default function buildCatalog(
   try {
     const catalogFileContent = readFileSync(sourceFile, 'utf-8');
     const catalogFileContentParsed = parse(catalogFileContent);
+
+    // Validate catalog content againt against model
     const catalog = CatalogModel(catalogFileContentParsed);
 
     // Process each product
