@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 import slugify from 'slugify';
 
 import Trans from './Trans';
@@ -49,7 +50,9 @@ export default function Product({
       </div>
 
       {product.backCoverText ? (
-        <div className="Product-back-cover-text">{product.backCoverText}</div>
+        <div className="Product-back-cover-text">
+          <ReactMarkdown>{product.backCoverText}</ReactMarkdown>
+        </div>
       ) : null}
 
       <div className="Product-details">
