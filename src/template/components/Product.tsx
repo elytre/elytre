@@ -107,7 +107,9 @@ export default function Product({
             <span className="detail-label">
               <Trans>Original language</Trans>
             </span>{' '}
-            <span className="detail-value">{product.originalLanguage}</span>
+            <span className="detail-value">
+              <Trans>{product.originalLanguage}</Trans>
+            </span>
           </p>
         ) : null}
 

@@ -164,7 +164,7 @@ describe('SearchResultsPage', () => {
                   <span
                     class="detail-value"
                   >
-                    fr
+                    French
                   </span>
                 </p>
                 <p

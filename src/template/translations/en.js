@@ -11,6 +11,11 @@ export default [
   { key: 'Price', text: 'Price' },
   { key: 'Release date', text: 'Release date' },
 
+  /* Languages */
+  { key: 'de', text: 'German' },
+  { key: 'en', text: 'English' },
+  { key: 'fr', text: 'French' },
+
   /* Contributor roles */
   { key: 'Translator', text: 'Translator' },
   { key: 'Cover artist', text: 'Cover artist' },

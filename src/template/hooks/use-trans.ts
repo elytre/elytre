@@ -23,10 +23,9 @@ export default function useTrans(key: string): string {
   const translation = translations.find((trans) => trans.key === key);
 
   if (!translation) {
-    // throw new Error(
-    //   `Missing translation for key "${key}" in locale "${locale}".`,
-    // );
-    return 'missing';
+    throw new Error(
+      `Missing translation for key "${key}" in locale "${locale}".`,
+    );
   }
 
   // If there is no translation for this key, use key as default

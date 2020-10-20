@@ -143,7 +143,7 @@ describe('ProductPage', () => {
                 <span
                   class="detail-value"
                 >
-                  fr
+                  French
                 </span>
               </p>
               <p
