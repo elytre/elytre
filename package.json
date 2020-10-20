@@ -39,6 +39,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
+    "react-markdown": "^5.0.0",
     "react-router-dom": "^5.2.0",
     "slugify": "^1.4.5",
     "style-loader": "^1.2.1",
