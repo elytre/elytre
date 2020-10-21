@@ -86,6 +86,8 @@ Customize your products catalog by adding a `catalog.yaml` file in your
 project's directory.
 
 ```yaml
+global: # global properties are applied to all products
+  buyLink: https://www.librairiepartenaire.com/buy/:ean
 products:
   - ean: 9781234567890
     title: Chaussons d'ours

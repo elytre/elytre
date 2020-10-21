@@ -41,12 +41,24 @@ export default function Product({
             product.title
           )}
         </h1>
+
         <p className="Product-author">
           <span className="Product-author-by">
             <Trans>by</Trans>
           </span>{' '}
           <span className="Product-author-name">{product.author}</span>
         </p>
+
+        {product.buyLink && (
+          <a
+            className="Product-buy-link-button"
+            href={product.buyLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Trans>Buy</Trans>
+          </a>
+        )}
       </div>
 
       {product.backCoverText ? (
