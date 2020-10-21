@@ -9,6 +9,8 @@ describe('buildCatalog', () => {
   it('read yaml file, write json file and return a built catalog', () => {
     const readFileSync = jest.spyOn(fs, 'readFileSync').mockImplementationOnce(
       () => `
+global:
+  buyLink: https://www.amazingbookstore.com/isbn/:ean
 products:
   - title: L’Ordure du jeu
     author: Aymeric Buvard
@@ -40,13 +42,17 @@ products:
     expect(readFileSync).toHaveBeenCalledWith('catalog.yaml', 'utf-8');
     expect(writeFileSync).toHaveBeenCalledWith(
       'catalog.json',
-      '{"products":[{"title":"L’Ordure du jeu","author":"Aymeric Buvard","ean":9781234567888,"slug":"lordure-du-jeu","coverImage":"cover-image.jpg"},{"title":"Chaussons d\'ours","author":"Laetitia Mani","ean":9781234567877,"contributors":[{"name":"Claude Monet","role":"Cover artist"}],"releaseDate":"2021-01-04","pageCount":516,"originalLanguage":"fr","backCoverText":"« Lorem ipsum dolor sit amet, consectetur adipiscing elit. »\\n\\nVivamus pharetra at tortor nec cursus. Proin accumsan sagittis molestie. Suspendisse euismod dolor quis elit egestas vulputate. Maecenas et nisl nec dui ullamcorper aliquam nec at erat. Praesent in nunc elit. Nam metus ante, ultrices sit amet lacinia non, feugiat vitae ligula. Mauris sollicitudin rutrum justo egestas dignissim. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi euismod justo nec ipsum dapibus varius. \\nPraesent ac auctor velit. Phasellus metus eros, dignissim eu ex consectetur, aliquam rutrum massa. Ut pharetra tellus tortor, eu dictum felis euismod ac. Nullam ut accumsan risus, sit amet consectetur leo. Nunc tristique posuere eros, sit amet condimentum neque consequat eu. \\nProin sollicitudin, lacus eleifend ullamcorper laoreet, turpis ante aliquet arcu, sit amet consectetur libero libero in dolor.\\n\\nQuisque sodales ipsum eget lectus cursus pharetra. Nam eu eleifend ipsum.\\n","price":19.9,"slug":"chaussons-dours"}]}',
+      '{"global":{"buyLink":"https://www.amazingbookstore.com/isbn/:ean"},"products":[{"title":"L’Ordure du jeu","author":"Aymeric Buvard","ean":9781234567888,"slug":"lordure-du-jeu","buyLink":"https://www.amazingbookstore.com/isbn/9781234567888","coverImage":"cover-image.jpg"},{"title":"Chaussons d\'ours","author":"Laetitia Mani","ean":9781234567877,"contributors":[{"name":"Claude Monet","role":"Cover artist"}],"releaseDate":"2021-01-04","pageCount":516,"originalLanguage":"fr","backCoverText":"« Lorem ipsum dolor sit amet, consectetur adipiscing elit. »\\n\\nVivamus pharetra at tortor nec cursus. Proin accumsan sagittis molestie. Suspendisse euismod dolor quis elit egestas vulputate. Maecenas et nisl nec dui ullamcorper aliquam nec at erat. Praesent in nunc elit. Nam metus ante, ultrices sit amet lacinia non, feugiat vitae ligula. Mauris sollicitudin rutrum justo egestas dignissim. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi euismod justo nec ipsum dapibus varius. \\nPraesent ac auctor velit. Phasellus metus eros, dignissim eu ex consectetur, aliquam rutrum massa. Ut pharetra tellus tortor, eu dictum felis euismod ac. Nullam ut accumsan risus, sit amet consectetur leo. Nunc tristique posuere eros, sit amet condimentum neque consequat eu. \\nProin sollicitudin, lacus eleifend ullamcorper laoreet, turpis ante aliquet arcu, sit amet consectetur libero libero in dolor.\\n\\nQuisque sodales ipsum eget lectus cursus pharetra. Nam eu eleifend ipsum.\\n","price":19.9,"slug":"chaussons-dours","buyLink":"https://www.amazingbookstore.com/isbn/9781234567877"}]}',
     );
     expect(catalog).toMatchInlineSnapshot(`
       Object {
+        "global": Model {
+          "buyLink": "https://www.amazingbookstore.com/isbn/:ean",
+        },
         "products": Array [
           Object {
             "author": "Aymeric Buvard",
+            "buyLink": "https://www.amazingbookstore.com/isbn/9781234567888",
             "coverImage": "cover-image.jpg",
             "ean": 9781234567888,
             "slug": "lordure-du-jeu",
@@ -62,6 +68,7 @@ products:
 
       Quisque sodales ipsum eget lectus cursus pharetra. Nam eu eleifend ipsum.
       ",
+            "buyLink": "https://www.amazingbookstore.com/isbn/9781234567877",
             "contributors": Array [
               Object {
                 "name": "Claude Monet",

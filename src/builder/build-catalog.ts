@@ -7,6 +7,17 @@ import { Catalog, Product } from '../shared/types';
 import processCovers from './process-covers';
 
 /**
+ * Creates a product buy link from generic link
+ */
+function createBuyLink(buyLink: string, product: Product): string | undefined {
+  if (!buyLink) {
+    return undefined;
+  }
+
+  return buyLink.replace(':ean', product.ean.toString());
+}
+
+/**
  * Build catalog
  */
 export default function buildCatalog(
@@ -27,6 +38,9 @@ export default function buildCatalog(
 
       // Create product slug from title
       slug: slugify(product.title, { lower: true, remove: /[*+~.()'"!:@]/g }),
+
+      // Create buy link from EAN
+      buyLink: createBuyLink(catalog.global?.buyLink, product),
     }));
 
     // Process cover files

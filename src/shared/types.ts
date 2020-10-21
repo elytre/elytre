@@ -35,8 +35,12 @@ export type Product = {
   originalLanguage?: 'en' | 'fr' | 'de';
   backCoverText?: string;
   price?: number;
+  buyLink?: string;
 };
 
 export type Catalog = {
+  global?: {
+    buyLink?: string;
+  };
   products: Product[];
 };

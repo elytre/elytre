@@ -6,6 +6,7 @@ export default [
 
   /* Product */
   { key: 'by', text: 'de' },
+  { key: 'Buy', text: 'Acheter' },
   { key: 'Original language', text: 'Langue originale' },
   { key: 'Page count', text: 'Nombre de pages' },
   { key: 'Price', text: 'Price' },

@@ -5,6 +5,11 @@ import ProductModel from './Product';
 import { Product } from '../../shared/types';
 
 const Catalog = new Model({
+  global: [
+    Model({
+      buyLink: [String],
+    }),
+  ],
   products: ArrayModel([ProductModel]),
 }).assert(({ products }) => {
   // Check for duplicate EANs
