@@ -71,6 +71,7 @@ describe('getWebpackConfig', () => {
               "inject": "body",
               "meta": Object {},
               "minify": "auto",
+              "publicPath": "auto",
               "scriptLoading": "blocking",
               "showErrors": true,
               "template": "auto",
