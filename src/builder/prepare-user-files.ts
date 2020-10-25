@@ -43,6 +43,13 @@ export default function prepareUserFiles(tempDirPath: string): void {
     `Built catalog with ${catalog.products.length} products from catalog.yaml`,
   );
 
+  // If there is a "pages" directory in the current working directory,
+  // copy its content to the temp directory
+  if (existsSync('pages')) {
+    copySync('pages', join(tempDirPath, 'pages'));
+    log.success('Added pages directory content to build');
+  }
+
   // If there is a "public" directory in the current working directory,
   // copy its content to the temp directory
   if (existsSync('public')) {
