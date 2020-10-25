@@ -20,6 +20,6 @@
     "esModuleInterop": true,
     "allowJs": true // allow a partial TypeScript and JavaScript codebase
   },
-  "include": ["./src/builder/**/*.ts", "./src/template/**/*.tsx"],
+  "include": ["types", "./src/builder/**/*.ts", "./src/template/**/*.tsx"],
   "exclude": ["node_modules", "./**/*.test.ts", "./**/*.test.tsx"]
 }
