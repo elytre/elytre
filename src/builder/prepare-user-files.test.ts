@@ -74,7 +74,7 @@ describe('prepareUserFiles', () => {
     );
   });
 
-  it('copy public directory content, if present, to build directory', () => {
+  it('copies public directory content, if present, to build directory', () => {
     jest.spyOn(fs, 'existsSync').mockReturnValue(true);
     const copySync = jest
       .spyOn(fs, 'copySync')
@@ -85,6 +85,20 @@ describe('prepareUserFiles', () => {
     expect(copySync).toHaveBeenCalledWith('public', '/tmp/dir');
     expect(success).toHaveBeenCalledWith(
       'Added public directory content to build',
+    );
+  });
+
+  it('copies pages directory content, if present, to build directory', () => {
+    jest.spyOn(fs, 'existsSync').mockReturnValue(true);
+    const copySync = jest
+      .spyOn(fs, 'copySync')
+      .mockImplementation(() => jest.fn());
+
+    prepareUserFiles('/tmp/dir');
+
+    expect(copySync).toHaveBeenCalledWith('pages', '/tmp/dir/pages');
+    expect(success).toHaveBeenCalledWith(
+      'Added pages directory content to build',
     );
   });
 });
