@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter, Route } from 'react-router-dom';
 
-import SearchResultsPage from './SearchResultsPage';
+import SearchResultsView from './SearchResultsView';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -14,12 +14,12 @@ jest.mock('react-router-dom', () => ({
 
 jest.mock('../lib/user-files');
 
-describe('SearchResultsPage', () => {
-  it('renders a SearchResultsPage', () => {
+describe('SearchResultsView', () => {
+  it('renders a SearchResultsView', () => {
     const { container } = render(
       <MemoryRouter initialEntries={['/en']}>
         <Route path="/:locale/">
-          <SearchResultsPage />
+          <SearchResultsView />
         </Route>
       </MemoryRouter>,
     );
@@ -193,7 +193,7 @@ describe('SearchResultsPage', () => {
   it('renders an error when query is missing', () => {
     const { container } = render(
       <MemoryRouter>
-        <SearchResultsPage />
+        <SearchResultsView />
       </MemoryRouter>,
     );
     expect(container).toMatchInlineSnapshot(`

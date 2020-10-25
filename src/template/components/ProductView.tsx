@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 import Product from './Product';
-import Error404Page from './Error404Page';
+import Error404View from './Error404View';
 
 import { getCatalog, getSiteConfig } from '../lib/user-files';
 import { Product as ProductType } from '../../shared/types';
@@ -22,7 +22,7 @@ export default function ProductPage(): React.ReactElement {
   );
 
   return (
-    <div className="ProductPage">
+    <div className="ProductView">
       {product ? (
         <>
           <Helmet>
@@ -33,7 +33,7 @@ export default function ProductPage(): React.ReactElement {
           <Product product={product} />
         </>
       ) : (
-        <Error404Page reason={`No product found for slug ${requestSlug}`} />
+        <Error404View reason={`No product found for slug ${requestSlug}`} />
       )}
     </div>
   );
