@@ -6,7 +6,7 @@ import ProductView from './ProductView';
 import Error404View from './Error404View';
 import SearchResultsView from './SearchResultsView';
 
-import PageContent from '../pages/Page.js';
+import PageContent from '../pages/Page.jsx';
 
 export default function Main(): React.ReactElement {
   return (
