@@ -27,6 +27,21 @@ describe('getWebpackConfig', () => {
               },
             },
             Object {
+              "test": /\\\\\\.mdx\\?\\$/,
+              "use": Array [
+                Object {
+                  "loader": "babel-loader",
+                  "options": Object {
+                    "presets": Array [
+                      "@babel/env",
+                      "@babel/react",
+                    ],
+                  },
+                },
+                "@mdx-js/loader",
+              ],
+            },
+            Object {
               "test": /\\\\\\.css\\$/,
               "use": Array [
                 "style-loader",

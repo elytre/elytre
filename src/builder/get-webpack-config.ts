@@ -50,6 +50,18 @@ export default function getWebpackConfig(
           },
         },
         {
+          test: /\.mdx?$/,
+          use: [
+            {
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/env', '@babel/react'],
+              },
+            },
+            '@mdx-js/loader',
+          ],
+        },
+        {
           test: /\.css$/,
           use: ['style-loader', 'css-loader'],
         },
