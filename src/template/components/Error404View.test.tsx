@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import Error404Page from './Error404Page';
+import Error404View from './Error404View';
 
-describe('Error404Page', () => {
-  it('renders a Error404Page', () => {
-    const { container } = render(<Error404Page />);
+describe('Error404View', () => {
+  it('renders a Error404View', () => {
+    const { container } = render(<Error404View />);
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
@@ -21,8 +21,8 @@ describe('Error404Page', () => {
     `);
   });
 
-  it('renders a Error404Page with a reason', () => {
-    const { container } = render(<Error404Page reason="Because reasons." />);
+  it('renders a Error404View with a reason', () => {
+    const { container } = render(<Error404View reason="Because reasons." />);
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div

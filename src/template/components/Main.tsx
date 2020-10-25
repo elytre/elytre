@@ -1,19 +1,19 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import HomePage from './HomePage';
-import ProductPage from './ProductPage';
-import Error404Page from './Error404Page';
-import SearchResultsPage from './SearchResultsPage';
+import HomeView from './HomeView';
+import ProductView from './ProductView';
+import Error404View from './Error404View';
+import SearchResultsView from './SearchResultsView';
 
 export default function Main(): React.ReactElement {
   return (
     <main className="Main">
       <Switch>
-        <Route path="/:locale/" exact component={HomePage} />
-        <Route path="/:locale/search" exact component={SearchResultsPage} />
-        <Route path="/:locale/p/:slug" exact component={ProductPage} />
-        <Route component={Error404Page} />
+        <Route path="/:locale/" exact component={HomeView} />
+        <Route path="/:locale/search" exact component={SearchResultsView} />
+        <Route path="/:locale/p/:slug" exact component={ProductView} />
+        <Route component={Error404View} />
       </Switch>
     </main>
   );

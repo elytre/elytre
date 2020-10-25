@@ -2,16 +2,16 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter, Route } from 'react-router-dom';
 
-import HomePage from './HomePage';
+import HomeView from './HomeView';
 
 jest.mock('../lib/user-files');
 
-describe('HomePage', () => {
-  it('renders a HomePage', () => {
+describe('HomeView', () => {
+  it('renders a HomeView', () => {
     const { container } = render(
       <MemoryRouter initialEntries={['/en/']}>
         <Route path="/:locale/">
-          <HomePage />
+          <HomeView />
         </Route>
       </MemoryRouter>,
     );

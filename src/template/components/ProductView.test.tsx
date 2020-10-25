@@ -2,25 +2,25 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter, Route } from 'react-router-dom';
 
-import ProductPage from './ProductPage';
+import ProductView from './ProductView';
 
 jest.mock('../lib/user-files');
 
-describe('ProductPage', () => {
-  it('renders a ProductPage', () => {
+describe('ProductView', () => {
+  it('renders a ProductView', () => {
     const { container } = render(
       <MemoryRouter
         initialEntries={['/en/p/le-serpent-sur-la-butte-aux-pommes']}
       >
         <Route path="/:locale/p/:slug">
-          <ProductPage />
+          <ProductView />
         </Route>
       </MemoryRouter>,
     );
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="ProductPage"
+          class="ProductView"
         >
           <div
             class="Product"
@@ -172,14 +172,14 @@ describe('ProductPage', () => {
     const { container } = render(
       <MemoryRouter initialEntries={['/en/p/le-sermon-sur-le-brut-de-pomme']}>
         <Route path="/:locale/p/:slug">
-          <ProductPage />
+          <ProductView />
         </Route>
       </MemoryRouter>,
     );
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="ProductPage"
+          class="ProductView"
         >
           <div
             class="Error404Page"

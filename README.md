@@ -158,19 +158,19 @@ directory.
   /* How a product is displayed when in a list of products */
 }
 
-.HomePage .ProductList .Product {
+.HomeView .ProductList .Product {
   /* How a product appears when in a list on home page */
 }
 
-.ProductPage .Product {
+.ProductView .Product {
   /* How a product is displayed when on a single product page */
 }
 
-.Error404Page .Error404Page-title {
+.Error404View .Error404View-title {
   /* How a title appears on a 404 error page */
 }
 
-.Error404Page .Error404Page-reason {
+.Error404View .Error404View-reason {
   /* How the reasons appears if provided on a 404 error page */
 }
 
