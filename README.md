@@ -58,6 +58,12 @@ Optionnaly, you can add to your project directory:
 - a `covers` directory containing cover images. Image file names must match the
   following pattern: `{ean}.jpg` (e.g. `9781234567890.jpg`), and the ean in an
   image file name must match the ean of a product described in the catalog.
+- a `pages` directory containg custom pages using the MDX format. Page file
+  names must match the following pattern: `{slug}.mdx`, where `slug` will be
+  used for the custom page url. An `about.mdx` file will be available at
+  `/pages/about`. [MDX](https://mdxjs.com/) is a extension for the
+  [markdown](https://daringfireball.net/projects/markdown/syntax) format that
+  supports JSX and allows importing React components.
 
 ### Site config file specification
 
