@@ -15,6 +15,18 @@ describe('getWebpackConfig', () => {
         "module": Object {
           "rules": Array [
             Object {
+              "exclude": /node_modules/,
+              "test": /\\\\\\.\\(js\\|jsx\\)\\$/,
+              "use": Object {
+                "loader": "babel-loader",
+                "options": Object {
+                  "presets": Array [
+                    "@babel/preset-react",
+                  ],
+                },
+              },
+            },
+            Object {
               "test": /\\\\\\.css\\$/,
               "use": Array [
                 "style-loader",
