@@ -1,10 +1,13 @@
 import React from 'react';
+
 import Catalog from './Catalog';
 
+import useCustomPage from '../hooks/use-custom-page';
+
 export default function HomePage(): React.ReactElement {
-  return (
-    <div className="HomePage">
-      <Catalog />
-    </div>
-  );
+  const CustomHomePage = useCustomPage('home');
+
+  const homePageContent = CustomHomePage ? <CustomHomePage /> : <Catalog />;
+
+  return <div className="HomePage">{homePageContent}</div>;
 }
