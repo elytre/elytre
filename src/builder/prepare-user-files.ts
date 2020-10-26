@@ -10,6 +10,7 @@ import log from './log';
 
 import Site from './models/Site';
 import Catalog from './models/Catalog';
+import processPages from './process-pages';
 
 /**
  * This functions prepare user' files for a build,
@@ -45,10 +46,7 @@ export default function prepareUserFiles(tempDirPath: string): void {
 
   // If there is a "pages" directory in the current working directory,
   // copy its content to the temp directory
-  if (existsSync('pages')) {
-    copySync('pages', join(tempDirPath, 'pages'));
-    log.success('Added pages directory content to build');
-  }
+  processPages(tempDirPath);
 
   // If there is a "public" directory in the current working directory,
   // copy its content to the temp directory
