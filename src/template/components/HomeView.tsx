@@ -9,5 +9,5 @@ export default function HomePage(): React.ReactElement {
 
   const homePageContent = CustomHomePage ? <CustomHomePage /> : <Catalog />;
 
-  return <div className="HomePage">{homePageContent}</div>;
+  return <div className="HomeView">{homePageContent}</div>;
 }

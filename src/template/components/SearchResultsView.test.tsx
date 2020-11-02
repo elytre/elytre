@@ -26,10 +26,10 @@ describe('SearchResultsView', () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="SearchResultsPage"
+          class="SearchResultsView"
         >
           <h1
-            class="SearchResultsPage-title"
+            class="SearchResultsView-title"
           >
             Search Results for 
             <em>
@@ -199,7 +199,7 @@ describe('SearchResultsView', () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="SearchResultsPage"
+          class="SearchResultsView"
         >
           Missing search query
         </div>

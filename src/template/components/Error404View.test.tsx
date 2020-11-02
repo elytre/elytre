@@ -9,10 +9,10 @@ describe('Error404View', () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="Error404Page"
+          class="Error404View"
         >
           <h1
-            class="Error404Page-title"
+            class="Error404View-title"
           >
             Page not found
           </h1>
@@ -26,15 +26,15 @@ describe('Error404View', () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="Error404Page"
+          class="Error404View"
         >
           <h1
-            class="Error404Page-title"
+            class="Error404View-title"
           >
             Page not found
           </h1>
           <p
-            class="Error404Page-reason"
+            class="Error404View-reason"
           >
             Because reasons.
           </p>

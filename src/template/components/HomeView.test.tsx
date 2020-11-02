@@ -18,7 +18,7 @@ describe('HomeView', () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="HomePage"
+          class="HomeView"
         >
           <div
             class="Catalog"

@@ -9,13 +9,13 @@ const catalog = getCatalog();
 const searchIndex = getSearchIndex();
 const index = lunr.Index.load(searchIndex);
 
-export default function SearchResultsPage(): React.ReactElement {
+export default function SearchResultsView(): React.ReactElement {
   const { search } = useLocation();
   const params = new URLSearchParams(search);
   const query = params.get('q');
 
   if (!query) {
-    return <div className="SearchResultsPage">Missing search query</div>;
+    return <div className="SearchResultsView">Missing search query</div>;
   }
 
   const results = index.search(query);
@@ -26,8 +26,8 @@ export default function SearchResultsPage(): React.ReactElement {
   });
 
   return (
-    <div className="SearchResultsPage">
-      <h1 className="SearchResultsPage-title">
+    <div className="SearchResultsView">
+      <h1 className="SearchResultsView-title">
         Search Results for <em>{query}</em>
       </h1>
       <ProductList products={products} />
