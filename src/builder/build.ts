@@ -1,6 +1,7 @@
 import { dirname, join, resolve } from 'path';
-import { copySync, symlinkSync, watch } from 'fs-extra';
+import { copySync, symlinkSync } from 'fs-extra';
 import webpack from 'webpack';
+import chokidar from 'chokidar';
 import * as liveServer from 'live-server';
 
 import log from './log';
@@ -55,17 +56,26 @@ async function build(command: 'build' | 'start' = 'build'): Promise<void> {
       compiler.run((error, stats) => onBuildEnd(error, stats, webpackConfig));
     } else if (command === 'start') {
       log.info('Watching for changes…');
+
+      // Chokidar watches files in current directory and will trigger a new
+      // user file preparation, copying files to the temp directory
+      const watcher = chokidar.watch([
+        'styles.css',
+        'styles.yaml',
+        'catalog.yaml',
+        'covers/**',
+      ]);
+      watcher.on('all', (event, path) => {
+        log.info(`File ${path} was ${event}d, rebuilding…`);
+        prepareUserFiles(tempDirPath);
+      });
+
+      // Webpack watches files in temp directory and will trigger a new build
+      // if they changes, copyting files to the build directory
       compiler.watch(
         { aggregateTimeout: 300, poll: false, ignored: /node_modules/ },
         (error, stats) => onBuildEnd(error, stats, webpackConfig),
       );
-
-      // Re-prepare build if user files changed
-      // Copying files in temp directory will trigger a new build from webpack
-      watch('./', {}, (eventType, fileName) => {
-        log.info(`${fileName} was ${eventType}d, rebuilding…`);
-        prepareUserFiles(tempDirPath);
-      });
 
       // Live dev server (reloads if a file is changed in build directory)
       liveServer.start({
