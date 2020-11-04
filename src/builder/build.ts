@@ -64,6 +64,7 @@ async function build(command: 'build' | 'start' = 'build'): Promise<void> {
         'styles.yaml',
         'catalog.yaml',
         'covers/**',
+        'pages/**',
       ]);
       watcher.on('all', (event, path) => {
         log.info(`File ${path} was ${event}d, rebuilding…`);
