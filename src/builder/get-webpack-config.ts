@@ -8,12 +8,25 @@ import { SiteConfig } from '../shared/types';
 // Get local build directory path
 const outputPath = join(process.cwd(), '/build');
 
+type WebpackMode = webpack.Configuration['mode'];
+
 export default function getWebpackConfig(
   tempDirPath: string,
   siteConfig: SiteConfig,
+  mode: WebpackMode,
 ): webpack.Configuration {
+  const prodConfig = {
+    mode: 'production' as WebpackMode,
+  };
+  const devConfig = {
+    mode: 'development' as WebpackMode,
+    devtool: 'source-map',
+  };
+
+  const configToUse = mode === 'development' ? devConfig : prodConfig;
+
   return {
-    mode: 'development',
+    ...configToUse,
     entry: join(tempDirPath, '/index.js'),
     output: {
       filename: 'main.js',
@@ -74,7 +87,6 @@ export default function getWebpackConfig(
         },
       ],
     },
-    devtool: 'source-map',
     stats: {
       all: false,
       colors: true,
