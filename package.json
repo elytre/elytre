@@ -7,6 +7,9 @@
   "bin": {
     "elytre": "./bin/elytre.js"
   },
+  "engines": {
+    "node": "^14.15"
+  },
   "scripts": {
     "dev": "yarn build --watch",
     "format": "prettier . --write",
