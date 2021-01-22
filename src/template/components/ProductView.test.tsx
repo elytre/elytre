@@ -128,7 +128,7 @@ describe('ProductView', () => {
                 <span
                   class="detail-value"
                 >
-                  18.85
+                  €18.85
                 </span>
               </p>
               <p

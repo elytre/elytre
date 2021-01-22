@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import slugify from 'slugify';
 
 import Trans from './Trans';
+import Price from './Price';
 
 import { Product as ProductType } from '../../shared/types';
 
@@ -110,7 +111,9 @@ export default function Product({
             <span className="detail-label">
               <Trans>Price</Trans>
             </span>{' '}
-            <span className="detail-value">{product.price}</span>
+            <span className="detail-value">
+              <Price>{product.price}</Price>
+            </span>
           </p>
         ) : null}
 
