@@ -17,6 +17,6 @@ describe('useNumberFormatter', () => {
         </Route>
       </MemoryRouter>,
     );
-    expect(screen.getByLabelText('€19.90')).toBeInTheDocument();
+    expect(screen.getByLabelText('19,90 €')).toBeInTheDocument();
   });
 });
