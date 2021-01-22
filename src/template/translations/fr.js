@@ -9,7 +9,7 @@ export default [
   { key: 'Buy', text: 'Acheter' },
   { key: 'Original language', text: 'Langue originale' },
   { key: 'Page count', text: 'Nombre de pages' },
-  { key: 'Price', text: 'Price' },
+  { key: 'Price', text: 'Prix' },
   { key: 'Release date', text: 'Date de parution' },
 
   /* Languages */
