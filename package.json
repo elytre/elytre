@@ -12,6 +12,7 @@
     "format": "prettier . --write",
     "lint": "eslint src/",
     "test": "jest --watch",
+    "test:all": "jest --bail",
     "build": "tsc --build .",
     "prepublishOnly": "yarn lint && yarn test --watchAll=false && yarn build"
   },
