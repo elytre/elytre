@@ -22,7 +22,7 @@ and missing documentation until 1.0 is released (hopefully in november 2020).
 
 Requirements:
 
-- Node v12.18+
+- Node v14.15+
 - Yarn
 
 1. Create an empty directory for your project
