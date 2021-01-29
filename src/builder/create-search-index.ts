@@ -12,9 +12,10 @@ export default function createSearchIndex(
   const index = lunr(function searchIndexBuilder() {
     this.ref('ean');
     this.field('title');
+    this.field('author');
 
-    catalog.products.forEach(({ ean, title }) => {
-      this.add({ ean, title });
+    catalog.products.forEach(({ ean, title, author }) => {
+      this.add({ ean, title, author });
     });
   });
 
