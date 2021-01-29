@@ -4,6 +4,7 @@ import lunr from 'lunr';
 
 import { getSearchIndex, getCatalog } from '../lib/user-files';
 import ProductList from './ProductList';
+import Trans from './Trans';
 
 const catalog = getCatalog();
 const searchIndex = getSearchIndex();
@@ -15,7 +16,11 @@ export default function SearchResultsView(): React.ReactElement {
   const query = params.get('q');
 
   if (!query) {
-    return <div className="SearchResultsView">Missing search query</div>;
+    return (
+      <div className="SearchResultsView">
+        <Trans>Missing search query</Trans>
+      </div>
+    );
   }
 
   const results = index.search(query);
@@ -28,7 +33,7 @@ export default function SearchResultsView(): React.ReactElement {
   return (
     <div className="SearchResultsView">
       <h1 className="SearchResultsView-title">
-        Search Results for <em>{query}</em>
+        <Trans>Search results for</Trans> <em>{query}</em>
       </h1>
       <ProductList products={products} />
     </div>

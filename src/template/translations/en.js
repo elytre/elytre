@@ -3,6 +3,8 @@ export default [
   { key: 'Powered by', text: 'Powered by' },
   { key: 'Search', text: 'Search' },
   { key: 'Search…', text: 'Search…' },
+  { key: 'Search results for', text: 'Search results for' },
+  { key: 'Missing search query', text: 'Missing search query' },
 
   /* Product */
   { key: 'by', text: 'by' },
