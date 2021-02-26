@@ -7,16 +7,16 @@ Elytre is a tool to build a serverless online bookstore with a search engine
 from a catalog file.
 
 <a href="build-process.png">
-  <img 
-    src="build-process.png" 
-    alt="A schema explaining that elytre uses a catalog.yaml to create a website"
-    width="700" 
+  <img
+    src="build-process.png"
+    alt="A schema explaining that elytre uses a catalog.yaml file to create a website"
+    width="700"
   />
 </a>
 
 ⚠ Elytre is still in early development and it would be unwise to use it in
 production at that stage. Expect breaking changes, strange bugs, broken tests
-and missing documentation until 1.0 is released (hopefully in november 2020).
+and missing documentation until 1.0 is released (hopefully in 2021).
 
 ## Install
 
@@ -107,8 +107,8 @@ products:
     backCoverText: | # Markdown format
       *« Lorem ipsum dolor sit amet, consectetur adipiscing elit. »*
 
-      Vivamus pharetra at tortor nec cursus. Proin accumsan sagittis molestie. Suspendisse euismod dolor quis elit egestas vulputate. Maecenas et nisl nec dui ullamcorper aliquam nec at erat. Praesent in nunc elit. Nam metus ante, ultrices sit amet lacinia non, feugiat vitae ligula. Mauris sollicitudin rutrum justo egestas dignissim. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi euismod justo nec ipsum dapibus varius. 
-      Praesent ac auctor velit. Phasellus metus eros, dignissim eu ex consectetur, aliquam rutrum massa. Ut pharetra tellus tortor, eu dictum felis euismod ac. Nullam ut accumsan risus, sit amet consectetur leo. Nunc tristique posuere eros, sit amet condimentum neque consequat eu. 
+      Vivamus pharetra at tortor nec cursus. Proin accumsan sagittis molestie. Suspendisse euismod dolor quis elit egestas vulputate. Maecenas et nisl nec dui ullamcorper aliquam nec at erat. Praesent in nunc elit. Nam metus ante, ultrices sit amet lacinia non, feugiat vitae ligula. Mauris sollicitudin rutrum justo egestas dignissim. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi euismod justo nec ipsum dapibus varius.
+      Praesent ac auctor velit. Phasellus metus eros, dignissim eu ex consectetur, aliquam rutrum massa. Ut pharetra tellus tortor, eu dictum felis euismod ac. Nullam ut accumsan risus, sit amet consectetur leo. Nunc tristique posuere eros, sit amet condimentum neque consequat eu.
       Proin sollicitudin, lacus eleifend ullamcorper laoreet, turpis ante aliquet arcu, sit amet consectetur libero libero in dolor.
 
       Quisque sodales ipsum eget lectus cursus pharetra. Nam eu eleifend ipsum.
