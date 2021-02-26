@@ -16,7 +16,7 @@ import getSiteConfig from './get-site-config';
  * copy files in working directory
  * and build or start watching mode
  */
-async function build(command: 'build' | 'start' = 'build'): Promise<void> {
+async function build(command: 'build' | 'start'): Promise<void> {
   try {
     if (command === 'build') {
       log.info('Building Elytre site for production…');
@@ -46,7 +46,12 @@ async function build(command: 'build' | 'start' = 'build'): Promise<void> {
 
     // Get site and webpack configs
     const siteConfig = getSiteConfig();
-    const webpackConfig = getWebpackConfig(tempDirPath, siteConfig);
+    const webpackMode = command === 'build' ? 'production' : 'development';
+    const webpackConfig = getWebpackConfig(
+      tempDirPath,
+      siteConfig,
+      webpackMode,
+    );
 
     // Create webpack compiler from config
     const compiler = webpack(webpackConfig);
