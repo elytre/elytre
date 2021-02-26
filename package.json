@@ -43,7 +43,7 @@
     "react-helmet": "^6.1.0",
     "react-markdown": "^5.0.0",
     "react-router-dom": "^5.2.0",
-    "slugify": "^1.4.5",
+    "slugify": "^1.4.7",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
     "yaml": "^1.10.0"
