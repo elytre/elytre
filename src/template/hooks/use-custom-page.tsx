@@ -8,9 +8,7 @@ export default function useCustomPage(
 ): (() => React.ReactElement) | null {
   function importAll(requireContext: __WebpackModuleApi.RequireContext) {
     const moduleIds = requireContext.keys();
-    return moduleIds.map((key) => {
-      return { key, module: requireContext(key) };
-    });
+    return moduleIds.map((key) => ({ key, module: requireContext(key) }));
   }
 
   // Import all *.page.mdx files

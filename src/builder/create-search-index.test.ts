@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 
 import createSearchIndex from './create-search-index';
-import buildCatalog from './build-catalog';
 
 jest.mock('fs');
 jest.mock('./build-catalog');
