@@ -5,6 +5,7 @@ import slugify from 'slugify';
 
 import Trans from './Trans';
 import Price from './Price';
+import ProductExtra from './ProductExtra';
 
 import { Product as ProductType } from '../../shared/types';
 
@@ -65,6 +66,14 @@ export default function Product({
       {product.backCoverText ? (
         <div className="Product-back-cover-text">
           <ReactMarkdown>{product.backCoverText}</ReactMarkdown>
+        </div>
+      ) : null}
+
+      {product.extras ? (
+        <div className="Product-extras">
+          {product.extras.map(({ type, title, href }) => (
+            <ProductExtra key={href} type={type} title={title} href={href} />
+          ))}
         </div>
       ) : null}
 

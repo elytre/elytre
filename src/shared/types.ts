@@ -25,12 +25,18 @@ export type Contributor = {
   role: 'Author' | 'Translator' | 'Cover artist';
 };
 
+export type Extra = {
+  type: 'youtube',
+  title: string;
+  href: string;
+}
+
 export type Product = {
   ean: number;
   title: string;
   slug: string;
   author: string;
-  contributors?: [Contributor];
+  contributors?: Contributor[];
   coverImage?: string;
   releaseDate?: Date;
   pageCount?: number;
@@ -38,6 +44,7 @@ export type Product = {
   backCoverText?: string;
   price?: number;
   buyLink?: string;
+  extras?: Extra[];
 };
 
 export type Catalog = {

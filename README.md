@@ -112,6 +112,10 @@ products:
       Proin sollicitudin, lacus eleifend ullamcorper laoreet, turpis ante aliquet arcu, sit amet consectetur libero libero in dolor.
 
       Quisque sodales ipsum eget lectus cursus pharetra. Nam eu eleifend ipsum.
+    extras:
+      - type: youtube # Add an embed youtube video to product's page
+        href: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
   - ean: 9781234567811
     title: Sous-sol
     author: Matt Yassenar
