@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route } from 'react-router-dom';
 
 import Product from './Product';
@@ -9,6 +9,7 @@ const product = {
   title: 'La Tarte et le terroir',
   slug: 'la-tarte-et-le-terroir',
   author: 'Michelou Elbecq',
+  extras: [],
 };
 
 describe('Product', () => {
@@ -49,6 +50,9 @@ describe('Product', () => {
               </span>
             </p>
           </div>
+          <div
+            class="Product-extras"
+          />
           <div
             class="Product-details"
           >
@@ -115,6 +119,9 @@ describe('Product', () => {
               </span>
             </p>
           </div>
+          <div
+            class="Product-extras"
+          />
           <div
             class="Product-details"
           >
@@ -196,6 +203,9 @@ describe('Product', () => {
             </p>
           </div>
           <div
+            class="Product-extras"
+          />
+          <div
             class="Product-details"
           >
             <p
@@ -268,6 +278,9 @@ describe('Product', () => {
             </p>
           </div>
           <div
+            class="Product-extras"
+          />
+          <div
             class="Product-details"
           >
             <p
@@ -289,5 +302,30 @@ describe('Product', () => {
         </div>
       </div>
     `);
+  });
+
+  it('renders a Product with an embed youtube video', () => {
+    render(
+      <MemoryRouter initialEntries={['/en/p/la-tarte-et-le-terroir']}>
+        <Route path="/:locale/">
+          <Product
+            product={{
+              ...product,
+              extras: [
+                {
+                  title: 'A great video you should watch',
+                  type: 'youtube',
+                  href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                },
+              ],
+            }}
+          />
+        </Route>
+      </MemoryRouter>,
+    );
+
+    expect(
+      screen.getByLabelText('A great video you should watch'),
+    ).toBeInTheDocument();
   });
 });
