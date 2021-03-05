@@ -28,15 +28,13 @@ export function getSiteConfig(): SiteConfig {
 export function getCatalog(): Catalog {
   return {
     ...catalog,
-    products: catalog.products.map((product: Product) => {
-      return {
-        ...product,
-        // Convert release date string as a Date object
-        releaseDate: product.releaseDate
-          ? new Date(product.releaseDate)
-          : undefined,
-      };
-    }),
+    products: catalog.products.map((product: Product) => ({
+      ...product,
+      // Convert release date string as a Date object
+      releaseDate: product.releaseDate
+        ? new Date(product.releaseDate)
+        : undefined,
+    }))
   };
 }
 
