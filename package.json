@@ -20,7 +20,7 @@
     "prepublishOnly": "yarn lint && yarn test --watchAll=false && yarn build"
   },
   "dependencies": {
-    "@babel/core": "^7.11.6",
+    "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.12.1",
     "@mdx-js/loader": "^1.6.19",
