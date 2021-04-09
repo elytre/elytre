@@ -46,7 +46,7 @@
     "slugify": "^1.4.5",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
-    "yaml": "^1.10.0"
+    "yaml": "^1.10.2"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.10.4",
