@@ -8,7 +8,11 @@ import Price from './Price';
 import ProductExtra from './ProductExtra';
 import ProductReview from './ProductReview';
 
-import { Product as ProductType } from '../../shared/types';
+import {
+  Extra as ExtraType,
+  Product as ProductType,
+  Review as ReviewType,
+} from '../../shared/types';
 
 // Import all files with name matching ../*.cover.jpg pattern
 require.context('../', false, /.*\.cover\.jpg$/);
@@ -52,48 +56,12 @@ export default function Product({
           <span className="Product-author-name">{product.author}</span>
         </p>
 
-        {product.buyLink && (
-          <a
-            className="Product-buy-link-button"
-            href={product.buyLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Trans>Buy</Trans>
-          </a>
-        )}
+        {product.buyLink && _buildBuyLink(product.buyLink)}
       </div>
 
-      {product.backCoverText ? (
-        <div className="Product-back-cover-text">
-          <ReactMarkdown>{product.backCoverText}</ReactMarkdown>
-        </div>
-      ) : null}
-
-      {product.extras ? (
-        <div className="Product-extras">
-          {product.extras.map(({ type, title, href }) => (
-            <ProductExtra key={href} type={type} title={title} href={href} />
-          ))}
-        </div>
-      ) : null}
-
-      {product.reviews ? (
-        <div className="Product-reviews">
-          <h1 className="Product-reviews-title">
-            <Trans>Reviews</Trans>
-          </h1>
-          {product.reviews.map(({ text, author, source, sourceUrl }) => (
-            <ProductReview
-              key={text}
-              text={text}
-              author={author}
-              source={source}
-              sourceUrl={sourceUrl}
-            />
-          ))}
-        </div>
-      ) : null}
+      {product.backCoverText ? _buildBackCoverText(product.backCoverText) : null}
+      {product.extras ? _buildExtras(product.extras) : null}
+      {product.reviews ? _buildReviews(product.reviews) : null}
 
       <div className="Product-details">
         {product.contributors
@@ -162,4 +130,51 @@ export default function Product({
       </div>
     </div>
   );
+}
+
+function _buildBuyLink(buyLink: string) {
+  return <a
+    className='Product-buy-link-button'
+    href={buyLink}
+    target='_blank'
+    rel='noopener noreferrer'
+  >
+    <Trans>Buy</Trans>
+  </a>;
+}
+
+function _buildBackCoverText(backCoverText: string) {
+  return <div className='Product-back-cover-text'>
+    <ReactMarkdown>{backCoverText}</ReactMarkdown>
+  </div>;
+}
+
+function _buildReviews(reviews: ReviewType[]) {
+  return <div className='Product-reviews'>
+    <h1 className="Product-reviews-title">
+      <Trans>Reviews</Trans>
+    </h1>
+    {reviews.map(({ text, author, source, sourceUrl }) => (
+      <ProductReview
+        key={text}
+        text={text}
+        author={author}
+        source={source}
+        sourceUrl={sourceUrl}
+      />
+    ))}
+  </div>;
+}
+
+function _buildExtras(extras: ExtraType[]) {
+  return <div className='Product-extras'>
+    {extras.map(({ type, title, href }) => (
+      <ProductExtra
+        key={href}
+        type={type}
+        title={title}
+        href={href}
+      />
+    ))}
+  </div>;
 }
