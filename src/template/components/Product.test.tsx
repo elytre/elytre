@@ -328,4 +328,30 @@ describe('Product', () => {
       screen.getByLabelText('A great video you should watch'),
     ).toBeInTheDocument();
   });
+
+  it('renders a Product with a review', () => {
+    render(
+      <MemoryRouter initialEntries={['/en/p/la-tarte-et-le-terroir']}>
+        <Route path="/:locale/">
+          <Product
+            product={{
+              ...product,
+              reviews: [
+                {
+                  text: 'Le crime était sur scène, le châtiment était dans la salle.',
+                  author: 'Famous Reviewer',
+                  source: 'Famous Reviewer\'s blog',
+                  sourceUrl: 'https://example.net/post/51',
+                },
+              ],
+            }}
+          />
+        </Route>
+      </MemoryRouter>,
+    );
+
+    expect(
+      screen.getByText('Le crime était sur scène, le châtiment était dans la salle.'),
+    ).toBeInTheDocument();
+  });
 });
