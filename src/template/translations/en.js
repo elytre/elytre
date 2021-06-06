@@ -13,6 +13,7 @@ export default [
   { key: 'Page count', text: 'Page count' },
   { key: 'Price', text: 'Price' },
   { key: 'Release date', text: 'Release date' },
+  { key: 'Reviews', text: 'Reviews' },
 
   /* Languages */
   { key: 'de', text: 'German' },

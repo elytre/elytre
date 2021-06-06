@@ -19,6 +19,13 @@ export type SiteConfig = {
 
 /* Catalog */
 
+export type Review = {
+  text: string;
+  author?: string;
+  source?: string;
+  sourceUrl?: string;
+}
+
 export type Contributor = {
   name: string;
   role: 'Author' | 'Translator' | 'Cover artist';
@@ -44,6 +51,7 @@ export type Product = {
   price?: number;
   buyLink?: string;
   extras?: Extra[];
+  reviews?: Review[];
 };
 
 export type Catalog = {

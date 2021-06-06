@@ -6,6 +6,7 @@ import slugify from 'slugify';
 import Trans from './Trans';
 import Price from './Price';
 import ProductExtra from './ProductExtra';
+import ProductReview from './ProductReview';
 
 import { Product as ProductType } from '../../shared/types';
 
@@ -73,6 +74,23 @@ export default function Product({
         <div className="Product-extras">
           {product.extras.map(({ type, title, href }) => (
             <ProductExtra key={href} type={type} title={title} href={href} />
+          ))}
+        </div>
+      ) : null}
+
+      {product.reviews ? (
+        <div className="Product-reviews">
+          <h1 className="Product-reviews-title">
+            <Trans>Reviews</Trans>
+          </h1>
+          {product.reviews.map(({ text, author, source, sourceUrl }) => (
+            <ProductReview
+              key={text}
+              text={text}
+              author={author}
+              source={source}
+              sourceUrl={sourceUrl}
+            />
           ))}
         </div>
       ) : null}
