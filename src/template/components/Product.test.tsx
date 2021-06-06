@@ -329,6 +329,25 @@ describe('Product', () => {
     ).toBeInTheDocument();
   });
 
+  it('renders a Product with a buy button', () => {
+    render(
+      <MemoryRouter initialEntries={['/en/p/la-tarte-et-le-terroir']}>
+        <Route path="/:locale/">
+          <Product
+            product={{
+              ...product,
+              buyLink: "https://mylocalbookshop.com/la-tarte"
+            }}
+          />
+        </Route>
+      </MemoryRouter>,
+    );
+
+    expect(
+      screen.getByText('Buy'),
+    ).toBeInTheDocument();
+  });
+
   it('renders a Product with a review', () => {
     render(
       <MemoryRouter initialEntries={['/en/p/la-tarte-et-le-terroir']}>
