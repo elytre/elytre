@@ -90,75 +90,7 @@ describe('Product', () => {
         </Route>
       </MemoryRouter>,
     );
-    expect(container).toMatchInlineSnapshot(`
-      <div>
-        <div
-          class="Product"
-        >
-          <div
-            class="Product-infos"
-          >
-            <h1
-              class="Product-title"
-            >
-              La Tarte et le terroir
-            </h1>
-            <p
-              class="Product-author"
-            >
-              <span
-                class="Product-author-by"
-              >
-                by
-              </span>
-               
-              <span
-                class="Product-author-name"
-              >
-                Michelou Elbecq
-              </span>
-            </p>
-          </div>
-          <div
-            class="Product-extras"
-          />
-          <div
-            class="Product-details"
-          >
-            <p
-              class="Product-detail detail-contributor role-cover-artist"
-            >
-              <span
-                class="detail-label"
-              >
-                Cover artist
-              </span>
-               
-              <span
-                class="detail-value"
-              >
-                Claude Monnet
-              </span>
-            </p>
-            <p
-              class="Product-detail detail-isbn"
-            >
-              <span
-                class="detail-label"
-              >
-                ISBN
-              </span>
-               
-              <span
-                class="detail-value"
-              >
-                9781234567811
-              </span>
-            </p>
-          </div>
-        </div>
-      </div>
-    `);
+    expect(screen.getByText('Claude Monnet'),).toBeInTheDocument();
   });
 
   it('renders a single Product with a link', () => {
@@ -343,9 +275,7 @@ describe('Product', () => {
       </MemoryRouter>,
     );
 
-    expect(
-      screen.getByText('Buy'),
-    ).toBeInTheDocument();
+    expect(screen.getByText('Buy'),).toBeInTheDocument();
   });
 
   it('renders a Product with a review', () => {
