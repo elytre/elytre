@@ -76,7 +76,7 @@ describe('Product', () => {
   });
 
   it('renders a Product with contributors', () => {
-    const { container } = render(
+    render(
       <MemoryRouter initialEntries={['/en/p/la-tarte-et-le-terroir']}>
         <Route path="/:locale/">
           <Product
