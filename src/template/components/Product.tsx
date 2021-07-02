@@ -150,6 +150,10 @@ function _buildBackCoverText(backCoverText: string) {
 }
 
 function _buildReviews(reviews: ReviewType[]) {
+  if (reviews.length === 0) {
+    return null;
+  }
+
   return <div className='Product-reviews'>
     <h1 className="Product-reviews-title">
       <Trans>Reviews</Trans>
@@ -167,6 +171,10 @@ function _buildReviews(reviews: ReviewType[]) {
 }
 
 function _buildExtras(extras: ExtraType[]) {
+  if (extras.length === 0) {
+    return null;
+  }
+
   return <div className='Product-extras'>
     {extras.map(({ type, title, href }) => (
       <ProductExtra

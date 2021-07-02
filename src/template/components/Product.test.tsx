@@ -10,6 +10,7 @@ const product = {
   slug: 'la-tarte-et-le-terroir',
   author: 'Michelou Elbecq',
   extras: [],
+  reviews: [],
 };
 
 describe('Product', () => {
@@ -50,9 +51,6 @@ describe('Product', () => {
               </span>
             </p>
           </div>
-          <div
-            class="Product-extras"
-          />
           <div
             class="Product-details"
           >
@@ -135,9 +133,6 @@ describe('Product', () => {
             </p>
           </div>
           <div
-            class="Product-extras"
-          />
-          <div
             class="Product-details"
           >
             <p
@@ -209,9 +204,6 @@ describe('Product', () => {
               </span>
             </p>
           </div>
-          <div
-            class="Product-extras"
-          />
           <div
             class="Product-details"
           >
