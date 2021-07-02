@@ -95,6 +95,7 @@ project's directory.
 global: # global properties are applied to all products
   buyLink: https://www.librairiepartenaire.com/buy/:ean
 products:
+  # A product
   - ean: 9781234567890
     title: Chaussons d'ours
     author: Laetitia Mani
@@ -115,7 +116,13 @@ products:
     extras:
       - type: youtube # Add an embed youtube video to product's page
         href: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+    reviews:
+      - text: Un très grand talent de la littérature poire.
+        author: Mélodie
+        source: Librairie L'Arbre à Nèfles – Paris
+        sourceUrl: https://www.arbreanefles.com
 
+  # Another product
   - ean: 9781234567811
     title: Sous-sol
     author: Matt Yassenar
