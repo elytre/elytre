@@ -87,10 +87,10 @@ products:
             "releaseDate": "2021-01-04",
             "reviews": Array [
               Object {
-                "author": "Élodie",
-                "source": "Librairie L'Arbre à Lettres – Paris",
-                "sourceUrl": "https://www.arbrealettres.com/",
-                "text": "Un très grand talent de la littérature noire.",
+                "author": "Mélodie",
+                "source": "Librairie L'Arbre à Nèfles – Paris",
+                "sourceUrl": "https://www.arbreanefles.com",
+                "text": "Un très grand talent de la littérature poire.",
               },
             ],
             "slug": "chaussons-dours",
