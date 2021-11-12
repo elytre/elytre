@@ -19,6 +19,8 @@ export default function ElytreSite(): React.ReactElement {
     <>
       <Helmet>
         <title>{site.title}</title>
+        <meta property="og:site_name" content={site.title} />
+        <meta property="og:title" content={site.title} />
       </Helmet>
       <div className="ElytreSite">
         <Switch>

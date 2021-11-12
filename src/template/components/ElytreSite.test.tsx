@@ -2,6 +2,8 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
+import getMetaTagContent from '../helpers/get-meta-tag-content';
+
 import ElytreSite from './ElytreSite';
 
 jest.mock('../lib/user-files');
@@ -11,7 +13,7 @@ jest.mock('react-router-dom', () => ({
 }));
 
 describe('ElytreSite', () => {
-  it('sets the home page title to the site title', async () => {
+  it('sets page title and meta tags', async () => {
     // when
     render(
       <MemoryRouter initialEntries={['/']}>
@@ -20,9 +22,13 @@ describe('ElytreSite', () => {
     );
 
     // then
-    await waitFor(() =>
-      expect(document.title).toEqual('Les Éditions Paronymie'),
-    );
+    await waitFor(() => {
+      expect(document.title).toEqual('Les Éditions Paronymie');
+      expect(getMetaTagContent('og:site_name')).toEqual(
+        'Les Éditions Paronymie',
+      );
+      expect(getMetaTagContent('og:title')).toEqual('Les Éditions Paronymie');
+    });
   });
 
   it('redirects to /en/ if url contains no locale', () => {
