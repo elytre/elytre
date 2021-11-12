@@ -101,7 +101,7 @@ products:
     author: Laetitia Mani
     contributors:
       - name: Claude Monet
-        role: Cover artist # or "Author" or "Translator"
+        role: Cover artist # or "Author" or "Translator" or "Photographer"
     releaseDate: 2021-01-04
     pageCount: 641
     originalLanguage: en # or "fr" or "de"

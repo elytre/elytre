@@ -20,7 +20,7 @@ products:
     ean: 9781234567877
     contributors:
     - name: Claude Monet
-      role: Cover artist # or "Author" or "Translator"
+      role: Cover artist # or "Author" or "Translator" or "Photographer"
     releaseDate: 2021-01-04
     pageCount: 516
     originalLanguage: fr

@@ -28,7 +28,7 @@ export type Review = {
 
 export type Contributor = {
   name: string;
-  role: 'Author' | 'Translator' | 'Cover artist';
+  role: 'Author' | 'Translator' | 'Cover artist' | 'Photographer';
 };
 
 export type Extra = {
