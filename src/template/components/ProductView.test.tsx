@@ -1,8 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { MemoryRouter, Route } from 'react-router-dom';
 
 import ProductView from './ProductView';
+import ElytreSite from './ElytreSite';
 
 jest.mock('../lib/user-files');
 
@@ -198,5 +199,23 @@ describe('ProductView', () => {
         </div>
       </div>
     `);
+  });
+
+  it('sets the product page title to the product title', async () => {
+    // when
+    render(
+      <MemoryRouter initialEntries={['/en/p/le-serpent-sur-la-butte-aux-pommes']}>
+        <Route path='/:locale/p/:slug'>
+          <ProductView />
+        </Route>
+      </MemoryRouter>,
+    );
+
+    // then
+    await waitFor(() =>
+      expect(document.title).toEqual(
+        'Le Serpent sur la butte aux pommes - Les Éditions Paronymie'
+      ),
+    );
   });
 });
