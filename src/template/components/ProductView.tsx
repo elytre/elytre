@@ -15,7 +15,7 @@ type RouteProps = {
   slug: string;
 };
 
-export default function ProductPage(): React.ReactElement {
+export default function ProductView(): React.ReactElement {
   const { slug: requestSlug } = useParams<RouteProps>();
   const product = catalog.products.find(
     ({ slug }: ProductType) => slug === requestSlug,
