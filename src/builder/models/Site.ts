@@ -7,6 +7,7 @@ const MenuEntry = new ObjectModel({
 
 const Site = new ObjectModel({
   title: String,
+  baseUrl: String,
   menus: [
     {
       header: [ArrayModel([MenuEntry])],

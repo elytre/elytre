@@ -73,6 +73,8 @@ project's directory.
 ```yaml
 # The site's title, as displayed in site's header and browser's tab
 title: Les Éditions Paronymie
+# The site's base url, with no trailing slash
+baseUrl: https://paronymie.elytre.app
 # The site menus
 menus:
   # Menu's slot can be header, nav or footer

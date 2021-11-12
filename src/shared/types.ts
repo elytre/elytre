@@ -10,6 +10,7 @@ type MenuEntry = {
 
 export type SiteConfig = {
   title: string;
+  baseUrl: string;
   menus?: {
     header?: MenuEntry[];
     nav?: MenuEntry[];

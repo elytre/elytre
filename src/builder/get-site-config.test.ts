@@ -7,6 +7,7 @@ jest.mock('./validate-file');
 
 const yamlFileContent = `
 title: Les Éditions Paronymie
+baseUrl: https://paronymie.elytre.app
 `;
 
 describe('getSiteConfig', () => {
@@ -27,6 +28,7 @@ describe('getSiteConfig', () => {
     );
     expect(siteConfig).toMatchInlineSnapshot(`
       Object {
+        "baseUrl": "https://paronymie.elytre.app",
         "title": "Les Éditions Paronymie",
       }
     `);
