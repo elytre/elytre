@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
 import ElytreSite from './ElytreSite';
@@ -11,6 +11,20 @@ jest.mock('react-router-dom', () => ({
 }));
 
 describe('ElytreSite', () => {
+  it('sets the home page title to the site title', async () => {
+    // when
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <ElytreSite />
+      </MemoryRouter>,
+    );
+
+    // then
+    await waitFor(() =>
+      expect(document.title).toEqual('Les Éditions Paronymie'),
+    );
+  });
+
   it('redirects to /en/ if url contains no locale', () => {
     render(
       <MemoryRouter initialEntries={['/']}>

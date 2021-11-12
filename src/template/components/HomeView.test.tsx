@@ -171,6 +171,66 @@ describe('HomeView', () => {
                   </p>
                 </div>
               </div>
+              <div
+                class="Product"
+              >
+                <div
+                  class="Product-cover"
+                >
+                  <img
+                    alt="Le Serpent sur la butte aux pommes - édition illustrée"
+                    class="Product-cover-image"
+                    src="/cover-image.jpg"
+                  />
+                </div>
+                <div
+                  class="Product-infos"
+                >
+                  <h1
+                    class="Product-title"
+                  >
+                    <a
+                      href="/en/p/le-serpent-illustre"
+                    >
+                      Le Serpent sur la butte aux pommes - édition illustrée
+                    </a>
+                  </h1>
+                  <p
+                    class="Product-author"
+                  >
+                    <span
+                      class="Product-author-by"
+                    >
+                      by
+                    </span>
+                     
+                    <span
+                      class="Product-author-name"
+                    >
+                      Gérard Ferrori
+                    </span>
+                  </p>
+                </div>
+                <div
+                  class="Product-details"
+                >
+                  <p
+                    class="Product-detail detail-isbn"
+                  >
+                    <span
+                      class="detail-label"
+                    >
+                      ISBN
+                    </span>
+                     
+                    <span
+                      class="detail-value"
+                    >
+                      9781234567834
+                    </span>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
