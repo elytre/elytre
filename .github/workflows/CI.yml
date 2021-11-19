@@ -30,6 +30,8 @@ jobs:
           registry-url: https://registry.npmjs.org
       - name: install
         run: yarn install
+      - name: check formatting
+        run: yarn format:check
       - name: lint
         run: yarn lint
       - name: test
