@@ -1,5 +1,6 @@
 const getSiteConfig = jest.fn().mockReturnValue({
   title: 'Les Éditions Paronymie',
+  baseUrl: 'https://paronymie.elytre.app',
   menus: {
     header: [
       { label: 'Home', href: '/' },
@@ -36,6 +37,12 @@ Proin sollicitudin, lacus eleifend ullamcorper laoreet, turpis ante aliquet arcu
 
 Quisque sodales ipsum eget lectus cursus pharetra. Nam eu eleifend ipsum.`,
       price: 18.85,
+    }, {
+      ean: 9781234567834,
+      title: 'Le Serpent sur la butte aux pommes - édition illustrée',
+      slug: 'le-serpent-illustre',
+      author: 'Gérard Ferrori',
+      coverImage: 'cover-image.jpg',
     },
   ],
 });
