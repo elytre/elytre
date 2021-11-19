@@ -59,7 +59,9 @@ export default function Product({
         {product.buyLink && _buildBuyLink(product.buyLink)}
       </div>
 
-      {product.backCoverText ? _buildBackCoverText(product.backCoverText) : null}
+      {product.backCoverText
+        ? _buildBackCoverText(product.backCoverText)
+        : null}
       {product.extras ? _buildExtras(product.extras) : null}
       {product.reviews ? _buildReviews(product.reviews) : null}
 
@@ -133,20 +135,24 @@ export default function Product({
 }
 
 function _buildBuyLink(buyLink: string) {
-  return <a
-    className='Product-buy-link-button'
-    href={buyLink}
-    target='_blank'
-    rel='noopener noreferrer'
-  >
-    <Trans>Buy</Trans>
-  </a>;
+  return (
+    <a
+      className="Product-buy-link-button"
+      href={buyLink}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Trans>Buy</Trans>
+    </a>
+  );
 }
 
 function _buildBackCoverText(backCoverText: string) {
-  return <div className='Product-back-cover-text'>
-    <ReactMarkdown>{backCoverText}</ReactMarkdown>
-  </div>;
+  return (
+    <div className="Product-back-cover-text">
+      <ReactMarkdown>{backCoverText}</ReactMarkdown>
+    </div>
+  );
 }
 
 function _buildReviews(reviews: ReviewType[]) {
@@ -154,20 +160,22 @@ function _buildReviews(reviews: ReviewType[]) {
     return null;
   }
 
-  return <div className='Product-reviews'>
-    <h1 className="Product-reviews-title">
-      <Trans>Reviews</Trans>
-    </h1>
-    {reviews.map(({ text, author, source, sourceUrl }) => (
-      <ProductReview
-        key={text}
-        text={text}
-        author={author}
-        source={source}
-        sourceUrl={sourceUrl}
-      />
-    ))}
-  </div>;
+  return (
+    <div className="Product-reviews">
+      <h1 className="Product-reviews-title">
+        <Trans>Reviews</Trans>
+      </h1>
+      {reviews.map(({ text, author, source, sourceUrl }) => (
+        <ProductReview
+          key={text}
+          text={text}
+          author={author}
+          source={source}
+          sourceUrl={sourceUrl}
+        />
+      ))}
+    </div>
+  );
 }
 
 function _buildExtras(extras: ExtraType[]) {
@@ -175,14 +183,11 @@ function _buildExtras(extras: ExtraType[]) {
     return null;
   }
 
-  return <div className='Product-extras'>
-    {extras.map(({ type, title, href }) => (
-      <ProductExtra
-        key={href}
-        type={type}
-        title={title}
-        href={href}
-      />
-    ))}
-  </div>;
+  return (
+    <div className="Product-extras">
+      {extras.map(({ type, title, href }) => (
+        <ProductExtra key={href} type={type} title={title} href={href} />
+      ))}
+    </div>
+  );
 }

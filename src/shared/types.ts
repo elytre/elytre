@@ -25,7 +25,7 @@ export type Review = {
   author?: string;
   source?: string;
   sourceUrl?: string;
-}
+};
 
 export type Contributor = {
   name: string;
@@ -33,10 +33,10 @@ export type Contributor = {
 };
 
 export type Extra = {
-  type: 'youtube',
+  type: 'youtube';
   title: string;
   href: string;
-}
+};
 
 export type Product = {
   ean: number;
