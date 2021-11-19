@@ -4,6 +4,7 @@ import { MemoryRouter, Route } from 'react-router-dom';
 
 import ProductView from './ProductView';
 import ElytreSite from './ElytreSite';
+import getMetaTagContent from '../helpers/get-meta-tag-content';
 
 jest.mock('../lib/user-files');
 
@@ -201,21 +202,61 @@ describe('ProductView', () => {
     `);
   });
 
-  it('sets the product page title to the product title', async () => {
-    // when
-    render(
-      <MemoryRouter initialEntries={['/en/p/le-serpent-sur-la-butte-aux-pommes']}>
-        <Route path='/:locale/p/:slug'>
-          <ProductView />
-        </Route>
-      </MemoryRouter>,
-    );
+  describe('header', () => {
+    it('sets the page title and required meta tags', async () => {
+      // when
+      render(
+        <MemoryRouter initialEntries={['/en/p/le-serpent-sur-la-butte-aux-pommes']}>
+          <Route path='/:locale/p/:slug'>
+            <ElytreSite />
+          </Route>
+        </MemoryRouter>,
+      );
 
-    // then
-    await waitFor(() =>
-      expect(document.title).toEqual(
-        'Le Serpent sur la butte aux pommes - Les Éditions Paronymie'
-      ),
-    );
+      // then
+      await waitFor(() => {
+        expect(document.title).toEqual(
+          'Le Serpent sur la butte aux pommes - Les Éditions Paronymie',
+        );
+        expect(getMetaTagContent('og:site_name')).toEqual(
+          'Les Éditions Paronymie',
+        );
+        expect(getMetaTagContent('og:type')).toEqual('book');
+        expect(getMetaTagContent('og:title')).toEqual(
+          'Le Serpent sur la butte aux pommes',
+        );
+        expect(getMetaTagContent('og:image')).toEqual(null);
+        expect(getMetaTagContent('book:author')).toEqual('Gérard Ferrori');
+        expect(getMetaTagContent('book:isbn')).toEqual('9781234567833');
+        expect(getMetaTagContent('book:release_date')).toEqual('2019-04-28');
+        expect(getMetaTagContent('twitter:card')).toEqual('summary');
+        expect(getMetaTagContent('twitter:title')).toEqual(
+          'Le Serpent sur la butte aux pommes',
+        );
+        expect(getMetaTagContent('twitter:image')).toEqual(null);
+      });
+    });
+
+    it('adds optional meta tags if available', async () => {
+      // when
+      render(
+        <MemoryRouter initialEntries={['/en/p/le-serpent-illustre']}>
+          <Route path='/:locale/p/:slug'>
+            <ElytreSite />
+          </Route>
+        </MemoryRouter>,
+      );
+
+      // then
+      await waitFor(() => {
+        expect(getMetaTagContent('og:image')).toEqual(
+          'https://paronymie.elytre.app/cover-image.jpg',
+        );
+        expect(getMetaTagContent('book:release_date')).toEqual(null);
+        expect(getMetaTagContent('twitter:image')).toEqual(
+          'https://paronymie.elytre.app/cover-image.jpg',
+        );
+      });
+    });
   });
 });
