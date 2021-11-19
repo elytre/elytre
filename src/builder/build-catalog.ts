@@ -5,6 +5,7 @@ import slugify from 'slugify';
 import CatalogModel from './models/Catalog';
 import { Catalog, Product } from '../shared/types';
 import processCovers from './process-covers';
+import CustomError from './CustomError';
 
 /**
  * Creates a product buy link from generic link
@@ -56,10 +57,6 @@ export default function buildCatalog(
 
     return catalogContent;
   } catch (error) {
-    const newError = new Error(
-      `Error whild building catalog: ${error.message}`,
-    );
-    newError.stack = error.stack;
-    throw newError;
+    throw new CustomError('Error while building catalog: %message%', error);
   }
 }
