@@ -4,6 +4,7 @@ import { parse } from 'yaml';
 
 import Site from './models/Site';
 import Catalog from './models/Catalog';
+import CustomError from './CustomError';
 
 /**
  * Validate a YAML file's content against a model
@@ -18,8 +19,6 @@ export default function validateFile(
     const fileContentParsed = parse(fileContent);
     model(fileContentParsed);
   } catch (error) {
-    const newError = new Error(`File ${fileName} is invalid: ${error.message}`);
-    newError.stack = error.stack;
-    throw newError;
+    throw new CustomError(`File ${fileName} is invalid: %message%`, error);
   }
 }

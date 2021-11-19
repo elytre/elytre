@@ -91,7 +91,7 @@ async function build(command: 'build' | 'start'): Promise<void> {
       });
     }
   } catch (error) {
-    log.error(error.message);
+    log.error((error as Error).message);
     process.exit(1);
   }
 }

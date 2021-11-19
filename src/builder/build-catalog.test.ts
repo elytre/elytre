@@ -112,7 +112,7 @@ products:
     const tested = () => buildCatalog('catalog.yaml', 'catalog.json', '/tmp/');
 
     expect(tested).toThrowError(
-      'Error whild building catalog: expecting products[0].title to be String, got undefined',
+      'Error while building catalog: expecting products[0].title to be String, got undefined',
     );
   });
 });
