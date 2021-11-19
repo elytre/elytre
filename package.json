@@ -12,7 +12,8 @@
   },
   "scripts": {
     "dev": "yarn build --watch",
-    "format": "prettier . --write",
+    "format": "prettier src/ --write",
+    "format:check": "prettier src/ --check",
     "lint": "eslint src/",
     "test": "jest --watch",
     "test:all": "jest --bail",
