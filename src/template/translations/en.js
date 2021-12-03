@@ -21,6 +21,7 @@ export default [
   { key: 'fr', text: 'French' },
 
   /* Contributor roles */
-  { key: 'Translator', text: 'Translator' },
   { key: 'Cover artist', text: 'Cover artist' },
+  { key: 'Photographer', text: 'Photographer' },
+  { key: 'Translator', text: 'Translator' },
 ];

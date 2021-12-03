@@ -22,5 +22,6 @@ export default [
 
   /* Contributor roles */
   { key: 'Cover artist', text: 'Illustration' },
+  { key: 'Photographer', text: 'Photographie' },
   { key: 'Translator', text: 'Traduction' },
 ];
