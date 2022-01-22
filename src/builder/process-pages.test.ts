@@ -15,7 +15,7 @@ describe('processPages', () => {
     jest.spyOn(fs, 'existsSync').mockReturnValue(true);
     const readdirSync = jest
       .spyOn(fs, 'readdirSync')
-      .mockImplementation(() => (['custom-page.mdx'] as unknown) as Dirent[]);
+      .mockImplementation(() => ['custom-page.mdx'] as unknown as Dirent[]);
 
     processPages('/tmp/dir');
 
@@ -28,7 +28,7 @@ describe('processPages', () => {
     jest
       .spyOn(fs, 'readdirSync')
       .mockImplementation(
-        () => (['custom-page.markdown'] as unknown) as Dirent[],
+        () => ['custom-page.markdown'] as unknown as Dirent[],
       );
 
     processPages('/tmp/dir');

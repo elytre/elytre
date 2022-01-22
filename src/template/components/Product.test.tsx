@@ -88,7 +88,7 @@ describe('Product', () => {
         </Route>
       </MemoryRouter>,
     );
-    expect(screen.getByText('Claude Monnet'),).toBeInTheDocument();
+    expect(screen.getByText('Claude Monnet')).toBeInTheDocument();
   });
 
   it('renders a single Product with a link', () => {
@@ -260,14 +260,14 @@ describe('Product', () => {
           <Product
             product={{
               ...product,
-              buyLink: "https://mylocalbookshop.com/la-tarte"
+              buyLink: 'https://mylocalbookshop.com/la-tarte',
             }}
           />
         </Route>
       </MemoryRouter>,
     );
 
-    expect(screen.getByText('Buy'),).toBeInTheDocument();
+    expect(screen.getByText('Buy')).toBeInTheDocument();
   });
 
   it('renders a Product with a review', () => {
@@ -281,7 +281,7 @@ describe('Product', () => {
                 {
                   text: 'Le crime était sur scène, le châtiment était dans la salle.',
                   author: 'Famous Reviewer',
-                  source: 'Famous Reviewer\'s blog',
+                  source: "Famous Reviewer's blog",
                   sourceUrl: 'https://example.net/post/51',
                 },
               ],
@@ -292,7 +292,9 @@ describe('Product', () => {
     );
 
     expect(
-      screen.getByText('Le crime était sur scène, le châtiment était dans la salle.'),
+      screen.getByText(
+        'Le crime était sur scène, le châtiment était dans la salle.',
+      ),
     ).toBeInTheDocument();
   });
 });

@@ -34,7 +34,7 @@ export function getCatalog(): Catalog {
       releaseDate: product.releaseDate
         ? new Date(product.releaseDate)
         : undefined,
-    }))
+    })),
   };
 }
 

@@ -18,7 +18,7 @@ describe('processCovers', () => {
     jest.spyOn(fs, 'existsSync').mockReturnValue(true);
     const readdirSync = jest
       .spyOn(fs, 'readdirSync')
-      .mockImplementation(() => (['9781234567888.jpg'] as unknown) as Dirent[]);
+      .mockImplementation(() => ['9781234567888.jpg'] as unknown as Dirent[]);
 
     processCovers(products, '/tmp/dir');
 
@@ -32,7 +32,7 @@ describe('processCovers', () => {
     jest.spyOn(fs, 'existsSync').mockReturnValue(true);
     jest
       .spyOn(fs, 'readdirSync')
-      .mockImplementation(() => (['cover-image.jpg'] as unknown) as Dirent[]);
+      .mockImplementation(() => ['cover-image.jpg'] as unknown as Dirent[]);
 
     processCovers(products, '/tmp/dir');
 
@@ -43,7 +43,7 @@ describe('processCovers', () => {
     jest.spyOn(fs, 'existsSync').mockReturnValue(true);
     jest
       .spyOn(fs, 'readdirSync')
-      .mockImplementation(() => (['9781234567811.jpg'] as unknown) as Dirent[]);
+      .mockImplementation(() => ['9781234567811.jpg'] as unknown as Dirent[]);
 
     processCovers(products, '/tmp/dir');
 
